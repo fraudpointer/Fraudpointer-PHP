@@ -1,0 +1,56 @@
+= Fraudpointer PHP Client Library
+
+== Introduction
+
+If you are here, you have already created an Account at Fraudpointer service.
+{Fraudpointer}[http://www.fraudpointer.com/] is there for you to fight fraud.
+It comes in two parts.
+
+1) The {Fraudpointer Application}[https://production.fraudpointer.com/]
+This is where you login and manage your Account settings and do your daily operations
+with regards to Fraud.
+   
+2) The Fraudpointer Server.
+This is an HTTP Server that you can use to integrate your application with Fraudpointer
+and enjoy its valuable fraud prevention functionality.
+
+Since Fraudpointer Server talks HTTP in a RESTful manner, we have decided to help you out there
+and publish a client library that you can use with your PHP application code. Our target is
+to speed you up with integrating your application with Fraudpointer and start getting real value
+out of it, as quickly and easily as possible.
+
+== What you are getting from this repository?
+
+If you download the contents of this repository you will get:
+
+* A PHP Web Application that demonstrates the use of Fraudpointer PHP Client API 
+* Detailed API Reference Documentation in HTML format
+* The Fraudpointer PHP Client API itself 
+
+== Requirements to run demos
+
+You cannot run the demos just like that. You will need to have 
+
+* a Fraudpointer Account in APPROVED status. 
+* your public IPs you access Fraudpointer Server from, need to be registered in your Fraudpointer
+  Account settings. 
+
+Having done these two, you will get your private API key and you will be able to
+start using demos and developing against Fraudpointer API. (If you do not have a Fraudpointer
+Account, go ahead and create one {here}[https://production.fraudpointer.com/a/new]. It's FREE.)
+
+== API Reference
+
+When you download the repository, the following folder contains HTML API Reference:
+
+    Documentation
+
+== Developer's
+
+A Developer's Guide can be found {here}[http://documentation.fraudpointer.com/developers-guide/developers-guide-home-page/]
+
+== Support
+
+Do not hesitate to e-mail Fraudpointer support ({support@fraudpointer.com}[mailto:support@fraudpointer.com]).
+We would be happy to help you out there with your integration effort.
+

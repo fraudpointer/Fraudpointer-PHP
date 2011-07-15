@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class ClientFactory</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class ClientFactory</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+															<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">This is a helping class that instantiates an object that implements IClient interface.</p>
+<p class="description"><p>Use this method to start with FraudPointer API. It will give you an object that properly implements IClient interface.</p></p>
+		<p class="notes">
+			Located in <a class="field" href="_Fraudpointer---API---ClientFactory.php.html">/Fraudpointer/API/ClientFactory.php</a> (line <span class="field">14</span>)
+		</p>
+		
+				
+		<pre></pre>
+	
+			</div>
+</div>
+
+
+
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+												<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+												<div class="method-definition">
+					static 						<span class="method-result"><a href="../Fraudpointer-API/IClient.html">IClient</a></span>
+										<a href="#Construct" title="details" class="method-name">Construct</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$base_url</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$api_key</span>)
+									</div>
+								
+												</div>
+		</div>
+	</div>		
+
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+																<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+<a name="methodConstruct" id="Construct"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">static method Construct</span> (line <span class="line-number">46</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Instantiates an object that properly implements IClient interface.</p>
+<p class="description"><p>Start your FraudPointer API usage from here. It will give you an instance of an object that properly implements the IClient interface.</p><p>Here is an example of usage:  <div class="src-code"><ol><li><div class="src-line">&nbsp;<span class="src-var">$client&nbsp;</span>=&nbsp;\<span class="src-id">FraudPointer</span>\<span class="src-id">API</span>\<span class="src-id"><a href="../Fraudpointer-API/ClientFactory.html">ClientFactory</a></span><span class="src-sym">::</span><a href="../Fraudpointer-API/ClientFactory.html#methodConstruct">Construct</a><span class="src-sym">(</span><a href="../Fraudpointer PHP Demo Application/_helpers---Application.php.html#functionBaseUrl">BaseUrl</a><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">,&nbsp;</span><a href="../Fraudpointer PHP Demo Application/_helpers---Application.php.html#functionApiKey">ApiKey</a><span class="src-sym">(</span><span class="src-sym">))</span><span class="src-sym">;</span></div></li>
+</ol></div>  where <kbd>BaseUrl()</kbd> might be something like:  <div class="src-code"><ol><li><div class="src-line">&nbsp;<span class="src-key">function&nbsp;</span><a href="../Fraudpointer PHP Demo Application/_helpers---Application.php.html#functionBaseUrl">BaseUrl</a>&nbsp;<span class="src-sym">(</span><span class="src-sym">)&nbsp;</span><span class="src-sym">{</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">return&nbsp;</span><span class="src-str">&quot;https://production.fraudpointer.com/api/assessment_sessions&quot;</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-sym">}&nbsp;</span><span class="src-comm">//&nbsp;BaseUrl&nbsp;()</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-comm">//--------------</span></div></li>
+</ol></div>  and <kbd>ApiKey()</kbd> might be something like:</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> A valid IClient instantiated object. This is a newly created object to work with the FraudPointer Service.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+	    static
+		<span class="method-result"><a href="../Fraudpointer-API/IClient.html">IClient</a></span>
+		<span class="method-name">
+			Construct
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$base_url</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$api_key</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$base_url</span><span class="var-description">: This is the URL of the FraudPointer API Service. It has to have the value:  <div class="src-code"><ol><li><div class="src-line"><span class="src-id">https</span>:<span class="src-comm">//production.fraudpointer.com/api</span></div></li>
+</ol></div></span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$api_key</span><span class="var-description">: This should be the API KEY that corresponds to the domain that you integrate FraudPointer API for.  The API KEY is automatically generated when you register an Account in &lt;a href=&quot;https://production.fraudpointer.com/a/new&quot; target=&quot;_blank&quot;&gt;FraudPointer Registration Web Form&lt;/a&gt;.  Note that your Account in FraudPointer service might have more than one domains registered. You need to provide here the API KEY that  corresponds to the domain that you are going to integrate this client with.</span>			</li>
+				</ul>
+		
+			
+	</div>
+
+						
+		</div>
+	</div>
+
+
+	<p class="notes" id="credit">
+		Documentation generated on Thu, 14 Jul 2011 17:03:11 +0300 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+	</p>
+	</div></body>
+</html>

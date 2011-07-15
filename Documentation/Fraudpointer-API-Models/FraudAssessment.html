@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class FraudAssessment</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class FraudAssessment</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+													<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+													</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">This is an object that is returned by FraudPointer Server when requesting a Fraud Assessment.</p>
+<p class="description"><p>Models.FraudAssessment is returned back to you when you ask for a Fraud Assessment. The API to ask for a  Fraud Assessment is  <div class="src-code"><ol><li><div class="src-line">&nbsp;<span class="src-var">$client</span><span class="src-sym">-&gt;</span><span class="src-id">CreateFraudAssessment</span><span class="src-sym">(</span><span class="src-var">$assessment_session</span><span class="src-sym">,&nbsp;</span><span class="src-id">true</span>/<span class="src-id">false</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+</ol></div></p><p>The most important properties of the object that you need to take into account are: <ul><li>FraudAssessment.Result: Gives the Assessment Result. Can take one of the values:</li><li>- &quot;Accept&quot;</li><li>- &quot;Review&quot;</li><li>- &quot;Reject&quot;</li><li>FraudAssessment.Score: An integer value that gives the Assessment Score</li><li>DecidingFactor: Gives a hint about why the Assessment gave such a FraudAssessment.Result. Takes the values:</li><li>&quot;Profile thresholds&quot;: This means that the FraudAssessment.Score fell into a range that, according to Profile thresholds, returned a result equal to the value that exists in the FraudAssessment.Result property.</li><li>or the name of the Deciding Rule.</li><li>Profile: The name of the Profile that has been used to carry out the assessment.</li></ul>  It is up to your business to decide what to do with this FraudAssessment.Result. For example, if the FraudAssessment.Result is &quot;Reject&quot;,  you can stop from carrying out the actual transaction with your bank.</p></p>
+		<p class="notes">
+			Located in <a class="field" href="_Fraudpointer---API---Models---FraudAssessment.php.html">/Fraudpointer/API/Models/FraudAssessment.php</a> (line <span class="field">30</span>)
+		</p>
+		
+				
+		<pre></pre>
+	
+			</div>
+</div>
+
+
+
+	<a name="sec-var-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variable Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+						<span class="disabled">Vars</span> (<a href="#sec-vars">details</a>)
+								</div>
+		<div class="info-box-body">
+			<div class="var-summary">
+																																																																<div class="var-title">
+					<span class="var-type">string</span>
+					<a href="#$deciding_factor" title="details" class="var-name">$deciding_factor</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">string</span>
+					<a href="#$id" title="details" class="var-name">$id</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">boolean</span>
+					<a href="#$interim" title="details" class="var-name">$interim</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type"><a href="../Fraudpointer-API-Models/Profile.html">Profile</a></span>
+					<a href="#$profile" title="details" class="var-name">$profile</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">string</span>
+					<a href="#$result" title="details" class="var-name">$result</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">string</span>
+					<a href="#$score" title="details" class="var-name">$score</a>
+				</div>
+											</div>
+		</div>
+	</div>
+
+
+	<a name="sec-vars"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variables</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+										<span class="disabled">Vars</span>
+						
+			
+								</div>
+		<div class="info-box-body">
+			<a name="var$deciding_factor" id="$deciding_factor"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">string</span>
+			<span class="var-name">$deciding_factor</span>
+						(line <span class="line-number">76</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">An indicator about how the FraudAssessment.Result has been calculated.</p>
+<p class="description"><p>The Deciding Factor takes two values: <ul><li>&quot;Profile thresholds&quot;</li><li>Or the name of the Deciding Rule that matched.</li></ul>  If the Deciding Factor has the value &quot;Profile thresholds&quot;, then you can see the FraudAssessment.Score that the  Fraud Assessment calculated. This FraudAssessment.Score normally falls into one of the ranges that are defined in the  Profile level that has been used to carry out the Fraud Assessment. According to this range, the  Result is set.</p><p>If the Deciding Factor has a value different from &quot;Profile thresholds&quot;, then it has the value of  the Rule that matched. That Rule is a Deciding Rule and its FraudAssessment.Result was set as Result of the Fraud Assessment  at hand.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$id" id="$id"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">string</span>
+			<span class="var-name">$id</span>
+						(line <span class="line-number">35</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">var:</span> Unique <kbd>Id</kbd> as returned by FraudPointer Server.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$interim" id="$interim"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">boolean</span>
+			<span class="var-name">$interim</span>
+						(line <span class="line-number">56</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Boolean to indicate interim or final (non-interim) Fraud Assessment.</p>
+<p class="description"><p>Indicates whether the Fraud Assessment is final (non-interim) or not (interim). <kbd>true</kbd> means that  the Fraud Assessment is interim (non-final) whereas <kbd>false</kbd> means that Fraud Assessment is  final (non-interim). Note that final Fraud Assessments create a Case in Fraud Pointer Application.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$profile" id="$profile"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type"><a href="../Fraudpointer-API-Models/Profile.html">Profile</a></span>
+			<span class="var-name">$profile</span>
+						(line <span class="line-number">103</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">The Profile used to carry out the Fraud Assessment.</p>
+<p class="description"><p>The Fraud Assessment uses a set of Fraud Assessment Rules that belong to one specific Profile. The Profile is  selected at run-time using the Profile Selection Rules. This property returns an instance of the object that  represents the Profile that has been selected in order to carry out the Fraud Assessment at hand.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$result" id="$result"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">string</span>
+			<span class="var-name">$result</span>
+						(line <span class="line-number">91</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">The Result of the Fraud Assessment.</p>
+<p class="description"><p>Takes the values: <ul><li>&quot;Accept&quot;</li><li>&quot;Reject&quot;</li><li>&quot;Review&quot;</li></ul>  You need to evaluate the Result of the Fraud Assessment and take necessary actions.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$score" id="$score"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">string</span>
+			<span class="var-name">$score</span>
+						(line <span class="line-number">45</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">The Score of the Fraud Assessment.</p>
+<p class="description"><p>The Score of the Fraud Assessment has significance only if the Deciding Factor is &quot;Profile thresholds&quot;.  If the Deciding Factor has the name of a Rule, then do not take into account Score.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+						
+		</div>
+	</div>
+	
+
+
+	<p class="notes" id="credit">
+		Documentation generated on Thu, 14 Jul 2011 17:03:11 +0300 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+	</p>
+	</div></body>
+</html>

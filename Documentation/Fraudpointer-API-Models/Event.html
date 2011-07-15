@@ -1,0 +1,509 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class Event</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class Event</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+													<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+						|											<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Event object groups a set of Data under an Event Type. This whole set, is then associated to a  Models.AssessmentSession by calling API.IClient.AppendEventToAssessmentSession().</p>
+<p class="description"><p>When you are using the FraudPointer Service, you need to collect data and sent it over to  FraudPointer Server. In order to do that you instantiate a Models.Event object and then you  call Event.AddData() method. Then you call API.IClient.AppendEventToAssessmentSession() and  Event packaged data are sent over.</p><p>It is important, though, to instantiate the appropriate Event Type. The following event types are  supported:</p><p><ul><li>Event.GenericEvent</li><li>Event.CheckoutEvent</li><li>Event.FailedPaymentEvent</li><li>Event.PurchaseEvent</li></ul></p></p>
+		<p class="notes">
+			Located in <a class="field" href="_Fraudpointer---API---Models---Event.php.html">/Fraudpointer/API/Models/Event.php</a> (line <span class="field">24</span>)
+		</p>
+		
+				
+		<pre></pre>
+	
+			</div>
+</div>
+
+
+
+	<a name="sec-var-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variable Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+						<span class="disabled">Vars</span> (<a href="#sec-vars">details</a>)
+							| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+								</div>
+		<div class="info-box-body">
+			<div class="var-summary">
+												<div class="var-title">
+					static <span class="var-type">string</span>
+					<a href="#$CHECKOUT_EVENT" title="details" class="var-name">$CHECKOUT_EVENT</a>
+				</div>
+																								<div class="var-title">
+					static <span class="var-type">string</span>
+					<a href="#$FAILED_PAYMENT" title="details" class="var-name">$FAILED_PAYMENT</a>
+				</div>
+																<div class="var-title">
+					static <span class="var-type">string</span>
+					<a href="#$GENERIC_EVENT" title="details" class="var-name">$GENERIC_EVENT</a>
+				</div>
+																<div class="var-title">
+					static <span class="var-type">string</span>
+					<a href="#$PURCHASE_EVENT" title="details" class="var-name">$PURCHASE_EVENT</a>
+				</div>
+																																				<div class="var-title">
+					<span class="var-type">array</span>
+					<a href="#$data" title="details" class="var-name">$data</a>
+				</div>
+																																								<div class="var-title">
+					<span class="var-type">string</span>
+					<a href="#$type" title="details" class="var-name">$type</a>
+				</div>
+											</div>
+		</div>
+	</div>
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+																		<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+				 
+				|
+						<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+																																																				
+												<div class="method-definition">
+											<span class="method-result">Event</span>
+										<a href="#__construct" title="details" class="method-name">__construct</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$type</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result"><a href="../Fraudpointer-API-Models/Event.html">Event</a></span>
+										<a href="#AddBoolData" title="details" class="method-name">AddBoolData</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$key</span>, <span class="var-type">boolean</span>&nbsp;<span class="var-name">$bool_value</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result"><a href="../Fraudpointer-API-Models/Event.html">Event</a></span>
+										<a href="#AddData" title="details" class="method-name">AddData</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$key</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result"><a href="../Fraudpointer-API-Models/Event.html">Event</a></span>
+										<a href="#AddDateData" title="details" class="method-name">AddDateData</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$key</span>, <span class="var-type">timestamp</span>&nbsp;<span class="var-name">$timestamp_value</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result"><a href="../Fraudpointer-API-Models/Event.html">Event</a></span>
+										<a href="#AddDecimalData" title="details" class="method-name">AddDecimalData</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$key</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$decimal_value</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result"><a href="../Fraudpointer-API-Models/Event.html">Event</a></span>
+										<a href="#AddIntData" title="details" class="method-name">AddIntData</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$key</span>, <span class="var-type">integer</span>&nbsp;<span class="var-name">$int_value</span>)
+									</div>
+								</div>
+		</div>
+	</div>		
+
+	<a name="sec-vars"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variables</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+										<a href="#sec-var-summary">Vars</a> (<span class="disabled">details</span>)
+						
+			
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			<a name="var$CHECKOUT_EVENT" id="$CHECKOUT_EVENT"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			static <span class="var-type">string</span>
+			<span class="var-name">$CHECKOUT_EVENT</span>
+			 = <span class="var-default"> &quot;CheckoutEvent&quot;</span>			(line <span class="line-number">54</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Use this constant to instantiate an Event that is related to Checkout data.</p>
+<p class="description"><p>You can create a CheckoutEvent when you get data from a check out form. You essentially want  to store in FraudPointer server the fact that your customer is trying to check out together with  relevant check out data. Example of Data that you might want to store below the CheckoutEvent Type might be:</p><p><ul><li>Firstname</li><li>Lastname</li><li>Customer e-mail</li><li>Customer address</li><li>Product to Purchase</li><li>Price</li><li>e.t.c.</li></ul></p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$FAILED_PAYMENT" id="$FAILED_PAYMENT"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			static <span class="var-type">string</span>
+			<span class="var-name">$FAILED_PAYMENT</span>
+			 = <span class="var-default"> &quot;FailedPaymentEvent&quot;</span>			(line <span class="line-number">70</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Use this constant to instantiate an Event to mark a Failed Payment.</p>
+<p class="description"><p>When you decide to proceed with charging your customer, with whatever data you have at your hand,  your attempt to charge its credit card might fail. In that case, record this failed payment by  instantiating a FailedPayment Event Type and sending it over to FraudPointer, without necessarily  attaching any data to it. Only the FailedPayment Event is enough to mark the fact that the payment  carried out during this session failed.</p><p>You can, and you probably should, instantiate this event many times. One for each failed payment attempt  during the same assessment session.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$GENERIC_EVENT" id="$GENERIC_EVENT"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			static <span class="var-type">string</span>
+			<span class="var-name">$GENERIC_EVENT</span>
+			 = <span class="var-default"> &quot;GenericEvent&quot;</span>			(line <span class="line-number">35</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Use this constant to instantiate an Event that is not one of the other types.</p>
+<p class="description"><p>Usually, you group your data into a more specific Type. However, if the data that you want  to group cannot be categorized below one of the specific Types, you can use the  GenericEvent Type.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$PURCHASE_EVENT" id="$PURCHASE_EVENT"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			static <span class="var-type">string</span>
+			<span class="var-name">$PURCHASE_EVENT</span>
+			 = <span class="var-default"> &quot;PurchaseEvent&quot;</span>			(line <span class="line-number">83</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Use this constant to instantiate an Event to mark a Successful Payment.</p>
+<p class="description"><p>When you decide to proceed with charging your customer, with whatever data you have at your hand,  your attempt to charge its credit card might succeed. In that case, record this successful payment by  instantiating a Purchase Event Type and sending it over to FraudPointer, without necessarily  attaching any data to it. Only the PurchaseEvent Event is enough to mark the fact that the payment  carried out during this session has succeeded.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$data" id="$data"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">array</span>
+			<span class="var-name">$data</span>
+			 = <span class="var-default">array()</span>			(line <span class="line-number">99</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns the Data appended to the particular Models.Event</p>
+<p class="description"><p>Note that if you want to append data to the Models.Event use one of the methods Models.Event.AddData</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$type" id="$type"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">string</span>
+			<span class="var-name">$type</span>
+						(line <span class="line-number">90</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Event Type to send to the server for event creation</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+						
+		</div>
+	</div>
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+															<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+																	<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+
+<a name="method__construct" id="__construct"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">Constructor __construct</span> (line <span class="line-number">117</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Instantiate a Models.Event by calling <kbd>new</kbd> on this Constructor</p>
+<p class="description"><p>Use  <div class="src-code"><ol><li><div class="src-line">&nbsp;<span class="src-var">$event&nbsp;</span>=&nbsp;<span class="src-key">new&nbsp;</span>\<span class="src-id">Fraudpointer</span>\<span class="src-id">API</span>\<span class="src-id">Models</span>\<span class="src-id"><a href="../Fraudpointer-API-Models/Event.html">Event</a></span><span class="src-sym">(</span>\<span class="src-id">Fraudpointer</span>\<span class="src-id">API</span>\<span class="src-id">Models</span>\<span class="src-id"><a href="../Fraudpointer-API-Models/Event.html">Event</a></span><span class="src-sym">::</span><span class="src-var">$CHECKOUT_EVENT</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+</ol></div>  to instantiate a new Event before start filling it with data. The argument should be one of the  valid event types.</p></p>
+	
+	<div class="method-signature">
+		<span class="method-result">Event</span>
+		<span class="method-name">
+			__construct
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$type</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$type</span><span class="var-description">: One of: <ul><li>Event.CheckoutEvent</li><li>Event.FailedPayment</li><li>Event.GenericEvent</li><li>Event.PurchaseEvent</li></ul></span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodAddBoolData" id="AddBoolData"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">AddBoolData</span> (line <span class="line-number">189</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Adds one datum to the particular Models.Event. The datum is actually a value of an Attribute and  value given is a <kbd>boolean</kbd> instance or literal.</p>
+<p class="description"><p>Use this method if you want to add a datum of type <kbd>boolean</kbd> in your Event at hand.</p><p>Here is an example:  <div class="src-code"><ol><li><div class="src-line">&nbsp;<span class="src-var">$event&nbsp;</span>=&nbsp;<span class="src-key">new&nbsp;</span>\<span class="src-id">Fraudpointer</span>\<span class="src-id">API</span>\<span class="src-id">Models</span>\<span class="src-id"><a href="../Fraudpointer-API-Models/Event.html">Event</a></span><span class="src-sym">(</span>\<span class="src-id">Fraudpointer</span>\<span class="src-id">API</span>\<span class="src-id">Models</span>\<span class="src-id"><a href="../Fraudpointer-API-Models/Event.html">Event</a></span><span class="src-sym">::</span><span class="src-var">$CHECKOUT_EVENT</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$event</span>.<a href="../Fraudpointer-API-Models/Event.html#methodAddBoolData">AddBoolData</a><span class="src-sym">(</span><span class="src-str">&quot;TWO_WAY_TRIP&quot;</span><span class="src-sym">,&nbsp;</span><span class="src-id">false</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+</ol></div></p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> The current Event instance, in order to continue adding data.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../Fraudpointer-API-Models/Event.html">Event</a></span>
+		<span class="method-name">
+			AddBoolData
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$key</span>, <span class="var-type">boolean</span>&nbsp;<span class="var-name">$bool_value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$key</span><span class="var-description">: KEY value of the Attribute that you want to use. The Attributes are either System  or Custom Account Attributes. The Custom Account Attributes should be given to you by the person who  has created them in the FraudPointer Application.</span>			</li>
+					<li>
+				<span class="var-type">boolean</span>
+				<span class="var-name">$bool_value</span><span class="var-description">: Value of the Attribute. A <kbd>bool</kbd> instance or literal should be given.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodAddData" id="AddData"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">AddData</span> (line <span class="line-number">141</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Adds one datum to the particular Models.Event. The datum is actually a value of an Attribute and  value given is an <kbd>int</kbd> instance or literal.</p>
+<p class="description"><p>Use this method if you want to add a datum of type <kbd>int</kbd> in your Event at hand.</p><p>Here is an example:  <div class="src-code"><ol><li><div class="src-line">&nbsp;<span class="src-var">$event&nbsp;</span>=&nbsp;<span class="src-key">new&nbsp;</span>\<span class="src-id">Fraudpointer</span>\<span class="src-id">API</span>\<span class="src-id">Models</span>\<span class="src-id"><a href="../Fraudpointer-API-Models/Event.html">Event</a></span><span class="src-sym">(</span>\<span class="src-id">Fraudpointer</span>\<span class="src-id">API</span>\<span class="src-id">Models</span>\<span class="src-id"><a href="../Fraudpointer-API-Models/Event.html">Event</a></span><span class="src-sym">::</span><span class="src-var">$CHECKOUT_EVENT</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$event</span><span class="src-sym">-&gt;</span><a href="../Fraudpointer-API-Models/Event.html#methodAddData">AddData</a><span class="src-sym">(</span><span class="src-str">&quot;CC_CARD_HOLDER_NAME&quot;</span><span class="src-sym">,&nbsp;</span><span class="src-str">&quot;John&nbsp;Papas&quot;</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+</ol></div></p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> The current Event instance, in order to continue adding data.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../Fraudpointer-API-Models/Event.html">Event</a></span>
+		<span class="method-name">
+			AddData
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$key</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$key</span><span class="var-description">: KEY value of the Attribute that you want to use. The Attributes are either System  or Custom Account Attributes. The Custom Account Attributes  should be given to you by the person who has created them in the FraudPointer Application.</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$value</span><span class="var-description">: Value of the Attribute. A <kbd>string</kbd> instance or literal should be given.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodAddDateData" id="AddDateData"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">AddDateData</span> (line <span class="line-number">240</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Adds one datum to the particular Models.Event. The datum is actually a value of an Attribute and  value given is a <kbd>timestamp</kbd> instance.</p>
+<p class="description"><p>Use this method if you want to add a datum of type <kbd>DateTime</kbd> in your Event at hand.</p><p>Here is an example:  <div class="src-code"><ol><li><div class="src-line">&nbsp;<span class="src-var">$event&nbsp;</span>=&nbsp;<span class="src-key">new&nbsp;</span>\<span class="src-id">Fraudpointer</span>\<span class="src-id">API</span>\<span class="src-id">Models</span>\<span class="src-id"><a href="../Fraudpointer-API-Models/Event.html">Event</a></span><span class="src-sym">(</span>\<span class="src-id">Fraudpointer</span>\<span class="src-id">API</span>\<span class="src-id">Models</span>\<span class="src-id"><a href="../Fraudpointer-API-Models/Event.html">Event</a></span><span class="src-sym">::</span><span class="src-var">$CHECKOUT_EVENT</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$event</span>.<a href="../Fraudpointer-API-Models/Event.html#methodAddDateData">AddDateData</a><span class="src-sym">(</span><span class="src-str">&quot;PURCHASE_DATE&quot;</span><span class="src-sym">,&nbsp;</span><a href="http://www.php.net/time">time</a><span class="src-sym">(</span><span class="src-sym">))</span><span class="src-sym">;</span></div></li>
+</ol></div>  Internally, the <kbd>timestmp</kbd> is converted to a string representation that follows the  expanded version of the standard ISO 8601. Hence, the example given above will be converted to something like  <kbd>&quot;2011-05-27T23:15:30+03:00&quot;</kbd> if the local time zone is 3 hours ahead of UTC.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> The current Event instance, in order to continue adding items.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../Fraudpointer-API-Models/Event.html">Event</a></span>
+		<span class="method-name">
+			AddDateData
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$key</span>, <span class="var-type">timestamp</span>&nbsp;<span class="var-name">$timestamp_value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$key</span><span class="var-description">: KEY value of the Attribute that you want to use. The Attributes are either System  or Custom Account Attributes. The Custom Account Attributes  should be given to you by the person who has created them in the FraudPointer Application.</span>			</li>
+					<li>
+				<span class="var-type">timestamp</span>
+				<span class="var-name">$timestamp_value</span><span class="var-description">: Value of the Attribute. A <kbd>timestamp</kbd> instance should be given.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodAddDecimalData" id="AddDecimalData"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">AddDecimalData</span> (line <span class="line-number">213</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Adds one datum to the particular Models.Event. The datum is actually a value of an Attribute and  value given is a <kbd>float</kbd> instance or literal.</p>
+<p class="description"><p>Use this method if you want to add a datum of type <kbd>decimal</kbd> in your Event at hand.</p><p>Here is an example:  <div class="src-code"><ol><li><div class="src-line">&nbsp;<span class="src-var">$event&nbsp;</span>=&nbsp;<span class="src-key">new&nbsp;</span>\<span class="src-id">Fraudpointer</span>\<span class="src-id">API</span>\<span class="src-id">Models</span>\<span class="src-id"><a href="../Fraudpointer-API-Models/Event.html">Event</a></span><span class="src-sym">(</span>\<span class="src-id">Fraudpointer</span>\<span class="src-id">API</span>\<span class="src-id">Models</span>\<span class="src-id"><a href="../Fraudpointer-API-Models/Event.html">Event</a></span><span class="src-sym">::</span><span class="src-var">$CHECKOUT_EVENT</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$event</span>.<a href="../Fraudpointer-API-Models/Event.html#methodAddDecimalData">AddDecimalData</a><span class="src-sym">(</span><span class="src-str">&quot;PURCHASE_AMOUNT&quot;</span><span class="src-sym">,&nbsp;</span><span class="src-num">32.56</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+</ol></div></p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> instance, in order to continue adding items.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../Fraudpointer-API-Models/Event.html">Event</a></span>
+		<span class="method-name">
+			AddDecimalData
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$key</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$decimal_value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$key</span><span class="var-description">: KEY value of the Attribute that you want to use. The Attributes are either System  or Custom Account Attributes. The Custom Account Attributes  should be given to you by the person who has created them in the FraudPointer Application.</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$decimal_value</span><span class="var-description">: Value of the Attribute. A <kbd>float</kbd> instance or literal should be given.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodAddIntData" id="AddIntData"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">AddIntData</span> (line <span class="line-number">165</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Adds one datum to the particular Models.Event. The datum is actually a value of an Attribute and  value given is an <kbd>int</kbd> instance or literal.</p>
+<p class="description"><p>Use this method if you want to add a datum of type <kbd>int</kbd> in your Event at hand.</p><p>Here is an example:  <div class="src-code"><ol><li><div class="src-line">&nbsp;<span class="src-var">$event&nbsp;</span>=&nbsp;<span class="src-key">new&nbsp;</span>\<span class="src-id">Fraudpointer</span>\<span class="src-id">API</span>\<span class="src-id">Models</span>\<span class="src-id"><a href="../Fraudpointer-API-Models/Event.html">Event</a></span><span class="src-sym">(</span>\<span class="src-id">Fraudpointer</span>\<span class="src-id">API</span>\<span class="src-id">Models</span>\<span class="src-id"><a href="../Fraudpointer-API-Models/Event.html">Event</a></span><span class="src-sym">::</span><span class="src-var">$CHECKOUT_EVENT</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$event</span>.<a href="../Fraudpointer-API-Models/Event.html#methodAddIntData">AddIntData</a><span class="src-sym">(</span><span class="src-str">&quot;NUMBER_OF_PURCHASED_GOODS&quot;</span><span class="src-sym">,&nbsp;</span><span class="src-num">4</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+</ol></div></p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> The current Event instance, in order to continue adding data.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../Fraudpointer-API-Models/Event.html">Event</a></span>
+		<span class="method-name">
+			AddIntData
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$key</span>, <span class="var-type">integer</span>&nbsp;<span class="var-name">$int_value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$key</span><span class="var-description">: KEY value of the Attribute that you want to use. The Attributes are either System  or Custom Account Attributes. The Custom Account Attributes  should be given to you by the person who has created them in the FraudPointer Application.</span>			</li>
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$int_value</span><span class="var-description">: The value of the Attribute. An <kbd>integewr</kbd> instance or literal should be given.</span>			</li>
+				</ul>
+		
+			
+	</div>
+						
+		</div>
+	</div>
+
+
+	<p class="notes" id="credit">
+		Documentation generated on Thu, 14 Jul 2011 17:03:11 +0300 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+	</p>
+	</div></body>
+</html>

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class ClientException</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class ClientException</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+													<a href="#sec-vars">Vars</a>
+						|											<a href="#sec-methods">Methods</a>
+						
+					</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Thrown by all IClient methods in case an error takes place and method cannot return its results normally.</p>
+<p class="description"><p>You should always put your IClient methods into <kbd>try/catch</kbd> blocks and make sure you catch this exception.  If you catch this exception, the message borne will be adequate to explain to you what has gone wrong. Especially the  message borne by the <kbd>InnerException</kbd> of the <kbd>Exception</kbd> caught.</p><p>Here is how you can wrap your code arround <kbd>try/catch</kbd> block  and on error get information about what has gone wrong:  <div class="src-code"><ol><li><div class="src-line">&nbsp;try&nbsp;<span class="src-sym">{</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;<span class="src-var">$event&nbsp;</span>=&nbsp;<span class="src-key">new&nbsp;</span>\<span class="src-id">Fraudpointer</span>\<span class="src-id">API</span>\<span class="src-id">Models</span>\<span class="src-id"><a href="../Fraudpointer-API-Models/Event.html">Event</a></span><span class="src-sym">(</span>\<span class="src-id">Fraudpointer</span>\<span class="src-id">API</span>\<span class="src-id">Models</span>\<span class="src-id"><a href="../Fraudpointer-API-Models/Event.html">Event</a></span><span class="src-sym">::</span><span class="src-var">$FAILED_PAYMENT</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;<span class="src-var">$event</span><span class="src-sym">-&gt;</span><a href="../Fraudpointer-API-Models/Event.html#methodAddData">AddData</a><span class="src-sym">(</span><span class="src-str">&quot;MERCHANT_REFERENCE&quot;</span><span class="src-sym">,&nbsp;</span><a href="../Fraudpointer PHP Demo Application/_helpers---Application.php.html#functionGetAcmeOrderNumber">GetAcmeOrderNumber</a><span class="src-sym">(</span><span class="src-sym">))</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;<span class="src-comm">//&nbsp;PURCHASE_DATE</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;<span class="src-var">$event</span><span class="src-sym">-&gt;</span><span class="src-id">AddDateValue</span><span class="src-sym">(</span><span class="src-str">&quot;PURCHASE_DATE&quot;</span><span class="src-sym">,&nbsp;</span><a href="http://www.php.net/time">time</a><span class="src-sym">(</span><span class="src-sym">))</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;<span class="src-var">$event_returned&nbsp;</span>=&nbsp;<span class="src-var">$client</span><span class="src-sym">-&gt;</span><span class="src-id">AppendEventToAssessmentSession</span><span class="src-sym">(</span><span class="src-var">$assessment_session</span><span class="src-sym">,&nbsp;</span><span class="src-var">$event</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;<span class="src-key">return&nbsp;</span><span class="src-var">$event_returned</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-sym">}</span></div></li>
+<li><div class="src-line">&nbsp;catch&nbsp;<span class="src-sym">(</span>\<span class="src-id">Fraudpointer</span>\<span class="src-id">API</span>\<span class="src-id"><a href="../Fraudpointer-API/ClientException.html">ClientException</a>&nbsp;</span><span class="src-var">$e</span><span class="src-sym">)&nbsp;</span><span class="src-sym">{</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-sym">}</span></div></li>
+</ol></div></p></p>
+		<p class="notes">
+			Located in <a class="field" href="_Fraudpointer---API---ClientException.php.html">/Fraudpointer/API/ClientException.php</a> (line <span class="field">30</span>)
+		</p>
+		
+				
+		<pre>Exception
+   |
+   --ClientException</pre>
+	
+			</div>
+</div>
+
+
+
+
+
+	<a name="sec-vars"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variables</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+										<span class="disabled">Vars</span>
+						
+			
+										| 
+									<a href="#sec-methods">Methods</a>
+							
+					</div>
+		<div class="info-box-body">
+										<h4>Inherited Variables</h4>
+				<A NAME='inherited_vars'><!-- --></A>
+									<p>Inherited from <span class="classname">Exception (Internal Class)</span></p>
+					<blockquote>
+													<span class="var-title">
+								<span class="var-name">$code</span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name">$file</span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name">$line</span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name">$message</span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name">$previous</span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name">$string</span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name">$trace</span><br>
+							</span>
+											</blockquote> 
+										
+		</div>
+	</div>
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+															<a href="#sec-vars">Vars</a>
+																	<span class="disabled">Methods</span>
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+
+							<h4>Inherited Methods</h4>
+				<a name='inherited_methods'><!-- --></a>	
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname">Exception (Internal Class)</span></p>
+					<blockquote>
+													<span class="method-name">constructor __construct ( [$message = ], [$code = ], [$previous = ] )</span><br>
+													<span class="method-name">getCode (  )</span><br>
+													<span class="method-name">getFile (  )</span><br>
+													<span class="method-name">getLine (  )</span><br>
+													<span class="method-name">getMessage (  )</span><br>
+													<span class="method-name">getPrevious (  )</span><br>
+													<span class="method-name">getTrace (  )</span><br>
+													<span class="method-name">getTraceAsString (  )</span><br>
+													<span class="method-name">__clone (  )</span><br>
+													<span class="method-name">__toString (  )</span><br>
+											</blockquote>
+										
+		</div>
+	</div>
+
+
+	<p class="notes" id="credit">
+		Documentation generated on Thu, 14 Jul 2011 17:03:11 +0300 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+	</p>
+	</div></body>
+</html>

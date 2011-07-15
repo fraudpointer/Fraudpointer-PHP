@@ -1,0 +1,28 @@
+body
+{
+    font-size: 12pt;
+    font-family: Verdana;
+}
+
+label, input, select 
+{
+    margin-bottom: 10px;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+legend
+{
+    font-weight: bold;
+}
+
+a img
+{
+	border-style: none;	
+}
+
+.failed_payment_attempts
+{
+	color: Red;
+	font-weight: bold;
+}
