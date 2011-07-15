@@ -5,7 +5,7 @@ namespace FraudPointer\API\Clients;
 require_once "HTTP/Request2.php";
 
 /**
-* @package FraudPointer.API.Clients
+* @package Fraudpointer.API.Clients
 */
 class RESTClient {
 	 
