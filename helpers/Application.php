@@ -16,13 +16,13 @@ function HiddenFraudPointerSessionIdField() {
 
 function BaseUrl () {
 	//return "https://production.fraudpointer.com/api/assessment_sessions";
-	return "http://10.0.0.123:3000/api/assessment_sessions";
+	return "http://10.0.0.123:3000/api";
 } // BaseUrl ()
 //--------------
 
 function ApiKey () {
-	throw new Exception('<put your domain key in below return statement and uncomment. Then remove this throw statement.');
-	//return "45440beccd884a68818b09"; 
+	//throw new Exception('<put your domain key in below return statement and uncomment. Then remove this throw statement.');
+	return "791cdeef55d0e5a78a357e1d5ffbcc1dc532dff4f2a6d26ad3821af646ff8532"; 
 } // ApiKey ()
 //-------------
 
@@ -146,7 +146,7 @@ function CreateAndSendCheckoutEvent($client, $assessment_session) {
 	$event->AddData("CREDIT_CARD_FIRST_6_DIGITS", substr($_POST["txtbx_credit_card_number"], 0, 6));
 	
 	// E_TRAVEL_SA_PURCHASE_DATE	
-	$event->AddDateValue("PURCHASE_DATE", time()); 
+	$event->AddDateData("PURCHASE_DATE", time()); 
 		
 	try {		
 		// having populated the Event object, we will send it to FraudPointer Server
@@ -169,7 +169,7 @@ function CreateAndSendSuccessfulPaymentEvent ($client, $assessment_session) {
 	$event->AddData("MERCHANT_REFERENCE", GetAcmeOrderNumber());
 	
         // PURCHASE_DATE
-	$event->AddDateValue("PURCHASE_DATE", time()); 
+	$event->AddDateData("PURCHASE_DATE", time()); 
 	
 	try {		
 		// having populated the Event object, we will send it to FraudPointer Server
@@ -189,7 +189,7 @@ function CreateAndSendFailedPaymentEvent ($client, $assessment_session) {
 	   $event->AddData("MERCHANT_REFERENCE", GetAcmeOrderNumber());
 		
    	   // PURCHASE_DATE
-	   $event->AddDateValue("PURCHASE_DATE", time()); 
+	   $event->AddDateData("PURCHASE_DATE", time()); 
 
 		$event_returned = $client->AppendEventToAssessmentSession($assessment_session, $event);
 		return $event_returned;
