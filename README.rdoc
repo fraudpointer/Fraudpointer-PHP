@@ -23,7 +23,8 @@ out of it, as quickly and easily as possible.
 
 If you download the contents of this repository you will get:
 
-* A PHP Web Application that demonstrates the use of Fraudpointer PHP Client API 
+* A PHP Web Application that demonstrates the use of Fraudpointer PHP Client API
+* A PHP Console example that demonstrates the use of the Fraudpointer PHP Client API 
 * Detailed API Reference Documentation in HTML format
 * The Fraudpointer PHP Client API itself 
 

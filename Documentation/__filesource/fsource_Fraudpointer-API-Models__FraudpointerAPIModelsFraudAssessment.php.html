@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>File Source for FraudAssessment.php</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+						<h1>Source for file FraudAssessment.php</h1>
+<p>Documentation is available at <a href="../Fraudpointer-API-Models/_Fraudpointer---API---Models---FraudAssessment.php.html">FraudAssessment.php</a></p>
+<div class="src-code">
+<div class="src-code"><ol><li><div class="src-line"><a name="a1"></a><span class="src-php">&lt;?php</span></div></li>
+<li><div class="src-line"><a name="a2"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a3"></a>namespace&nbsp;<span class="src-id">Fraudpointer</span>\<span class="src-id">API</span>\<span class="src-id">Models</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a4"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a5"></a><span class="src-doc">/**</span></div></li>
+<li><div class="src-line"><a name="a6"></a><span class="src-doc">*&nbsp;This&nbsp;is&nbsp;an&nbsp;object&nbsp;that&nbsp;is&nbsp;returned&nbsp;by&nbsp;FraudPointer&nbsp;Server&nbsp;when&nbsp;requesting&nbsp;a&nbsp;Fraud&nbsp;Assessment.</span></div></li>
+<li><div class="src-line"><a name="a7"></a><span class="src-doc">*</span></div></li>
+<li><div class="src-line"><a name="a8"></a><span class="src-doc">*&nbsp;Models.FraudAssessment&nbsp;is&nbsp;returned&nbsp;back&nbsp;to&nbsp;you&nbsp;when&nbsp;you&nbsp;ask&nbsp;for&nbsp;a&nbsp;Fraud&nbsp;Assessment.&nbsp;The&nbsp;API&nbsp;to&nbsp;ask&nbsp;for&nbsp;a</span></div></li>
+<li><div class="src-line"><a name="a9"></a><span class="src-doc">*&nbsp;Fraud&nbsp;Assessment&nbsp;is</span></div></li>
+<li><div class="src-line"><a name="a10"></a><span class="src-doc">*&nbsp;&lt;code&gt;</span></div></li>
+<li><div class="src-line"><a name="a11"></a><span class="src-doc">*&nbsp;$client-&gt;CreateFraudAssessment($assessment_session,&nbsp;true/false);</span></div></li>
+<li><div class="src-line"><a name="a12"></a><span class="src-doc">*&nbsp;&lt;/code&gt;</span></div></li>
+<li><div class="src-line"><a name="a13"></a><span class="src-doc">*</span></div></li>
+<li><div class="src-line"><a name="a14"></a><span class="src-doc">*&nbsp;The&nbsp;most&nbsp;important&nbsp;properties&nbsp;of&nbsp;the&nbsp;object&nbsp;that&nbsp;you&nbsp;need&nbsp;to&nbsp;take&nbsp;into&nbsp;account&nbsp;are:</span></div></li>
+<li><div class="src-line"><a name="a15"></a><span class="src-doc">*&nbsp;-&nbsp;FraudAssessment.Result:&nbsp;Gives&nbsp;the&nbsp;Assessment&nbsp;Result.&nbsp;Can&nbsp;take&nbsp;one&nbsp;of&nbsp;the&nbsp;values:</span></div></li>
+<li><div class="src-line"><a name="a16"></a><span class="src-doc">*&nbsp;--&nbsp;&quot;Accept&quot;</span></div></li>
+<li><div class="src-line"><a name="a17"></a><span class="src-doc">*&nbsp;--&nbsp;&quot;Review&quot;</span></div></li>
+<li><div class="src-line"><a name="a18"></a><span class="src-doc">*&nbsp;--&nbsp;&quot;Reject&quot;</span></div></li>
+<li><div class="src-line"><a name="a19"></a><span class="src-doc">*&nbsp;-&nbsp;FraudAssessment.Score:&nbsp;An&nbsp;integer&nbsp;value&nbsp;that&nbsp;gives&nbsp;the&nbsp;Assessment&nbsp;Score</span></div></li>
+<li><div class="src-line"><a name="a20"></a><span class="src-doc">*&nbsp;-&nbsp;DecidingFactor:&nbsp;Gives&nbsp;a&nbsp;hint&nbsp;about&nbsp;why&nbsp;the&nbsp;Assessment&nbsp;gave&nbsp;such&nbsp;a&nbsp;FraudAssessment.Result.&nbsp;Takes&nbsp;the&nbsp;values:</span></div></li>
+<li><div class="src-line"><a name="a21"></a><span class="src-doc">*&nbsp;-&nbsp;&quot;Profile&nbsp;thresholds&quot;:&nbsp;This&nbsp;means&nbsp;that&nbsp;the&nbsp;FraudAssessment.Score&nbsp;fell&nbsp;into&nbsp;a&nbsp;range&nbsp;that,&nbsp;according&nbsp;to&nbsp;Profile&nbsp;thresholds,&nbsp;returned&nbsp;a&nbsp;result&nbsp;equal&nbsp;to&nbsp;the&nbsp;value&nbsp;that&nbsp;exists&nbsp;in&nbsp;the&nbsp;FraudAssessment.Result&nbsp;property.</span></div></li>
+<li><div class="src-line"><a name="a22"></a><span class="src-doc">*&nbsp;-&nbsp;or&nbsp;the&nbsp;name&nbsp;of&nbsp;the&nbsp;Deciding&nbsp;Rule.</span></div></li>
+<li><div class="src-line"><a name="a23"></a><span class="src-doc">*&nbsp;-&nbsp;Profile:&nbsp;The&nbsp;name&nbsp;of&nbsp;the&nbsp;Profile&nbsp;that&nbsp;has&nbsp;been&nbsp;used&nbsp;to&nbsp;carry&nbsp;out&nbsp;the&nbsp;assessment.</span></div></li>
+<li><div class="src-line"><a name="a24"></a><span class="src-doc">*</span></div></li>
+<li><div class="src-line"><a name="a25"></a><span class="src-doc">*&nbsp;It&nbsp;is&nbsp;up&nbsp;to&nbsp;your&nbsp;business&nbsp;to&nbsp;decide&nbsp;what&nbsp;to&nbsp;do&nbsp;with&nbsp;this&nbsp;FraudAssessment.Result.&nbsp;For&nbsp;example,&nbsp;if&nbsp;the&nbsp;FraudAssessment.Result&nbsp;is&nbsp;&quot;Reject&quot;,</span></div></li>
+<li><div class="src-line"><a name="a26"></a><span class="src-doc">*&nbsp;you&nbsp;can&nbsp;stop&nbsp;from&nbsp;carrying&nbsp;out&nbsp;the&nbsp;actual&nbsp;transaction&nbsp;with&nbsp;your&nbsp;bank.</span></div></li>
+<li><div class="src-line"><a name="a27"></a><span class="src-doc">*</span></div></li>
+<li><div class="src-line"><a name="a28"></a><span class="src-doc">*&nbsp;</span><span class="src-doc-coretag">@package</span><span class="src-doc">&nbsp;Fraudpointer.API.Models</span></div></li>
+<li><div class="src-line"><a name="a29"></a><span class="src-doc">*/</span></div></li>
+<li><div class="src-line"><a name="a30"></a><span class="src-key">class&nbsp;</span><a href="../Fraudpointer-API-Models/FraudAssessment.html">FraudAssessment</a>&nbsp;<span class="src-sym">{</span></div></li>
+<li><div class="src-line"><a name="a31"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a32"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-doc">/**</span></div></li>
+<li><div class="src-line"><a name="a33"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</span><span class="src-doc-coretag">@var&nbsp;</span><span class="src-doc-type">string&nbsp;</span><span class="src-doc-var">$id&nbsp;</span><span class="src-doc">Unique&nbsp;&lt;kbd&gt;Id&lt;/kbd&gt;&nbsp;as&nbsp;returned&nbsp;by&nbsp;FraudPointer&nbsp;Server.</span></div></li>
+<li><div class="src-line"><a name="a34"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;*/</span></div></li>
+<li><div class="src-line"><a name="a35"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">public&nbsp;</span><a href="../Fraudpointer-API-Models/FraudAssessment.html#var$id">$id</a><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a36"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a37"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-doc">/**</span></div></li>
+<li><div class="src-line"><a name="a38"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;The&nbsp;Score&nbsp;of&nbsp;the&nbsp;Fraud&nbsp;Assessment.</span></div></li>
+<li><div class="src-line"><a name="a39"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</span></div></li>
+<li><div class="src-line"><a name="a40"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;The&nbsp;Score&nbsp;of&nbsp;the&nbsp;Fraud&nbsp;Assessment&nbsp;has&nbsp;significance&nbsp;only&nbsp;if&nbsp;the&nbsp;Deciding&nbsp;Factor&nbsp;is&nbsp;&quot;Profile&nbsp;thresholds&quot;.</span></div></li>
+<li><div class="src-line"><a name="a41"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;If&nbsp;the&nbsp;Deciding&nbsp;Factor&nbsp;has&nbsp;the&nbsp;name&nbsp;of&nbsp;a&nbsp;Rule,&nbsp;then&nbsp;do&nbsp;not&nbsp;take&nbsp;into&nbsp;account&nbsp;Score.</span></div></li>
+<li><div class="src-line"><a name="a42"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;*</span></div></li>
+<li><div class="src-line"><a name="a43"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</span><span class="src-doc-coretag">@var&nbsp;</span><span class="src-doc-type">string&nbsp;</span><span class="src-doc-var">$score&nbsp;</span></div></li>
+<li><div class="src-line"><a name="a44"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;*/</span></div></li>
+<li><div class="src-line"><a name="a45"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">public&nbsp;</span><a href="../Fraudpointer-API-Models/FraudAssessment.html#var$score">$score</a><span class="src-sym">;&nbsp;&nbsp;&nbsp;&nbsp;</span></div></li>
+<li><div class="src-line"><a name="a46"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a47"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-doc">/**</span></div></li>
+<li><div class="src-line"><a name="a48"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Boolean&nbsp;to&nbsp;indicate&nbsp;interim&nbsp;or&nbsp;final&nbsp;(non-interim)&nbsp;Fraud&nbsp;Assessment.</span></div></li>
+<li><div class="src-line"><a name="a49"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</span></div></li>
+<li><div class="src-line"><a name="a50"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Indicates&nbsp;whether&nbsp;the&nbsp;Fraud&nbsp;Assessment&nbsp;is&nbsp;final&nbsp;(non-interim)&nbsp;or&nbsp;not&nbsp;(interim).&nbsp;&lt;kbd&gt;true&lt;/kbd&gt;&nbsp;means&nbsp;that</span></div></li>
+<li><div class="src-line"><a name="a51"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;the&nbsp;Fraud&nbsp;Assessment&nbsp;is&nbsp;interim&nbsp;(non-final)&nbsp;whereas&nbsp;&lt;kbd&gt;false&lt;/kbd&gt;&nbsp;means&nbsp;that&nbsp;Fraud&nbsp;Assessment&nbsp;is</span></div></li>
+<li><div class="src-line"><a name="a52"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;final&nbsp;(non-interim).&nbsp;Note&nbsp;that&nbsp;final&nbsp;Fraud&nbsp;Assessments&nbsp;create&nbsp;a&nbsp;Case&nbsp;in&nbsp;Fraud&nbsp;Pointer&nbsp;Application.</span></div></li>
+<li><div class="src-line"><a name="a53"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</span></div></li>
+<li><div class="src-line"><a name="a54"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</span><span class="src-doc-coretag">@var&nbsp;</span><span class="src-doc-type">boolean&nbsp;</span><span class="src-doc-var">$interim&nbsp;</span></div></li>
+<li><div class="src-line"><a name="a55"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</span></div></li>
+<li><div class="src-line"><a name="a56"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">public&nbsp;</span><a href="../Fraudpointer-API-Models/FraudAssessment.html#var$interim">$interim</a><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a57"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a58"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-doc">/**</span></div></li>
+<li><div class="src-line"><a name="a59"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;An&nbsp;indicator&nbsp;about&nbsp;how&nbsp;the&nbsp;FraudAssessment.Result&nbsp;has&nbsp;been&nbsp;calculated.</span></div></li>
+<li><div class="src-line"><a name="a60"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></div></li>
+<li><div class="src-line"><a name="a61"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;The&nbsp;Deciding&nbsp;Factor&nbsp;takes&nbsp;two&nbsp;values:</span></div></li>
+<li><div class="src-line"><a name="a62"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&nbsp;-&nbsp;&quot;Profile&nbsp;thresholds&quot;</span></div></li>
+<li><div class="src-line"><a name="a63"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&nbsp;-&nbsp;Or&nbsp;the&nbsp;name&nbsp;of&nbsp;the&nbsp;Deciding&nbsp;Rule&nbsp;that&nbsp;matched.</span></div></li>
+<li><div class="src-line"><a name="a64"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</span></div></li>
+<li><div class="src-line"><a name="a65"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;If&nbsp;the&nbsp;Deciding&nbsp;Factor&nbsp;has&nbsp;the&nbsp;value&nbsp;&quot;Profile&nbsp;thresholds&quot;,&nbsp;then&nbsp;you&nbsp;can&nbsp;see&nbsp;the&nbsp;FraudAssessment.Score&nbsp;that&nbsp;the</span></div></li>
+<li><div class="src-line"><a name="a66"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Fraud&nbsp;Assessment&nbsp;calculated.&nbsp;This&nbsp;FraudAssessment.Score&nbsp;normally&nbsp;falls&nbsp;into&nbsp;one&nbsp;of&nbsp;the&nbsp;ranges&nbsp;that&nbsp;are&nbsp;defined&nbsp;in&nbsp;the</span></div></li>
+<li><div class="src-line"><a name="a67"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Profile&nbsp;level&nbsp;that&nbsp;has&nbsp;been&nbsp;used&nbsp;to&nbsp;carry&nbsp;out&nbsp;the&nbsp;Fraud&nbsp;Assessment.&nbsp;According&nbsp;to&nbsp;this&nbsp;range,&nbsp;the</span></div></li>
+<li><div class="src-line"><a name="a68"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Result&nbsp;is&nbsp;set.</span></div></li>
+<li><div class="src-line"><a name="a69"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</span></div></li>
+<li><div class="src-line"><a name="a70"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;If&nbsp;the&nbsp;Deciding&nbsp;Factor&nbsp;has&nbsp;a&nbsp;value&nbsp;different&nbsp;from&nbsp;&quot;Profile&nbsp;thresholds&quot;,&nbsp;then&nbsp;it&nbsp;has&nbsp;the&nbsp;value&nbsp;of</span></div></li>
+<li><div class="src-line"><a name="a71"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;the&nbsp;Rule&nbsp;that&nbsp;matched.&nbsp;That&nbsp;Rule&nbsp;is&nbsp;a&nbsp;Deciding&nbsp;Rule&nbsp;and&nbsp;its&nbsp;FraudAssessment.Result&nbsp;was&nbsp;set&nbsp;as&nbsp;Result&nbsp;of&nbsp;the&nbsp;Fraud&nbsp;Assessment</span></div></li>
+<li><div class="src-line"><a name="a72"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;at&nbsp;hand.</span></div></li>
+<li><div class="src-line"><a name="a73"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</span></div></li>
+<li><div class="src-line"><a name="a74"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</span><span class="src-doc-coretag">@var&nbsp;</span><span class="src-doc-type">string&nbsp;</span><span class="src-doc-var">$deciding_factor&nbsp;</span></div></li>
+<li><div class="src-line"><a name="a75"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</span></div></li>
+<li><div class="src-line"><a name="a76"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">public&nbsp;</span><a href="../Fraudpointer-API-Models/FraudAssessment.html#var$deciding_factor">$deciding_factor</a><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a77"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a78"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a79"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-doc">/**</span></div></li>
+<li><div class="src-line"><a name="a80"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;The&nbsp;Result&nbsp;of&nbsp;the&nbsp;Fraud&nbsp;Assessment.</span></div></li>
+<li><div class="src-line"><a name="a81"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</span></div></li>
+<li><div class="src-line"><a name="a82"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Takes&nbsp;the&nbsp;values:</span></div></li>
+<li><div class="src-line"><a name="a83"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;-&nbsp;&quot;Accept&quot;</span></div></li>
+<li><div class="src-line"><a name="a84"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;-&nbsp;&quot;Reject&quot;</span></div></li>
+<li><div class="src-line"><a name="a85"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;-&nbsp;&quot;Review&quot;</span></div></li>
+<li><div class="src-line"><a name="a86"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</span></div></li>
+<li><div class="src-line"><a name="a87"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;You&nbsp;need&nbsp;to&nbsp;evaluate&nbsp;the&nbsp;Result&nbsp;of&nbsp;the&nbsp;Fraud&nbsp;Assessment&nbsp;and&nbsp;take&nbsp;necessary&nbsp;actions.</span></div></li>
+<li><div class="src-line"><a name="a88"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</span></div></li>
+<li><div class="src-line"><a name="a89"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</span><span class="src-doc-coretag">@var&nbsp;</span><span class="src-doc-type">string&nbsp;</span><span class="src-doc-var">$result&nbsp;</span></div></li>
+<li><div class="src-line"><a name="a90"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</span></div></li>
+<li><div class="src-line"><a name="a91"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">public&nbsp;</span><a href="../Fraudpointer-API-Models/FraudAssessment.html#var$result">$result</a><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a92"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a93"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a94"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-doc">/**</span></div></li>
+<li><div class="src-line"><a name="a95"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;The&nbsp;Profile&nbsp;used&nbsp;to&nbsp;carry&nbsp;out&nbsp;the&nbsp;Fraud&nbsp;Assessment.</span></div></li>
+<li><div class="src-line"><a name="a96"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</span></div></li>
+<li><div class="src-line"><a name="a97"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;The&nbsp;Fraud&nbsp;Assessment&nbsp;uses&nbsp;a&nbsp;set&nbsp;of&nbsp;Fraud&nbsp;Assessment&nbsp;Rules&nbsp;that&nbsp;belong&nbsp;to&nbsp;one&nbsp;specific&nbsp;Profile.&nbsp;The&nbsp;Profile&nbsp;is</span></div></li>
+<li><div class="src-line"><a name="a98"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;selected&nbsp;at&nbsp;run-time&nbsp;using&nbsp;the&nbsp;Profile&nbsp;Selection&nbsp;Rules.&nbsp;This&nbsp;property&nbsp;returns&nbsp;an&nbsp;instance&nbsp;of&nbsp;the&nbsp;object&nbsp;that</span></div></li>
+<li><div class="src-line"><a name="a99"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;represents&nbsp;the&nbsp;Profile&nbsp;that&nbsp;has&nbsp;been&nbsp;selected&nbsp;in&nbsp;order&nbsp;to&nbsp;carry&nbsp;out&nbsp;the&nbsp;Fraud&nbsp;Assessment&nbsp;at&nbsp;hand.</span></div></li>
+<li><div class="src-line"><a name="a100"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</span></div></li>
+<li><div class="src-line"><a name="a101"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</span><span class="src-doc-coretag">@var&nbsp;</span><span class="src-doc-type">Profile&nbsp;</span><span class="src-doc-var">$profile&nbsp;</span></div></li>
+<li><div class="src-line"><a name="a102"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</span></div></li>
+<li><div class="src-line"><a name="a103"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">public&nbsp;</span><a href="../Fraudpointer-API-Models/FraudAssessment.html#var$profile">$profile</a><span class="src-sym">;&nbsp;&nbsp;&nbsp;&nbsp;</span></div></li>
+<li><div class="src-line"><a name="a104"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a105"></a>&nbsp;&nbsp;&nbsp;<span class="src-doc">/**</span></div></li>
+<li><div class="src-line"><a name="a106"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;The&nbsp;Case&nbsp;generated&nbsp;with&nbsp;the&nbsp;final&nbsp;Fraud&nbsp;Assessment.&nbsp;&lt;br/&gt;</span></div></li>
+<li><div class="src-line"><a name="a107"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&lt;br/&gt;</span></div></li>
+<li><div class="src-line"><a name="a108"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;When&nbsp;a&nbsp;final&nbsp;Fraud&nbsp;Assessment&nbsp;is&nbsp;created&nbsp;a&nbsp;Case&nbsp;is&nbsp;created&nbsp;too.&nbsp;This&nbsp;field&nbsp;will&nbsp;contain&nbsp;the&nbsp;Case&nbsp;information</span></div></li>
+<li><div class="src-line"><a name="a109"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;when&nbsp;you&nbsp;created&nbsp;a&nbsp;Final&nbsp;Fraud&nbsp;Assessment&nbsp;or&nbsp;when&nbsp;you&nbsp;get&nbsp;a&nbsp;previous&nbsp;Fraud&nbsp;Assessment.</span></div></li>
+<li><div class="src-line"><a name="a110"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</span><span class="src-doc-coretag">@var&nbsp;</span><span class="src-doc-type">Case&nbsp;</span><span class="src-doc-var">$case&nbsp;</span></div></li>
+<li><div class="src-line"><a name="a111"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/&nbsp;&nbsp;&nbsp;&nbsp;</span></div></li>
+<li><div class="src-line"><a name="a112"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">public&nbsp;</span><a href="../Fraudpointer-API-Models/FraudAssessment.html#var$case">$case</a><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a113"></a>&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a114"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-doc">/**</span></div></li>
+<li><div class="src-line"><a name="a115"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Last&nbsp;time&nbsp;Case&nbsp;was&nbsp;updated</span></div></li>
+<li><div class="src-line"><a name="a116"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</span><span class="src-doc-coretag">@var&nbsp;</span><span class="src-doc-type">timestamp&nbsp;</span><span class="src-doc-var">$updated_at&nbsp;</span></div></li>
+<li><div class="src-line"><a name="a117"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</span></div></li>
+<li><div class="src-line"><a name="a118"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">public&nbsp;</span><a href="../Fraudpointer-API-Models/FraudAssessment.html#var$updated_at">$updated_at</a><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a119"></a>&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a120"></a><span class="src-sym">}&nbsp;</span><span class="src-comm">//&nbsp;FraudAssessment&nbsp;()</span></div></li>
+<li><div class="src-line"><a name="a121"></a><span class="src-comm">//------------------------------------------------------------------------------------------------------------//</span></div></li>
+<li><div class="src-line"><a name="a122"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a123"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a124"></a><span class="src-php">?&gt;</span></div></li>
+</ol></div>
+</div>
+	<p class="notes" id="credit">
+		Documentation generated on Fri, 05 Aug 2011 13:01:23 +0300 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+	</p>
+	</body>
+</html>

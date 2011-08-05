@@ -14,7 +14,6 @@
 <ul>
 	<li><a href="elementindex_Fraudpointer PHP Demo Application.html">Fraudpointer PHP Demo Application</a></li>
 	<li><a href="elementindex_Fraudpointer-API-Clients.html">Fraudpointer-API-Clients</a></li>
-	<li><a href="elementindex_FraudPointer-API-Clients.html">FraudPointer-API-Clients</a></li>
 	<li><a href="elementindex_Fraudpointer-API.html">Fraudpointer-API</a></li>
 	<li><a href="elementindex_Fraudpointer-API-Models.html">Fraudpointer-API-Models</a></li>
 	<li><a href="elementindex_Fraudpointer-API-RequestWrappers.html">Fraudpointer-API-RequestWrappers</a></li>
@@ -31,11 +30,13 @@
 	<a class="index-letter" href="elementindex.html#h">h</a>
 	<a class="index-letter" href="elementindex.html#i">i</a>
 	<a class="index-letter" href="elementindex.html#k">k</a>
+	<a class="index-letter" href="elementindex.html#m">m</a>
 	<a class="index-letter" href="elementindex.html#n">n</a>
 	<a class="index-letter" href="elementindex.html#p">p</a>
 	<a class="index-letter" href="elementindex.html#r">r</a>
 	<a class="index-letter" href="elementindex.html#s">s</a>
 	<a class="index-letter" href="elementindex.html#t">t</a>
+	<a class="index-letter" href="elementindex.html#u">u</a>
 	<a class="index-letter" href="elementindex.html#_">_</a>
 </div>
 
@@ -92,6 +93,7 @@
 					</dt>
 		<dd class="index-item-body">
 			<div class="index-item-details"><a href="Fraudpointer-API/IClient.html#methodAppendEventToAssessmentSession">IClient::AppendEventToAssessmentSession()</a> in IClient.php</div>
+							<div class="index-item-description">Appends an Event to an AssessmentSession object. <br /></div>
 					</dd>
 			<dt class="field">
 						<span class="method-title">AppendEventToAssessmentSession</span>
@@ -104,7 +106,7 @@
 					</dt>
 		<dd class="index-item-body">
 			<div class="index-item-details"><a href="Fraudpointer-API-Models/AssessmentSession.html">AssessmentSession</a> in AssessmentSession.php</div>
-							<div class="index-item-description">An Assessment Session is the object returned when you call API.IClient.CreateAssessmentSession(), which is the  first method that you need to call to start interacting with the FraudPointer Server.</div>
+							<div class="index-item-description">An Assessment Session is the object returned when you call <a href="Fraudpointer-API/IClient.html#methodCreateAssessmentSession">IClient::CreateAssessmentSession()</a>, which is the  first method that you need to call to start interacting with the FraudPointer Server.</div>
 					</dd>
 			<dt class="field">
 						<span class="include-title">AssessmentSession.php</span>
@@ -140,6 +142,13 @@
 		<div style="clear: both"></div>
 	</div>
 	<dl>
+			<dt class="field">
+						<span class="var-title">$case</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="Fraudpointer-API-Models/FraudAssessment.html#var$case">FraudAssessment::$case</a> in FraudAssessment.php</div>
+							<div class="index-item-description">The Case generated with the final Fraud Assessment. <br />  <br />  When a final Fraud Assessment is created a Case is created too. This field will contain the Case information  when you created a Final Fraud Assessment or when you get a previous Fraud Assessment.</div>
+					</dd>
 			<dt class="field">
 						<span class="var-title">$CHECKOUT_EVENT</span>
 					</dt>
@@ -221,6 +230,7 @@
 					</dt>
 		<dd class="index-item-body">
 			<div class="index-item-details"><a href="Fraudpointer-API/IClient.html#methodCreateAssessmentSession">IClient::CreateAssessmentSession()</a> in IClient.php</div>
+							<div class="index-item-description">Communicates with FraudPointer Server and gets back a ready to use AssessmentSession object.This is the first method that you should call. <br /></div>
 					</dd>
 			<dt class="field">
 						<span class="method-title">CreateFraudAssessment</span>
@@ -233,18 +243,26 @@
 					</dt>
 		<dd class="index-item-body">
 			<div class="index-item-details"><a href="Fraudpointer-API/IClient.html#methodCreateFraudAssessment">IClient::CreateFraudAssessment()</a> in IClient.php</div>
+							<div class="index-item-description">This method should be called in order to evaluate the fraud level of an AssessmentSession. <br /></div>
+					</dd>
+			<dt class="field">
+						<span class="method-title">CreateJsonGetRequest</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="Fraudpointer-API-Clients/RESTClient.html#methodCreateJsonGetRequest">RESTClient::CreateJsonGetRequest()</a> in RESTclient.php</div>
 					</dd>
 			<dt class="field">
 						<span class="method-title">CreateJsonPostRequest</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="FraudPointer-API-Clients/RESTClient.html#methodCreateJsonPostRequest">RESTClient::CreateJsonPostRequest()</a> in RESTclient.php</div>
+			<div class="index-item-details"><a href="Fraudpointer-API-Clients/RESTClient.html#methodCreateJsonPostRequest">RESTClient::CreateJsonPostRequest()</a> in RESTclient.php</div>
 					</dd>
 			<dt class="field">
 						<span class="method-title">CreditCardHash</span>
 					</dt>
 		<dd class="index-item-body">
 			<div class="index-item-details"><a href="Fraudpointer-API/IClient.html#methodCreditCardHash">IClient::CreditCardHash()</a> in IClient.php</div>
+							<div class="index-item-description">Use this method to generate a hash of a credit card number. Use the generated hash to send the encrypted credit card number to FraudPointer Server instead of the credit card number itself. <br /></div>
 					</dd>
 			<dt class="field">
 						<span class="method-title">CreditCardHash</span>
@@ -269,6 +287,12 @@
 					</dt>
 		<dd class="index-item-body">
 			<div class="index-item-details"><a href="Fraudpointer-API-Clients/_Fraudpointer---API---Clients---Client.php.html">Client.php</a> in Client.php</div>
+					</dd>
+			<dt class="field">
+						<span class="include-title">Case.php</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="Fraudpointer-API-Models/_Fraudpointer---API---Models---Case.php.html">Case.php</a> in Case.php</div>
 					</dd>
 		</dl>
 	<a name="d"></a>
@@ -387,6 +411,19 @@
 			<div class="index-item-details"><a href="Fraudpointer PHP Demo Application/_helpers---Application.php.html#functionGetAcmeOrderNumber">GetAcmeOrderNumber()</a> in Application.php</div>
 					</dd>
 			<dt class="field">
+						<span class="method-title">GetFraudAssessment</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="Fraudpointer-API-Clients/Client.html#methodGetFraudAssessment">Client::GetFraudAssessment()</a> in Client.php</div>
+					</dd>
+			<dt class="field">
+						<span class="method-title">GetFraudAssessment</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="Fraudpointer-API/IClient.html#methodGetFraudAssessment">IClient::GetFraudAssessment()</a> in IClient.php</div>
+							<div class="index-item-description">Communicates with server and gets back to you a full FraudAssessment object that  has been previously created with a call to CreateFraudAssessment.</div>
+					</dd>
+			<dt class="field">
 						<span class="method-title">GetFraudpointerClient</span>
 					</dt>
 		<dd class="index-item-body">
@@ -443,8 +480,15 @@
 						<span class="var-title">$id</span>
 					</dt>
 		<dd class="index-item-body">
+			<div class="index-item-details"><a href="Fraudpointer-API-Models/Kase.html#var$id">Kase::$id</a> in Case.php</div>
+							<div class="index-item-description">The unique identifier of the Case related to a final FraudAssessment.</div>
+					</dd>
+			<dt class="field">
+						<span class="var-title">$id</span>
+					</dt>
+		<dd class="index-item-body">
 			<div class="index-item-details"><a href="Fraudpointer-API-Models/Profile.html#var$id">Profile::$id</a> in Profile.php</div>
-							<div class="index-item-description">The unique identifier of the Profile used for Models.FraudAssessment.</div>
+							<div class="index-item-description">The unique identifier of the Profile used for FraudAssessment.</div>
 					</dd>
 			<dt class="field">
 						<span class="var-title">$interim</span>
@@ -485,6 +529,33 @@
 					</dt>
 		<dd class="index-item-body">
 			<div class="index-item-details"><a href="Fraudpointer-API-RequestWrappers/RequestKey.html#var$key">RequestKey::$key</a> in RequestKey.php</div>
+					</dd>
+			<dt class="field">
+						Kase
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="Fraudpointer-API-Models/Kase.html">Kase</a> in Case.php</div>
+							<div class="index-item-description">A Case is created for every <strong>final</strong> <a href="Fraudpointer-API-Models/FraudAssessment.html">FraudAssessment</a>. <br />  <br />  The Case is meant to be handled by a human interacting with the Fraudpointer Application. When a Case is created, it has  an &quot;Open&quot; status (unless you have rules in your Fraudpointer application configuration that automatically put them in other statuses).</div>
+					</dd>
+		</dl>
+	<a name="m"></a>
+	<div class="index-letter-section">
+		<div style="float: left" class="index-letter-title">m</div>
+		<div style="float: right"><a href="#top">top</a></div>
+		<div style="clear: both"></div>
+	</div>
+	<dl>
+			<dt class="field">
+						<span class="include-title">main_example.php</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="Fraudpointer PHP Demo Application/_examples---main_example.php.html">main_example.php</a> in main_example.php</div>
+					</dd>
+			<dt class="field">
+						<span class="method-title">Main</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="Fraudpointer PHP Demo Application/_examples---main_example.php.html#functionMain">Main()</a> in main_example.php</div>
 					</dd>
 		</dl>
 	<a name="n"></a>
@@ -530,6 +601,12 @@
 			<div class="index-item-details"><a href="Fraudpointer-API-Models/_Fraudpointer---API---Models---Profile.php.html">Profile.php</a> in Profile.php</div>
 					</dd>
 			<dt class="field">
+						<span class="method-title">PrintFraudAssessmentDetails</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="Fraudpointer PHP Demo Application/_examples---main_example.php.html#functionPrintFraudAssessmentDetails">PrintFraudAssessmentDetails()</a> in main_example.php</div>
+					</dd>
+			<dt class="field">
 						Profile
 					</dt>
 		<dd class="index-item-body">
@@ -545,6 +622,13 @@
 	</div>
 	<dl>
 			<dt class="field">
+						<span class="var-title">$resolution</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="Fraudpointer-API-Models/Kase.html#var$resolution">Kase::$resolution</a> in Case.php</div>
+							<div class="index-item-description">The Resolution of a Case as set by human (or automatically according to Fraudpointer application configuration). <br /></div>
+					</dd>
+			<dt class="field">
 						<span class="var-title">$result</span>
 					</dt>
 		<dd class="index-item-body">
@@ -555,7 +639,7 @@
 						<span class="include-title">RESTclient.php</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="FraudPointer-API-Clients/_Fraudpointer---API---Clients---RESTclient.php.html">RESTclient.php</a> in RESTclient.php</div>
+			<div class="index-item-details"><a href="Fraudpointer-API-Clients/_Fraudpointer---API---Clients---RESTclient.php.html">RESTclient.php</a> in RESTclient.php</div>
 					</dd>
 			<dt class="field">
 						<span class="include-title">RequestKey.php</span>
@@ -580,18 +664,21 @@
 					</dt>
 		<dd class="index-item-body">
 			<div class="index-item-details"><a href="Fraudpointer-API-RequestWrappers/RequestKey.html">RequestKey</a> in RequestKey.php</div>
+							<div class="index-item-description">Whatever we send over to Fraudpointer Server needs to have the api key. So <a href="Fraudpointer-API-Models/Event.html">Event</a> and <a href="Fraudpointer-API-Models/FraudAssessment.html">FraudAssessment</a> need to be wrapped before serialization to <kbd>json</kbd> format and sent over with the api key. And this class is the parent class that will hold the api key part. <br />  <br />  <strong>Note:</strong><a href="Fraudpointer-API/ClientFactory.html#methodConstruct">ClientFactory::Construct()</a> method returns an object that implements <a href="Fraudpointer-API/IClient.html">IClient</a> interface  and hides all the complexity of sending to and receiving data from Fraudpointer Server. If you use this object, you will not be worry about internals of communications.</div>
 					</dd>
 			<dt class="field">
 						RequestKeyAndEvent
 					</dt>
 		<dd class="index-item-body">
 			<div class="index-item-details"><a href="Fraudpointer-API-RequestWrappers/RequestKeyAndEvent.html">RequestKeyAndEvent</a> in RequestKeyAndEvent.php</div>
+							<div class="index-item-description"><a href="Fraudpointer-API-Models/Event.html">Event</a> needs to be wrapped before serialization to <kbd>json</kbd> format.This class helps carry out this wrapping. <br />  <br />  <strong>Note:</strong><a href="Fraudpointer-API/ClientFactory.html#methodConstruct">ClientFactory::Construct()</a> method returns an object that implements <a href="Fraudpointer-API/IClient.html">IClient</a> interface  and hides all the complexity of sending to and receiving data from Fraudpointer Server. If you use this object, you will not be worry about internals of communications.</div>
 					</dd>
 			<dt class="field">
 						RequestKeyAndFraudAssessment
 					</dt>
 		<dd class="index-item-body">
 			<div class="index-item-details"><a href="Fraudpointer-API-RequestWrappers/RequestKeyAndFraudAssessment.html">RequestKeyAndFraudAssessment</a> in RequestKeyAndFraudAssessment.php</div>
+							<div class="index-item-description"><a href="Fraudpointer-API-Models/FraudAssessment.html">FraudAssessment</a> needs to be wrapped before serialization to <kbd>json</kbd> format.This class helps carry out this wrapping. <br />  <br />  <strong>Note:</strong><a href="Fraudpointer-API/ClientFactory.html#methodConstruct">ClientFactory::Construct()</a> method returns an object that implements <a href="Fraudpointer-API/IClient.html">IClient</a> interface  and hides all the complexity of sending to and receiving data from Fraudpointer Server. If you use this object, you will not be worry about internals of communications.</div>
 					</dd>
 			<dt class="field">
 						<span class="method-title">ResetSessionVars</span>
@@ -603,7 +690,7 @@
 						RESTClient
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="FraudPointer-API-Clients/RESTClient.html">RESTClient</a> in RESTclient.php</div>
+			<div class="index-item-details"><a href="Fraudpointer-API-Clients/RESTClient.html">RESTClient</a> in RESTclient.php</div>
 					</dd>
 		</dl>
 	<a name="s"></a>
@@ -619,6 +706,13 @@
 		<dd class="index-item-body">
 			<div class="index-item-details"><a href="Fraudpointer-API-Models/FraudAssessment.html#var$score">FraudAssessment::$score</a> in FraudAssessment.php</div>
 							<div class="index-item-description">The Score of the Fraud Assessment.</div>
+					</dd>
+			<dt class="field">
+						<span class="var-title">$status</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="Fraudpointer-API-Models/Kase.html#var$status">Kase::$status</a> in Case.php</div>
+							<div class="index-item-description">Case status. <br /></div>
 					</dd>
 			<dt class="field">
 						<span class="method-title">SendDataToBankForCharging</span>
@@ -640,6 +734,35 @@
 		<dd class="index-item-body">
 			<div class="index-item-details"><a href="Fraudpointer-API-Models/Event.html#var$type">Event::$type</a> in Event.php</div>
 							<div class="index-item-description">Event Type to send to the server for event creation</div>
+					</dd>
+		</dl>
+	<a name="u"></a>
+	<div class="index-letter-section">
+		<div style="float: left" class="index-letter-title">u</div>
+		<div style="float: right"><a href="#top">top</a></div>
+		<div style="clear: both"></div>
+	</div>
+	<dl>
+			<dt class="field">
+						<span class="var-title">$updated_at</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="Fraudpointer-API-Models/Profile.html#var$updated_at">Profile::$updated_at</a> in Profile.php</div>
+							<div class="index-item-description">Last time the Profile was updated</div>
+					</dd>
+			<dt class="field">
+						<span class="var-title">$updated_at</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="Fraudpointer-API-Models/FraudAssessment.html#var$updated_at">FraudAssessment::$updated_at</a> in FraudAssessment.php</div>
+							<div class="index-item-description">Last time Case was updated</div>
+					</dd>
+			<dt class="field">
+						<span class="var-title">$updated_at</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="Fraudpointer-API-Models/Kase.html#var$updated_at">Kase::$updated_at</a> in Case.php</div>
+							<div class="index-item-description">Last time the Case was updated</div>
 					</dd>
 		</dl>
 	<a name="_"></a>
@@ -675,11 +798,13 @@
 	<a class="index-letter" href="elementindex.html#h">h</a>
 	<a class="index-letter" href="elementindex.html#i">i</a>
 	<a class="index-letter" href="elementindex.html#k">k</a>
+	<a class="index-letter" href="elementindex.html#m">m</a>
 	<a class="index-letter" href="elementindex.html#n">n</a>
 	<a class="index-letter" href="elementindex.html#p">p</a>
 	<a class="index-letter" href="elementindex.html#r">r</a>
 	<a class="index-letter" href="elementindex.html#s">s</a>
 	<a class="index-letter" href="elementindex.html#t">t</a>
+	<a class="index-letter" href="elementindex.html#u">u</a>
 	<a class="index-letter" href="elementindex.html#_">_</a>
 </div>	</body>
 </html>

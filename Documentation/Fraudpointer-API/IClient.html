@@ -22,63 +22,12 @@
 	<div class="info-box-body">
         		<!-- ========== Info from phpDoc block ========= -->
 <p class="short-description">Fraudpointer.API.IClient is the interface that each PHP client should implement in order to be used as a client proxy to access  FraudPointer Service. <br /><strong>Important Note:</strong> Fraudpointer PHP client library comes with a ready to use implementation of this  service. You need to use Fraudpointer.API.ClientFactory to instantiate this implementation and start using FraudPointer Service.</p>
-<p class="description"><p>As a user of the FraudPointer Client Library you should declare a variable of IClient type and then use  ClientFactory::Construct() to get an instance of a class that implements this interface.</p><p>Below, you can see a sample client that uses IClient to communicate with FraudPointer Server:</p><p><div class="src-code"><ol><li><div class="src-line">&nbsp;<span class="src-key">function&nbsp;</span><a href="../Fraudpointer PHP Demo Application/_helpers---Application.php.html#functionBaseUrl">BaseUrl</a>&nbsp;<span class="src-sym">(</span><span class="src-sym">)&nbsp;</span><span class="src-sym">{</span></div></li>
-<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">return&nbsp;</span><span class="src-str">&quot;https://production.fraudpointer.com/api/assessment_sessions&quot;</span><span class="src-sym">;</span></div></li>
-<li><div class="src-line">&nbsp;<span class="src-sym">}&nbsp;</span><span class="src-comm">//&nbsp;BaseUrl&nbsp;()</span></div></li>
-<li><div class="src-line">&nbsp;<span class="src-comm">//--------------</span></div></li>
-<li><div class="src-line">&nbsp;</div></li>
-<li><div class="src-line">&nbsp;<span class="src-key">function&nbsp;</span><a href="../Fraudpointer PHP Demo Application/_helpers---Application.php.html#functionApiKey">ApiKey</a>&nbsp;<span class="src-sym">(</span><span class="src-sym">)&nbsp;</span><span class="src-sym">{</span></div></li>
-<li><div class="src-line">&nbsp;&nbsp;<span class="src-key">return&nbsp;</span><span class="src-str">&quot;45440beccd884ddsa688asdfasda18b09&quot;</span><span class="src-sym">;</span></div></li>
-<li><div class="src-line">&nbsp;<span class="src-sym">}&nbsp;</span><span class="src-comm">//&nbsp;ApiKey&nbsp;()</span></div></li>
-<li><div class="src-line">&nbsp;<span class="src-comm">//-------------</span></div></li>
-<li><div class="src-line">&nbsp;</div></li>
-<li><div class="src-line">&nbsp;<span class="src-key">function&nbsp;</span><span class="src-id">Main</span><span class="src-sym">(</span><span class="src-sym">)</span></div></li>
-<li><div class="src-line">&nbsp;<span class="src-sym">{</span></div></li>
-<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-comm">//&nbsp;Instantiate&nbsp;the&nbsp;client&nbsp;object&nbsp;that&nbsp;implements&nbsp;the&nbsp;IClient&nbsp;interface</span></div></li>
-<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-comm">//</span></div></li>
-<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$client&nbsp;</span>=&nbsp;\<span class="src-id">FraudPointer</span>\<span class="src-id">API</span>\<span class="src-id"><a href="../Fraudpointer-API/ClientFactory.html">ClientFactory</a></span><span class="src-sym">::</span><a href="../Fraudpointer-API/ClientFactory.html#methodConstruct">Construct</a><span class="src-sym">(</span><a href="../Fraudpointer PHP Demo Application/_helpers---Application.php.html#functionBaseUrl">BaseUrl</a><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">,&nbsp;</span><a href="../Fraudpointer PHP Demo Application/_helpers---Application.php.html#functionApiKey">ApiKey</a><span class="src-sym">(</span><span class="src-sym">))</span><span class="src-sym">;</span></div></li>
-<li><div class="src-line">&nbsp;</div></li>
-<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-comm">//&nbsp;1st&nbsp;STEP:&nbsp;Create&nbsp;Assessment&nbsp;Session.&nbsp;This&nbsp;goes&nbsp;to&nbsp;the&nbsp;FraudPointer&nbsp;Server&nbsp;and&nbsp;gets&nbsp;back&nbsp;an</span></div></li>
-<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-comm">//&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Assessment&nbsp;Session&nbsp;object</span></div></li>
-<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-comm">//</span></div></li>
-<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$assessment_session&nbsp;</span>=&nbsp;<span class="src-var">$client</span><span class="src-sym">-&gt;</span><a href="../Fraudpointer-API/IClient.html#methodCreateAssessmentSession">CreateAssessmentSession</a><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
-<li><div class="src-line">&nbsp;</div></li>
-<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-comm">//&nbsp;2nd&nbsp;STEP:&nbsp;Create&nbsp;an&nbsp;Event&nbsp;object&nbsp;of&nbsp;&quot;Generic&quot;&nbsp;Type.</span></div></li>
-<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-comm">//</span></div></li>
-<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$event&nbsp;</span>=&nbsp;<span class="src-key">new&nbsp;</span>\<span class="src-id">Fraudpointer</span>\<span class="src-id">API</span>\<span class="src-id">Models</span>\<span class="src-id"><a href="../Fraudpointer-API-Models/Event.html">Event</a></span><span class="src-sym">(</span>\<span class="src-id">Fraudpointer</span>\<span class="src-id">API</span>\<span class="src-id">Models</span>\<span class="src-id"><a href="../Fraudpointer-API-Models/Event.html">Event</a></span><span class="src-sym">::</span><span class="src-var">$GENERIC_EVENT</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
-<li><div class="src-line">&nbsp;</div></li>
-<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-comm">//&nbsp;3rd&nbsp;STEP:&nbsp;Add&nbsp;data&nbsp;to&nbsp;the&nbsp;created&nbsp;Event</span></div></li>
-<li><div class="src-line">&nbsp;</div></li>
-<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$event</span>.<a href="../Fraudpointer-API-Models/Event.html#methodAddData">AddData</a><span class="src-sym">(</span><span class="src-str">&quot;BookingCode&quot;</span><span class="src-sym">,&nbsp;</span><span class="src-str">&quot;B2YB32&quot;</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
-<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$event</span>.<span class="src-id">AddData</span><span class="src-sym">(</span><span class="src-str">&quot;StartDate&quot;</span><span class="src-sym">,&nbsp;</span><span class="src-str">&quot;20110322&quot;</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
-<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$event</span>.<span class="src-id">AddData</span><span class="src-sym">(</span><span class="src-str">&quot;ReservationDate&quot;</span><span class="src-sym">,&nbsp;</span><span class="src-str">&quot;20110321&quot;</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
-<li><div class="src-line">&nbsp;</div></li>
-<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-comm">//&nbsp;4th&nbsp;STEP:&nbsp;Send&nbsp;Event&nbsp;to&nbsp;FraudPointer&nbsp;Server&nbsp;to&nbsp;store&nbsp;it&nbsp;in&nbsp;the&nbsp;database</span></div></li>
-<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-comm">//&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alongside&nbsp;with&nbsp;the&nbsp;already&nbsp;stored&nbsp;AssessmentSession</span></div></li>
-<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-comm">//</span></div></li>
-<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$client</span>.<a href="../Fraudpointer-API/IClient.html#methodAppendEventToAssessmentSession">AppendEventToAssessmentSession</a><span class="src-sym">(</span><span class="src-var">$assessmentSession</span><span class="src-sym">,&nbsp;</span><span class="src-var">$event</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
-<li><div class="src-line">&nbsp;</div></li>
-<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-comm">//&nbsp;Repeat&nbsp;step&nbsp;3&nbsp;and&nbsp;4.&nbsp;Note&nbsp;that&nbsp;you&nbsp;can&nbsp;create&nbsp;as&nbsp;many&nbsp;Events&nbsp;as&nbsp;you&nbsp;like&nbsp;for&nbsp;the</span></div></li>
-<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-comm">//&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;same&nbsp;Assessment&nbsp;Session</span></div></li>
-<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-comm">//</span></div></li>
-<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$event&nbsp;</span>=&nbsp;<span class="src-key">new&nbsp;</span>\<span class="src-id">Fraudpointer</span>\<span class="src-id">API</span>\<span class="src-id">Models</span>\<span class="src-id"><a href="../Fraudpointer-API-Models/Event.html">Event</a></span><span class="src-sym">(</span>\<span class="src-id">Fraudpointer</span>\<span class="src-id">API</span>\<span class="src-id">Models</span>\<span class="src-id"><a href="../Fraudpointer-API-Models/Event.html">Event</a></span><span class="src-sym">::</span><span class="src-var">$FAILED_PAYMENT</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
-<li><div class="src-line">&nbsp;</div></li>
-<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$event</span>.<a href="../Fraudpointer-API-Models/Event.html#methodAddDateData">AddDateData</a><span class="src-sym">(</span><span class="src-str">&quot;AttemptDate&quot;</span><span class="src-sym">,&nbsp;</span><a href="http://www.php.net/time">time</a><span class="src-sym">(</span><span class="src-sym">))</span><span class="src-sym">;</span></div></li>
-<li><div class="src-line">&nbsp;</div></li>
-<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$event</span>.<span class="src-id">AddData</span><span class="src-sym">(</span><span class="src-str">&quot;BILLING_ADDRESS_STREE_NAME&quot;</span><span class="src-sym">,&nbsp;</span><span class="src-str">&quot;Othonos&quot;</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
-<li><div class="src-line">&nbsp;</div></li>
-<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$client</span>.<a href="../Fraudpointer-API/IClient.html#methodAppendEventToAssessmentSession">AppendEventToAssessmentSession</a><span class="src-sym">(</span><span class="src-var">$assessmentSession</span><span class="src-sym">,&nbsp;</span><span class="src-var">$event</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
-<li><div class="src-line">&nbsp;</div></li>
-<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-comm">//&nbsp;5th&nbsp;STEP:&nbsp;Ask&nbsp;FraudPointer&nbsp;Server&nbsp;to&nbsp;carry&nbsp;out&nbsp;a&nbsp;Fraud&nbsp;Assessment.&nbsp;This&nbsp;is&nbsp;the&nbsp;real&nbsp;value</span></div></li>
-<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-comm">//&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;of&nbsp;the&nbsp;Service&nbsp;because&nbsp;it&nbsp;can&nbsp;tell&nbsp;you&nbsp;real&nbsp;time&nbsp;about&nbsp;the&nbsp;fraud&nbsp;risk&nbsp;of&nbsp;the</span></div></li>
-<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-comm">//&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;transaction&nbsp;that&nbsp;you&nbsp;are&nbsp;trying&nbsp;to&nbsp;handle.</span></div></li>
-<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-comm">//</span></div></li>
-<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$fa&nbsp;</span>=&nbsp;<span class="src-var">$client</span>.<a href="../Fraudpointer-API/IClient.html#methodCreateFraudAssessment">CreateFraudAssessment</a><span class="src-sym">(</span><span class="src-var">$assessmentSession</span><span class="src-sym">,&nbsp;</span><span class="src-id">false</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
-<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">return&nbsp;</span><span class="src-var">$fa</span>.<span class="src-id">score</span><span class="src-sym">;</span></div></li>
-<li><div class="src-line">&nbsp;&nbsp;&nbsp;<span class="src-sym">}</span></div></li>
-</ol></div></p></p>
+<p class="description"><p>As a user of the FraudPointer Client Library you should declare a variable of IClient type and then use  ClientFactory::Construct() to get an instance of a class that implements this interface.</p><p>Below, you can see a sample client that uses IClient to communicate with FraudPointer Server:</p></p>
+	<ul class="tags">
+				<li><span class="field">example:</span> <a href="../__examplesource/exsource_ple.com_fraudpointer-php_examples_main_example.php_cba213300ae98cfb7ad3e9865b6fd67d.html">A Console application that can be used to play with API</a></li>
+			</ul>
 		<p class="notes">
-			Located in <a class="field" href="_Fraudpointer---API---IClient.php.html">/Fraudpointer/API/IClient.php</a> (line <span class="field">74</span>)
+			Located in <a class="field" href="_Fraudpointer---API---IClient.php.html">/Fraudpointer/API/IClient.php</a> (line <span class="field"><a href="../__filesource/fsource_Fraudpointer-API__FraudpointerAPIIClient.php.html#a19">19</a></span>)
 		</p>
 		
 				
@@ -99,7 +48,7 @@
 		</div>
 		<div class="info-box-body">			
 			<div class="method-summary">
-																																				
+																																												
 												<div class="method-definition">
 											<span class="method-result"><a href="../Fraudpointer-API-Models/Event.html">Event</a></span>
 										<a href="#AppendEventToAssessmentSession" title="details" class="method-name">AppendEventToAssessmentSession</a>
@@ -111,14 +60,19 @@
 										()
 									</div>
 																<div class="method-definition">
-											<span class="method-result">void</span>
+											<span class="method-result"><a href="../Fraudpointer-API-Models/FraudAssessment.html">FraudAssessment</a></span>
 										<a href="#CreateFraudAssessment" title="details" class="method-name">CreateFraudAssessment</a>
-											(<span class="var-type"><a href="../Fraudpointer-API-Models/AssessmentSession.html">AssessmentSession</a></span>&nbsp;<span class="var-name">$assessment_session</span>, <span class="var-type">boolean</span>&nbsp;<span class="var-name">$interim</span>, <span class="var-type"><a href="../Fraudpointer-API-Models/FraudAssessment.html">FraudAssessment</a></span>&nbsp;<span class="var-name">2</span>)
+											(<span class="var-type"><a href="../Fraudpointer-API-Models/AssessmentSession.html">AssessmentSession</a></span>&nbsp;<span class="var-name">$assessment_session</span>, <span class="var-type">boolean</span>&nbsp;<span class="var-name">$interim</span>)
 									</div>
 																<div class="method-definition">
 											<span class="method-result">string</span>
 										<a href="#CreditCardHash" title="details" class="method-name">CreditCardHash</a>
 											(<span class="var-type">string</span>&nbsp;<span class="var-name">$credit_card_number</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result"><a href="../Fraudpointer-API-Models/FraudAssessment.html">FraudAssessment</a></span>
+										<a href="#GetFraudAssessment" title="details" class="method-name">GetFraudAssessment</a>
+											(<span class="var-type"><a href="../Fraudpointer-API-Models/AssessmentSession.html">AssessmentSession</a></span>&nbsp;<span class="var-name">$assessment_session</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$fraud_assessment_id</span>)
 									</div>
 								</div>
 		</div>
@@ -137,15 +91,17 @@
 			<A NAME='method_detail'></A>
 
 <a name="methodAppendEventToAssessmentSession" id="AppendEventToAssessmentSession"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">AppendEventToAssessmentSession</span> (line <span class="line-number">86</span>)
+		<span class="method-title">AppendEventToAssessmentSession</span> (line <span class="line-number"><a href="../__filesource/fsource_Fraudpointer-API__FraudpointerAPIIClient.php.html#a54">54</a></span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Appends an Event to an AssessmentSession object. <br /></p>
+<p class="description"><p><br />  This method also communicates with the FraudPointer Server, which will store all Event data alongside with the AssessmentSession  given.<br />  <br />  You can call this method as many times as you want (as long as you pass a new Event on each call).  It is actually recommended to do so. In other words, it is recommended to create various Events, of  various types and send them to FraudPointer to be stored against an AssessmentSession.  <br /></p></p>
 	<ul class="tags">
-				<li><span class="field">return:</span> An object of type Event.</li>
+				<li><span class="field">return:</span> An object of type Event as returned by the FraudPointer Server.<br />  <br />  Method always returns a valid object, unless an exception is thrown.  It may throw a ClientException if an error occurs</li>
 				<li><span class="field">access:</span> public</li>
 			</ul>
 	
@@ -160,24 +116,26 @@
 			<ul class="parameters">
 					<li>
 				<span class="var-type"><a href="../Fraudpointer-API-Models/AssessmentSession.html">AssessmentSession</a></span>
-				<span class="var-name">$assessment_session</span><span class="var-description">: Parameter of type AssessmentSession.</span>			</li>
+				<span class="var-name">$assessment_session</span><span class="var-description">: Should be constructed with a call to createAssessmentSession()</span>			</li>
 					<li>
 				<span class="var-type"><a href="../Fraudpointer-API-Models/Event.html">Event</a></span>
-				<span class="var-name">$param_event</span><span class="var-description">: Parameter of type Event.</span>			</li>
+				<span class="var-name">$param_event</span><span class="var-description">: Should be constructed with a call to new Event(event_type)</span>			</li>
 				</ul>
 		
 			
 	</div>
 <a name="methodCreateAssessmentSession" id="CreateAssessmentSession"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">CreateAssessmentSession</span> (line <span class="line-number">79</span>)
+		<span class="method-title">CreateAssessmentSession</span> (line <span class="line-number"><a href="../__filesource/fsource_Fraudpointer-API__FraudpointerAPIIClient.php.html#a34">34</a></span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Communicates with FraudPointer Server and gets back a ready to use AssessmentSession object.This is the first method that you should call. <br /></p>
+<p class="description"><p><br />  It should be used as soon as you want to start using the FraudPointer service. Without an AssessmentSession object  you cannot do anything.<br />  <br /></p></p>
 	<ul class="tags">
-				<li><span class="field">return:</span> An object of type AssessmentSession.</li>
+				<li><span class="field">return:</span> An object of type AssessmentSession as returned by FraudPointer Server. Object should contain the AssessmentSession.id  that uniquely identifies this AssessmentSession. You should use this AssessmentSession.id in whichever place the  AssessmentSession id is required.<br />  <br />  Method always returns a valid object, unless an exception is thrown.  It may throw a ClientException if an error occurs</li>
 				<li><span class="field">access:</span> public</li>
 			</ul>
 	
@@ -193,49 +151,51 @@
 			
 	</div>
 <a name="methodCreateFraudAssessment" id="CreateFraudAssessment"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">CreateFraudAssessment</span> (line <span class="line-number">93</span>)
+		<span class="method-title">CreateFraudAssessment</span> (line <span class="line-number"><a href="../__filesource/fsource_Fraudpointer-API__FraudpointerAPIIClient.php.html#a98">98</a></span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">This method should be called in order to evaluate the fraud level of an AssessmentSession. <br /></p>
+<p class="description"><p><br />  This method should be called after having sent to FraudPointer Server one or more Events. It is used  to evaluate the fraud risk of the AssessmentSession. Note that you can ask multiple interim  Fraud Assessments, but you can only ask for one final (non-interim) Fraud Assessment. Interim Fraud Assessments  can be requested in a cycle of interactions with the FraudPointer Server such as the following:<br />  <br />  <ul><li>create assessment session</li><li>create event</li><li>add data to event</li><li>add data to event</li><li>...</li><li>add data to event</li><li>append event to assessment session</li><li>create another event</li><li>add data to new event</li><li>add data to new event</li><li>...</li><li>add data to new event</li><li>append new event to assessment session</li><li>create interim fraud assessment</li><li>create one more event</li><li>add data to last created event</li><li>add data to last created event</li><li>...</li><li>add data to last created event</li><li>append last created event to assessment session</li><li>create interim fraud assessment</li><li>....</li><li>create final (non</li><li>interim) fraud assessment</li></ul>  <br />  The last and only final (non-interim) fraud assessment will also create a CASE in FraudPointer Application.  <br /></p></p>
 	<ul class="tags">
+				<li><span class="field">return:</span> A FraudAssessment valid object filled in with information returned by FraudPointer Server. It contains the Fraud  Assessment Result. It may throw a ClientException if an error occurs</li>
 				<li><span class="field">access:</span> public</li>
 			</ul>
 	
 	<div class="method-signature">
-		<span class="method-result">void</span>
+		<span class="method-result"><a href="../Fraudpointer-API-Models/FraudAssessment.html">FraudAssessment</a></span>
 		<span class="method-name">
 			CreateFraudAssessment
 		</span>
-					(<span class="var-type"><a href="../Fraudpointer-API-Models/AssessmentSession.html">AssessmentSession</a></span>&nbsp;<span class="var-name">$assessment_session</span>, <span class="var-type">boolean</span>&nbsp;<span class="var-name">$interim</span>, <span class="var-type"><a href="../Fraudpointer-API-Models/FraudAssessment.html">FraudAssessment</a></span>&nbsp;<span class="var-name">2</span>)
+					(<span class="var-type"><a href="../Fraudpointer-API-Models/AssessmentSession.html">AssessmentSession</a></span>&nbsp;<span class="var-name">$assessment_session</span>, <span class="var-type">boolean</span>&nbsp;<span class="var-name">$interim</span>)
 			</div>
 	
 			<ul class="parameters">
 					<li>
 				<span class="var-type"><a href="../Fraudpointer-API-Models/AssessmentSession.html">AssessmentSession</a></span>
-				<span class="var-name">$assessment_session</span>			</li>
+				<span class="var-name">$assessment_session</span><span class="var-description">: A valid AssessmentSession, previously created with createAssessmentSession()</span>			</li>
 					<li>
 				<span class="var-type">boolean</span>
-				<span class="var-name">$interim</span>			</li>
-					<li>
-				<span class="var-type"><a href="../Fraudpointer-API-Models/FraudAssessment.html">FraudAssessment</a></span>
-				<span class="var-name">2</span>			</li>
+				<span class="var-name">$interim</span><span class="var-description">: A boolean value true or false. If true, then an interim FraudAssessment will be created.  If false, a final (non-interim) FraudAssessment will be created</span>			</li>
 				</ul>
 		
 			
 	</div>
 <a name="methodCreditCardHash" id="CreditCardHash"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">CreditCardHash</span> (line <span class="line-number">99</span>)
+		<span class="method-title">CreditCardHash</span> (line <span class="line-number"><a href="../__filesource/fsource_Fraudpointer-API__FraudpointerAPIIClient.php.html#a115">115</a></span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Use this method to generate a hash of a credit card number. Use the generated hash to send the encrypted credit card number to FraudPointer Server instead of the credit card number itself. <br /></p>
+<p class="description"><p><br />  FraudPointer Server tries to identify the existence of the same credit card number in various transactions. These  transactions either take place during the same session or take place in different sessions, but at the same time, or  took place in a session in the past. However, FraudPointer Server does not want to store the credit card numbers in clear format  and it does not need to do that in order to accomplish its goal. Hence, you need to encrypt them using the method provided here.  Note that hash is one-way encryption method and FraudPointer Server cannot derive the credit card number from the hash.  <br />  This method does not communicate with the FraudPointer Server to generate the hash. Works locally.<br />  <br /></p></p>
 	<ul class="tags">
-				<li><span class="field">return:</span> The Credit Card hash that you should send over to FraudPointer Server.</li>
+				<li><span class="field">return:</span> The hash of the credit card number. Note that if an empty string is returned, then something has gone wrong during the encryption.  in that case, method throws a ClientException.</li>
 				<li><span class="field">access:</span> public</li>
 			</ul>
 	
@@ -250,7 +210,41 @@
 			<ul class="parameters">
 					<li>
 				<span class="var-type">string</span>
-				<span class="var-name">$credit_card_number</span><span class="var-description">: The Credit Card number in clear format.</span>			</li>
+				<span class="var-name">$credit_card_number</span><span class="var-description">: The credit card number that you want to get its hash value.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodGetFraudAssessment" id="GetFraudAssessment"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">GetFraudAssessment</span> (line <span class="line-number"><a href="../__filesource/fsource_Fraudpointer-API__FraudpointerAPIIClient.php.html#a129">129</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Communicates with server and gets back to you a full FraudAssessment object that  has been previously created with a call to CreateFraudAssessment.</p>
+<p class="description"><p>You can use this method to request from server a 'reload' of a FraudAssessment object  that you already own. This logical reload might bare extra information within it. Especially,  information about the Case and its Resolution.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> The FraudAssessment object requested.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../Fraudpointer-API-Models/FraudAssessment.html">FraudAssessment</a></span>
+		<span class="method-name">
+			GetFraudAssessment
+		</span>
+					(<span class="var-type"><a href="../Fraudpointer-API-Models/AssessmentSession.html">AssessmentSession</a></span>&nbsp;<span class="var-name">$assessment_session</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$fraud_assessment_id</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../Fraudpointer-API-Models/AssessmentSession.html">AssessmentSession</a></span>
+				<span class="var-name">$assessment_session</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$fraud_assessment_id</span>			</li>
 				</ul>
 		
 			
@@ -261,7 +255,7 @@
 
 
 	<p class="notes" id="credit">
-		Documentation generated on Thu, 14 Jul 2011 17:03:11 +0300 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+		Documentation generated on Fri, 05 Aug 2011 13:01:23 +0300 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
 	</p>
 	</div></body>
 </html>

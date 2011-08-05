@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title></title>
+			<link rel="stylesheet" href="media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+						<h1 align="center">Device-Fingerprinting</h1>
+<pre>
+-------------------------------------
+Device Fingerprinting
+-------------------------------------
+
+FraudPointer Server has been designed to identify the device that is connected to your server and is using
+your e-shop. We can identify it with pretty much high accurracy. This section describes what you have to do
+in order to allow FraudPointer Server to work towards this target.
+
+&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; HTML Output &lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;
+
+After having created an AssessmentSession, you need to serve your customer the html page with a javascript 
+reference to FraudPointer &quot;fp.js&quot; script. Hence, the resulting html output of your, probably, dynamic .php 
+page should give something like that:
+
+/////////////////////
+&lt;head&gt;
+ ......
+ &lt;script language=&quot;javascript&quot; type=&quot;text/javascript&quot; src=&quot;https://production.fraudpointer.com/fp.js&quot;&gt;&lt;/script&gt;
+ ......
+&lt;/head&gt;
+/////////////////////
+
+This script defines the &quot;fraudpointer.fp()&quot; function that you need to call at some point in time. A suggestion
+is to call it after your document is loaded. You can do that as follows:
+
+/////////////////////
+&lt;script language=&quot;javascript&quot; type=&quot;text/javascript&quot;&gt;
+window.onload = function() {
+  fraudpointer.fp(.......);
+}
+&lt;/script&gt;
+/////////////////////
+
+The point here is that you have to pass there the DOM identifier of an input tag of type hidden. Which by return
+needs to hold the value of the Assessment Session id. Assuming that this hidden input has DOM identifier &quot;fp_sid&quot;, 
+then the above snippet becomes:
+
+/////////////////////
+&lt;script language=&quot;javascript&quot; type=&quot;text/javascript&quot;&gt;
+window.onload = function() {
+  fraudpointer.fp('fp_sid');
+}
+&lt;/script&gt;
+/////////////////////
+
+We have said that this fp_sid html element needs to have as value the id of the AssessmentSession. Assuming that this is,
+for example, &quot;34567&quot;, html needs to have something like the following, somewhere in its body:
+
+/////////////////////
+...
+&lt;input type='hidden' id='fp_sid' value='34567'/&gt;
+...
+/////////////////////
+
+Summing up, the html output sent to your customer's computer has to contain content similar to the following:
+
+/////////////////////
+&lt;html&gt;
+&lt;head&gt;
+        .... other head stuff goes here .....
+        &lt;script language=&quot;javascript&quot; type=&quot;text/javascript&quot; src=&quot;https://production.fraudpointer.com/fp.js&quot;&gt;&lt;/script&gt;
+        &lt;script&gt;
+                window.onload = function() {
+                        fraudpointer.fp('fp_sid');
+                }
+        &lt;/script&gt;
+        ..... other head stuff goes here .....
+&lt;/head&gt;
+&lt;body&gt;
+ .... other body elements go here .....
+ &lt;input type=&quot;hidden&quot; id=&quot;fp_sid&quot; value=&quot;34567&quot;/&gt;
+ .... other body elements go here .....
+&lt;/body&gt;
+&lt;/html&gt;
+/////////////////////
+
+&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; Hint &lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;
+
+Using jQuery:
+
+If you are using jQuery you can always call &quot;fraudpointer.fp()&quot; function on your document ready handler. So, instead 
+of writing something like &quot;window.onload = function () {.....}&quot; as we had above, you can write something like:
+
+/////////////////////
+&lt;script language=&quot;javascript&quot; type=&quot;text/javascript&quot;&gt;
+$(document).ready(function() {
+    fraudpointer.fp($('#fp_sid').val());
+});
+&lt;/script&gt;
+/////////////////////
+
+
+</pre>
+	<p class="notes" id="credit">
+		Documentation generated on Fri, 05 Aug 2011 13:01:20 +0300 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+	</p>
+	</body>
+</html>

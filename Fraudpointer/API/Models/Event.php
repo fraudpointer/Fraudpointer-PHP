@@ -217,29 +217,37 @@ class Event {
 
         /**
         * Adds one datum to the particular Models.Event. The datum is actually a value of an Attribute and 
-        * value given is a <kbd>timestamp</kbd> instance.
+        * value given is a <kbd>timestamp</kbd> instance. 
         *
-        * Use this method if you want to add a datum of type <kbd>DateTime</kbd> in your Event at hand.
+        * Use this method if you want to add a datum of type <kbd>timestamp</kbd> in your Event at hand.
         * 
         * Here is an example:
         * <code>
         * $event = new \Fraudpointer\API\Models\Event(\Fraudpointer\API\Models\Event::$CHECKOUT_EVENT);
         * $event.AddDateData("PURCHASE_DATE", time());
+        * </code>        
+        * And another example:
+        * <code>
+        * $start_date_timestamp = strtotime("2011-08-05T10:42:00+03:00"); # format is ISO 8601 compliant       
+        * $event->AddDateData("StartDate", $start_date_timestamp);
         * </code>
-        * Internally, the <kbd>timestmp</kbd> is converted to a string representation that follows the 
-        * expanded version of the standard ISO 8601. Hence, the example given above will be converted to something like
+        * Internally, the <kbd>timestamp</kbd> is converted to a string representation that follows the 
+        * expanded version of the standard ISO 8601. Hence, in the first example given above, timestamp argument will be converted to something like
         * <kbd>"2011-05-27T23:15:30+03:00"</kbd> if the local time zone is 3 hours ahead of UTC.
         * 
         * @param string $key KEY value of the Attribute that you want to use. The Attributes are either System
         * or Custom Account Attributes. The Custom Account Attributes
         * should be given to you by the person who has created them in the FraudPointer Application.
         *
-        * @param timestamp $timestamp_value Value of the Attribute. A <kbd>timestamp</kbd> instance should be given.
+        * @param timestamp $timestamp_value Value of the Attribute. A <kbd>timestamp</kbd> instance should be given. It is your responsibility
+        * to generate timestamps that are uniform with respect to timezones and daylight savings. For example, the time() php function and the
+        * DateTime->getTimestamp() method of DateTime do not return the same timestamps. 
+        * 
         * @return Event The current Event instance, in order to continue adding items.
         */
 	public function AddDateData ($key, $timestamp_value) {		
 		// It should be stored in ISO 8601/RFC3339 format "YYYY-MM-DDTHH:MM:SS(+/-)HH:MM		
-		$this->data[$key] = date("c", $timestamp_value);						
+		$this->data[$key] = gmdate("c", $timestamp_value);						
 	} // AddDateData ()
 	//--------------------
 	

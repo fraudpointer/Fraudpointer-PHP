@@ -14,7 +14,6 @@
 	<ul>
 				<li><a href="elementindex_Fraudpointer PHP Demo Application.html">Fraudpointer PHP Demo Application</a></li>
 					<li><a href="elementindex_Fraudpointer-API-Clients.html">Fraudpointer-API-Clients</a></li>
-					<li><a href="elementindex_FraudPointer-API-Clients.html">FraudPointer-API-Clients</a></li>
 					<li><a href="elementindex_Fraudpointer-API.html">Fraudpointer-API</a></li>
 							<li><a href="elementindex_Fraudpointer-API-RequestWrappers.html">Fraudpointer-API-RequestWrappers</a></li>
 			</ul>
@@ -28,11 +27,13 @@
 	<a class="index-letter" href="elementindex_Fraudpointer-API-Models.html#f">f</a>
 	<a class="index-letter" href="elementindex_Fraudpointer-API-Models.html#g">g</a>
 	<a class="index-letter" href="elementindex_Fraudpointer-API-Models.html#i">i</a>
+	<a class="index-letter" href="elementindex_Fraudpointer-API-Models.html#k">k</a>
 	<a class="index-letter" href="elementindex_Fraudpointer-API-Models.html#n">n</a>
 	<a class="index-letter" href="elementindex_Fraudpointer-API-Models.html#p">p</a>
 	<a class="index-letter" href="elementindex_Fraudpointer-API-Models.html#r">r</a>
 	<a class="index-letter" href="elementindex_Fraudpointer-API-Models.html#s">s</a>
 	<a class="index-letter" href="elementindex_Fraudpointer-API-Models.html#t">t</a>
+	<a class="index-letter" href="elementindex_Fraudpointer-API-Models.html#u">u</a>
 	<a class="index-letter" href="elementindex_Fraudpointer-API-Models.html#_">_</a>
 </div>
 
@@ -98,7 +99,7 @@
 					</dt>
 		<dd class="index-item-body">
 			<div class="index-item-details"><a href="Fraudpointer-API-Models/AssessmentSession.html">AssessmentSession</a> in AssessmentSession.php</div>
-							<div class="index-item-description">An Assessment Session is the object returned when you call API.IClient.CreateAssessmentSession(), which is the  first method that you need to call to start interacting with the FraudPointer Server.</div>
+							<div class="index-item-description">An Assessment Session is the object returned when you call <a href="Fraudpointer-API/IClient.html#methodCreateAssessmentSession">IClient::CreateAssessmentSession()</a>, which is the  first method that you need to call to start interacting with the FraudPointer Server.</div>
 					</dd>
 			<dt class="field">
 						<span class="include-title">AssessmentSession.php</span>
@@ -115,11 +116,24 @@
 	</div>
 	<dl>
 			<dt class="field">
+						<span class="var-title">$case</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="Fraudpointer-API-Models/FraudAssessment.html#var$case">FraudAssessment::$case</a> in FraudAssessment.php</div>
+							<div class="index-item-description">The Case generated with the final Fraud Assessment. <br />  <br />  When a final Fraud Assessment is created a Case is created too. This field will contain the Case information  when you created a Final Fraud Assessment or when you get a previous Fraud Assessment.</div>
+					</dd>
+			<dt class="field">
 						<span class="var-title">$CHECKOUT_EVENT</span>
 					</dt>
 		<dd class="index-item-body">
 			<div class="index-item-details"><a href="Fraudpointer-API-Models/Event.html#var$CHECKOUT_EVENT">Event::$CHECKOUT_EVENT</a> in Event.php</div>
 							<div class="index-item-description">Use this constant to instantiate an Event that is related to Checkout data.</div>
+					</dd>
+			<dt class="field">
+						<span class="include-title">Case.php</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="Fraudpointer-API-Models/_Fraudpointer---API---Models---Case.php.html">Case.php</a> in Case.php</div>
 					</dd>
 		</dl>
 	<a name="d"></a>
@@ -220,7 +234,14 @@
 					</dt>
 		<dd class="index-item-body">
 			<div class="index-item-details"><a href="Fraudpointer-API-Models/Profile.html#var$id">Profile::$id</a> in Profile.php</div>
-							<div class="index-item-description">The unique identifier of the Profile used for Models.FraudAssessment.</div>
+							<div class="index-item-description">The unique identifier of the Profile used for FraudAssessment.</div>
+					</dd>
+			<dt class="field">
+						<span class="var-title">$id</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="Fraudpointer-API-Models/AssessmentSession.html#var$id">AssessmentSession::$id</a> in AssessmentSession.php</div>
+							<div class="index-item-description">Unique id for the created session returned by the server.</div>
 					</dd>
 			<dt class="field">
 						<span class="var-title">$id</span>
@@ -232,8 +253,8 @@
 						<span class="var-title">$id</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Fraudpointer-API-Models/AssessmentSession.html#var$id">AssessmentSession::$id</a> in AssessmentSession.php</div>
-							<div class="index-item-description">Unique id for the created session returned by the server.</div>
+			<div class="index-item-details"><a href="Fraudpointer-API-Models/Kase.html#var$id">Kase::$id</a> in Case.php</div>
+							<div class="index-item-description">The unique identifier of the Case related to a final FraudAssessment.</div>
 					</dd>
 			<dt class="field">
 						<span class="var-title">$interim</span>
@@ -241,6 +262,21 @@
 		<dd class="index-item-body">
 			<div class="index-item-details"><a href="Fraudpointer-API-Models/FraudAssessment.html#var$interim">FraudAssessment::$interim</a> in FraudAssessment.php</div>
 							<div class="index-item-description">Boolean to indicate interim or final (non-interim) Fraud Assessment.</div>
+					</dd>
+		</dl>
+	<a name="k"></a>
+	<div class="index-letter-section">
+		<div style="float: left" class="index-letter-title">k</div>
+		<div style="float: right"><a href="#top">top</a></div>
+		<div style="clear: both"></div>
+	</div>
+	<dl>
+			<dt class="field">
+						Kase
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="Fraudpointer-API-Models/Kase.html">Kase</a> in Case.php</div>
+							<div class="index-item-description">A Case is created for every <strong>final</strong> <a href="Fraudpointer-API-Models/FraudAssessment.html">FraudAssessment</a>. <br />  <br />  The Case is meant to be handled by a human interacting with the Fraudpointer Application. When a Case is created, it has  an &quot;Open&quot; status (unless you have rules in your Fraudpointer application configuration that automatically put them in other statuses).</div>
 					</dd>
 		</dl>
 	<a name="n"></a>
@@ -301,6 +337,13 @@
 	</div>
 	<dl>
 			<dt class="field">
+						<span class="var-title">$resolution</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="Fraudpointer-API-Models/Kase.html#var$resolution">Kase::$resolution</a> in Case.php</div>
+							<div class="index-item-description">The Resolution of a Case as set by human (or automatically according to Fraudpointer application configuration). <br /></div>
+					</dd>
+			<dt class="field">
 						<span class="var-title">$result</span>
 					</dt>
 		<dd class="index-item-body">
@@ -322,6 +365,13 @@
 			<div class="index-item-details"><a href="Fraudpointer-API-Models/FraudAssessment.html#var$score">FraudAssessment::$score</a> in FraudAssessment.php</div>
 							<div class="index-item-description">The Score of the Fraud Assessment.</div>
 					</dd>
+			<dt class="field">
+						<span class="var-title">$status</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="Fraudpointer-API-Models/Kase.html#var$status">Kase::$status</a> in Case.php</div>
+							<div class="index-item-description">Case status. <br /></div>
+					</dd>
 		</dl>
 	<a name="t"></a>
 	<div class="index-letter-section">
@@ -338,6 +388,35 @@
 							<div class="index-item-description">Event Type to send to the server for event creation</div>
 					</dd>
 		</dl>
+	<a name="u"></a>
+	<div class="index-letter-section">
+		<div style="float: left" class="index-letter-title">u</div>
+		<div style="float: right"><a href="#top">top</a></div>
+		<div style="clear: both"></div>
+	</div>
+	<dl>
+			<dt class="field">
+						<span class="var-title">$updated_at</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="Fraudpointer-API-Models/Profile.html#var$updated_at">Profile::$updated_at</a> in Profile.php</div>
+							<div class="index-item-description">Last time the Profile was updated</div>
+					</dd>
+			<dt class="field">
+						<span class="var-title">$updated_at</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="Fraudpointer-API-Models/FraudAssessment.html#var$updated_at">FraudAssessment::$updated_at</a> in FraudAssessment.php</div>
+							<div class="index-item-description">Last time Case was updated</div>
+					</dd>
+			<dt class="field">
+						<span class="var-title">$updated_at</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="Fraudpointer-API-Models/Kase.html#var$updated_at">Kase::$updated_at</a> in Case.php</div>
+							<div class="index-item-description">Last time the Case was updated</div>
+					</dd>
+		</dl>
 
 <div class="index-letter-menu">
 	<a class="index-letter" href="elementindex_Fraudpointer-API-Models.html#a">a</a>
@@ -347,11 +426,13 @@
 	<a class="index-letter" href="elementindex_Fraudpointer-API-Models.html#f">f</a>
 	<a class="index-letter" href="elementindex_Fraudpointer-API-Models.html#g">g</a>
 	<a class="index-letter" href="elementindex_Fraudpointer-API-Models.html#i">i</a>
+	<a class="index-letter" href="elementindex_Fraudpointer-API-Models.html#k">k</a>
 	<a class="index-letter" href="elementindex_Fraudpointer-API-Models.html#n">n</a>
 	<a class="index-letter" href="elementindex_Fraudpointer-API-Models.html#p">p</a>
 	<a class="index-letter" href="elementindex_Fraudpointer-API-Models.html#r">r</a>
 	<a class="index-letter" href="elementindex_Fraudpointer-API-Models.html#s">s</a>
 	<a class="index-letter" href="elementindex_Fraudpointer-API-Models.html#t">t</a>
+	<a class="index-letter" href="elementindex_Fraudpointer-API-Models.html#u">u</a>
 	<a class="index-letter" href="elementindex_Fraudpointer-API-Models.html#_">_</a>
 </div>	</body>
 </html>

@@ -13,18 +13,25 @@ namespace Fraudpointer\API\Models;
 */
 class Profile {
 	/**
-        * The unique identifier of the Profile used for Models.FraudAssessment.
-        *
-        * @var string $id	
-        */
+     * The unique identifier of the Profile used for FraudAssessment.
+     *
+     * @var string $id	
+     */
 	public $id;
 
 	/**
-        * The name of the Profile used for FraudAssessment
-	*
-        * @var string $name
- 	*/
+     * The name of the Profile used for FraudAssessment
+	  *
+     * @var string $name
+ 	  */
 	public $name;	
+	
+   /**
+     * Last time the Profile was updated
+     * @var timestamp $updated_at
+     */
+	public $updated_at;
+	
 } // class Profile ()
 //---------------------
 

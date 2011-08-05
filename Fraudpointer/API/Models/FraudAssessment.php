@@ -76,18 +76,18 @@ class FraudAssessment {
 	public $deciding_factor;
 
 
-        /**
-        * The Result of the Fraud Assessment.
-        * 
-        * Takes the values:
-        * - "Accept"
-        * - "Reject"
-        * - "Review"
-        *
-        * You need to evaluate the Result of the Fraud Assessment and take necessary actions.        
-        *
-        * @var string $result
-        */
+     /**
+     * The Result of the Fraud Assessment.
+     * 
+     * Takes the values:
+     * - "Accept"
+     * - "Reject"
+     * - "Review"
+     *
+     * You need to evaluate the Result of the Fraud Assessment and take necessary actions.        
+     *
+     * @var string $result
+     */
 	public $result;
 
 
@@ -101,6 +101,22 @@ class FraudAssessment {
         * @var Profile $profile
         */
 	public $profile;	
+
+   /**
+     * The Case generated with the final Fraud Assessment. <br/>
+     * <br/>
+     * When a final Fraud Assessment is created a Case is created too. This field will contain the Case information
+     * when you created a Final Fraud Assessment or when you get a previous Fraud Assessment.
+     * @var Case $case
+     */	
+	public $case;
+	
+	/**
+	  * Last time Case was updated
+	  * @var timestamp $updated_at
+	  */
+	public $updated_at;
+	
 } // FraudAssessment ()
 //------------------------------------------------------------------------------------------------------------//
 

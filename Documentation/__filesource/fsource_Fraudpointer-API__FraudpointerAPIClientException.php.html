@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>File Source for ClientException.php</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+						<h1>Source for file ClientException.php</h1>
+<p>Documentation is available at <a href="../Fraudpointer-API/_Fraudpointer---API---ClientException.php.html">ClientException.php</a></p>
+<div class="src-code">
+<div class="src-code"><ol><li><div class="src-line"><a name="a1"></a><span class="src-php">&lt;?php</span></div></li>
+<li><div class="src-line"><a name="a2"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a3"></a>namespace&nbsp;<span class="src-id">Fraudpointer</span>\<span class="src-id">API</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a4"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a5"></a><span class="src-doc">/**</span></div></li>
+<li><div class="src-line"><a name="a6"></a><span class="src-doc">*&nbsp;Thrown&nbsp;by&nbsp;all&nbsp;IClient&nbsp;methods&nbsp;in&nbsp;case&nbsp;an&nbsp;error&nbsp;takes&nbsp;place&nbsp;and&nbsp;method&nbsp;cannot&nbsp;return&nbsp;its&nbsp;results&nbsp;normally.</span></div></li>
+<li><div class="src-line"><a name="a7"></a><span class="src-doc">*&nbsp;</span></div></li>
+<li><div class="src-line"><a name="a8"></a><span class="src-doc">*&nbsp;You&nbsp;should&nbsp;always&nbsp;put&nbsp;your&nbsp;IClient&nbsp;methods&nbsp;into&nbsp;&lt;kbd&gt;try/catch&lt;/kbd&gt;&nbsp;blocks&nbsp;and&nbsp;make&nbsp;sure&nbsp;you&nbsp;catch&nbsp;this&nbsp;exception.</span></div></li>
+<li><div class="src-line"><a name="a9"></a><span class="src-doc">*&nbsp;If&nbsp;you&nbsp;catch&nbsp;this&nbsp;exception,&nbsp;the&nbsp;message&nbsp;borne&nbsp;will&nbsp;be&nbsp;adequate&nbsp;to&nbsp;explain&nbsp;to&nbsp;you&nbsp;what&nbsp;has&nbsp;gone&nbsp;wrong.&nbsp;Especially&nbsp;the</span></div></li>
+<li><div class="src-line"><a name="a10"></a><span class="src-doc">*&nbsp;message&nbsp;borne&nbsp;by&nbsp;the&nbsp;&lt;kbd&gt;InnerException&lt;/kbd&gt;&nbsp;of&nbsp;the&nbsp;&lt;kbd&gt;Exception&lt;/kbd&gt;&nbsp;caught.</span></div></li>
+<li><div class="src-line"><a name="a11"></a><span class="src-doc">*</span></div></li>
+<li><div class="src-line"><a name="a12"></a><span class="src-doc">*&nbsp;Here&nbsp;is&nbsp;how&nbsp;you&nbsp;can&nbsp;wrap&nbsp;your&nbsp;code&nbsp;arround&nbsp;&lt;kbd&gt;try/catch&lt;/kbd&gt;&nbsp;block</span></div></li>
+<li><div class="src-line"><a name="a13"></a><span class="src-doc">*&nbsp;and&nbsp;on&nbsp;error&nbsp;get&nbsp;information&nbsp;about&nbsp;what&nbsp;has&nbsp;gone&nbsp;wrong:</span></div></li>
+<li><div class="src-line"><a name="a14"></a><span class="src-doc">*&nbsp;&lt;code&gt;</span></div></li>
+<li><div class="src-line"><a name="a15"></a><span class="src-doc">*&nbsp;try&nbsp;{</span></div></li>
+<li><div class="src-line"><a name="a16"></a><span class="src-doc">*&nbsp;&nbsp;$event&nbsp;=&nbsp;new&nbsp;\Fraudpointer\API\Models\Event(\Fraudpointer\API\Models\Event::$FAILED_PAYMENT);</span></div></li>
+<li><div class="src-line"><a name="a17"></a><span class="src-doc">*&nbsp;&nbsp;$event-&gt;AddData(&quot;MERCHANT_REFERENCE&quot;,&nbsp;GetAcmeOrderNumber());</span></div></li>
+<li><div class="src-line"><a name="a18"></a><span class="src-doc">*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></div></li>
+<li><div class="src-line"><a name="a19"></a><span class="src-doc">*&nbsp;&nbsp;//&nbsp;PURCHASE_DATE</span></div></li>
+<li><div class="src-line"><a name="a20"></a><span class="src-doc">*&nbsp;&nbsp;$event-&gt;AddDateValue(&quot;PURCHASE_DATE&quot;,&nbsp;time());</span></div></li>
+<li><div class="src-line"><a name="a21"></a><span class="src-doc">*</span></div></li>
+<li><div class="src-line"><a name="a22"></a><span class="src-doc">*&nbsp;&nbsp;$event_returned&nbsp;=&nbsp;$client-&gt;AppendEventToAssessmentSession($assessment_session,&nbsp;$event);</span></div></li>
+<li><div class="src-line"><a name="a23"></a><span class="src-doc">*&nbsp;&nbsp;return&nbsp;$event_returned;</span></div></li>
+<li><div class="src-line"><a name="a24"></a><span class="src-doc">*&nbsp;}</span></div></li>
+<li><div class="src-line"><a name="a25"></a><span class="src-doc">*&nbsp;catch&nbsp;(\Fraudpointer\API\ClientException&nbsp;$e)&nbsp;{</span></div></li>
+<li><div class="src-line"><a name="a26"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;return&nbsp;$e-&gt;getMessage();</span></div></li>
+<li><div class="src-line"><a name="a27"></a><span class="src-doc">*&nbsp;}&nbsp;&lt;/code&gt;</span></div></li>
+<li><div class="src-line"><a name="a28"></a><span class="src-doc">*</span></div></li>
+<li><div class="src-line"><a name="a29"></a><span class="src-doc">*&nbsp;</span><span class="src-doc-coretag">@package</span><span class="src-doc">&nbsp;Fraudpointer.API</span></div></li>
+<li><div class="src-line"><a name="a30"></a><span class="src-doc">*/</span></div></li>
+<li><div class="src-line"><a name="a31"></a><span class="src-key">class&nbsp;</span><a href="../Fraudpointer-API/ClientException.html">ClientException</a>&nbsp;<span class="src-key">extends&nbsp;</span><span class="src-id">Exception&nbsp;</span><span class="src-sym">{</span></div></li>
+<li><div class="src-line"><a name="a32"></a>&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a33"></a><span class="src-sym">}&nbsp;</span><span class="src-comm">//&nbsp;class&nbsp;ClientException</span></div></li>
+<li><div class="src-line"><a name="a34"></a><span class="src-comm">//-------------------------&nbsp;</span></div></li>
+<li><div class="src-line"><a name="a35"></a>&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a36"></a><span class="src-php">?&gt;</span></div></li>
+</ol></div>
+</div>
+	<p class="notes" id="credit">
+		Documentation generated on Fri, 05 Aug 2011 13:01:22 +0300 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+	</p>
+	</body>
+</html>

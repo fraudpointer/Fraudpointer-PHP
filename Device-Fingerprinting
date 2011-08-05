@@ -1,0 +1,91 @@
+-------------------------------------
+Device Fingerprinting
+-------------------------------------
+
+FraudPointer Server has been designed to identify the device that is connected to your server and is using
+your e-shop. We can identify it with pretty much high accurracy. This section describes what you have to do
+in order to allow FraudPointer Server to work towards this target.
+
+>>>>>>>>>>>>>>> HTML Output <<<<<<<<<<<<<<<<<<<<
+
+After having created an AssessmentSession, you need to serve your customer the html page with a javascript 
+reference to FraudPointer "fp.js" script. Hence, the resulting html output of your, probably, dynamic .php 
+page should give something like that:
+
+/////////////////////
+<head>
+ ......
+ <script language="javascript" type="text/javascript" src="https://production.fraudpointer.com/fp.js"></script>
+ ......
+</head>
+/////////////////////
+
+This script defines the "fraudpointer.fp()" function that you need to call at some point in time. A suggestion
+is to call it after your document is loaded. You can do that as follows:
+
+/////////////////////
+<script language="javascript" type="text/javascript">
+window.onload = function() {
+  fraudpointer.fp(.......);
+}
+</script>
+/////////////////////
+
+The point here is that you have to pass there the DOM identifier of an input tag of type hidden. Which by return
+needs to hold the value of the Assessment Session id. Assuming that this hidden input has DOM identifier "fp_sid", 
+then the above snippet becomes:
+
+/////////////////////
+<script language="javascript" type="text/javascript">
+window.onload = function() {
+  fraudpointer.fp('fp_sid');
+}
+</script>
+/////////////////////
+
+We have said that this fp_sid html element needs to have as value the id of the AssessmentSession. Assuming that this is,
+for example, "34567", html needs to have something like the following, somewhere in its body:
+
+/////////////////////
+...
+<input type='hidden' id='fp_sid' value='34567'/>
+...
+/////////////////////
+
+Summing up, the html output sent to your customer's computer has to contain content similar to the following:
+
+/////////////////////
+<html>
+<head>
+        .... other head stuff goes here .....
+        <script language="javascript" type="text/javascript" src="https://production.fraudpointer.com/fp.js"></script>
+        <script>
+                window.onload = function() {
+                        fraudpointer.fp('fp_sid');
+                }
+        </script>
+        ..... other head stuff goes here .....
+</head>
+<body>
+ .... other body elements go here .....
+ <input type="hidden" id="fp_sid" value="34567"/>
+ .... other body elements go here .....
+</body>
+</html>
+/////////////////////
+
+>>>>>>>>>>>>>>> Hint <<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+Using jQuery:
+
+If you are using jQuery you can always call "fraudpointer.fp()" function on your document ready handler. So, instead 
+of writing something like "window.onload = function () {.....}" as we had above, you can write something like:
+
+/////////////////////
+<script language="javascript" type="text/javascript">
+$(document).ready(function() {
+    fraudpointer.fp($('#fp_sid').val());
+});
+</script>
+/////////////////////
+

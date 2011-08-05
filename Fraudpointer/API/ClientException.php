@@ -25,6 +25,7 @@ namespace Fraudpointer\API;
 * catch (\Fraudpointer\API\ClientException $e) {
    return $e->getMessage();
 * } </code>     
+*
 * @package Fraudpointer.API
 */
 class ClientException extends Exception {

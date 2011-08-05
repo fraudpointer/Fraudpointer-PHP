@@ -24,7 +24,7 @@
 <p class="description"><p>Models.FraudAssessment is returned back to you when you ask for a Fraud Assessment. The API to ask for a  Fraud Assessment is  <div class="src-code"><ol><li><div class="src-line">&nbsp;<span class="src-var">$client</span><span class="src-sym">-&gt;</span><span class="src-id">CreateFraudAssessment</span><span class="src-sym">(</span><span class="src-var">$assessment_session</span><span class="src-sym">,&nbsp;</span><span class="src-id">true</span>/<span class="src-id">false</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
 </ol></div></p><p>The most important properties of the object that you need to take into account are: <ul><li>FraudAssessment.Result: Gives the Assessment Result. Can take one of the values:</li><li>- &quot;Accept&quot;</li><li>- &quot;Review&quot;</li><li>- &quot;Reject&quot;</li><li>FraudAssessment.Score: An integer value that gives the Assessment Score</li><li>DecidingFactor: Gives a hint about why the Assessment gave such a FraudAssessment.Result. Takes the values:</li><li>&quot;Profile thresholds&quot;: This means that the FraudAssessment.Score fell into a range that, according to Profile thresholds, returned a result equal to the value that exists in the FraudAssessment.Result property.</li><li>or the name of the Deciding Rule.</li><li>Profile: The name of the Profile that has been used to carry out the assessment.</li></ul>  It is up to your business to decide what to do with this FraudAssessment.Result. For example, if the FraudAssessment.Result is &quot;Reject&quot;,  you can stop from carrying out the actual transaction with your bank.</p></p>
 		<p class="notes">
-			Located in <a class="field" href="_Fraudpointer---API---Models---FraudAssessment.php.html">/Fraudpointer/API/Models/FraudAssessment.php</a> (line <span class="field">30</span>)
+			Located in <a class="field" href="_Fraudpointer---API---Models---FraudAssessment.php.html">/Fraudpointer/API/Models/FraudAssessment.php</a> (line <span class="field"><a href="../__filesource/fsource_Fraudpointer-API-Models__FraudpointerAPIModelsFraudAssessment.php.html#a30">30</a></span>)
 		</p>
 		
 				
@@ -44,7 +44,11 @@
 								</div>
 		<div class="info-box-body">
 			<div class="var-summary">
-																																																																<div class="var-title">
+																																																																																<div class="var-title">
+					<span class="var-type">Case</span>
+					<a href="#$case" title="details" class="var-name">$case</a>
+				</div>
+																<div class="var-title">
 					<span class="var-type">string</span>
 					<a href="#$deciding_factor" title="details" class="var-name">$deciding_factor</a>
 				</div>
@@ -68,6 +72,10 @@
 					<span class="var-type">string</span>
 					<a href="#$score" title="details" class="var-name">$score</a>
 				</div>
+																<div class="var-title">
+					<span class="var-type">timestamp</span>
+					<a href="#$updated_at" title="details" class="var-name">$updated_at</a>
+				</div>
 											</div>
 		</div>
 	</div>
@@ -83,14 +91,36 @@
 			
 								</div>
 		<div class="info-box-body">
-			<a name="var$deciding_factor" id="$deciding_factor"><!-- --></A>
+			<a name="var$case" id="$case"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">Case</span>
+			<span class="var-name">$case</span>
+						(line <span class="line-number"><a href="../__filesource/fsource_Fraudpointer-API-Models__FraudpointerAPIModelsFraudAssessment.php.html#a112">112</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">The Case generated with the final Fraud Assessment. <br />  <br />  When a final Fraud Assessment is created a Case is created too. This field will contain the Case information  when you created a Final Fraud Assessment or when you get a previous Fraud Assessment.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$deciding_factor" id="$deciding_factor"><!-- --></A>
 <div class="evenrow">
 
 	<div class="var-header">
 		<span class="var-title">
 			<span class="var-type">string</span>
 			<span class="var-name">$deciding_factor</span>
-						(line <span class="line-number">76</span>)
+						(line <span class="line-number"><a href="../__filesource/fsource_Fraudpointer-API-Models__FraudpointerAPIModelsFraudAssessment.php.html#a76">76</a></span>)
 		</span>
 	</div>
 
@@ -113,7 +143,7 @@
 		<span class="var-title">
 			<span class="var-type">string</span>
 			<span class="var-name">$id</span>
-						(line <span class="line-number">35</span>)
+						(line <span class="line-number"><a href="../__filesource/fsource_Fraudpointer-API-Models__FraudpointerAPIModelsFraudAssessment.php.html#a35">35</a></span>)
 		</span>
 	</div>
 
@@ -135,7 +165,7 @@
 		<span class="var-title">
 			<span class="var-type">boolean</span>
 			<span class="var-name">$interim</span>
-						(line <span class="line-number">56</span>)
+						(line <span class="line-number"><a href="../__filesource/fsource_Fraudpointer-API-Models__FraudpointerAPIModelsFraudAssessment.php.html#a56">56</a></span>)
 		</span>
 	</div>
 
@@ -158,7 +188,7 @@
 		<span class="var-title">
 			<span class="var-type"><a href="../Fraudpointer-API-Models/Profile.html">Profile</a></span>
 			<span class="var-name">$profile</span>
-						(line <span class="line-number">103</span>)
+						(line <span class="line-number"><a href="../__filesource/fsource_Fraudpointer-API-Models__FraudpointerAPIModelsFraudAssessment.php.html#a103">103</a></span>)
 		</span>
 	</div>
 
@@ -181,7 +211,7 @@
 		<span class="var-title">
 			<span class="var-type">string</span>
 			<span class="var-name">$result</span>
-						(line <span class="line-number">91</span>)
+						(line <span class="line-number"><a href="../__filesource/fsource_Fraudpointer-API-Models__FraudpointerAPIModelsFraudAssessment.php.html#a91">91</a></span>)
 		</span>
 	</div>
 
@@ -204,13 +234,35 @@
 		<span class="var-title">
 			<span class="var-type">string</span>
 			<span class="var-name">$score</span>
-						(line <span class="line-number">45</span>)
+						(line <span class="line-number"><a href="../__filesource/fsource_Fraudpointer-API-Models__FraudpointerAPIModelsFraudAssessment.php.html#a45">45</a></span>)
 		</span>
 	</div>
 
 	<!-- ========== Info from phpDoc block ========= -->
 <p class="short-description">The Score of the Fraud Assessment.</p>
 <p class="description"><p>The Score of the Fraud Assessment has significance only if the Deciding Factor is &quot;Profile thresholds&quot;.  If the Deciding Factor has the name of a Rule, then do not take into account Score.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$updated_at" id="$updated_at"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">timestamp</span>
+			<span class="var-name">$updated_at</span>
+						(line <span class="line-number"><a href="../__filesource/fsource_Fraudpointer-API-Models__FraudpointerAPIModelsFraudAssessment.php.html#a118">118</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Last time Case was updated</p>
 	<ul class="tags">
 				<li><span class="field">access:</span> public</li>
 			</ul>
@@ -227,7 +279,7 @@
 
 
 	<p class="notes" id="credit">
-		Documentation generated on Thu, 14 Jul 2011 17:03:11 +0300 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+		Documentation generated on Fri, 05 Aug 2011 13:01:23 +0300 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
 	</p>
 	</div></body>
 </html>

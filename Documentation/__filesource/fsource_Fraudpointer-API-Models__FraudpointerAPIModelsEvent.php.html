@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>File Source for Event.php</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+						<h1>Source for file Event.php</h1>
+<p>Documentation is available at <a href="../Fraudpointer-API-Models/_Fraudpointer---API---Models---Event.php.html">Event.php</a></p>
+<div class="src-code">
+<div class="src-code"><ol><li><div class="src-line"><a name="a1"></a><span class="src-php">&lt;?php</span></div></li>
+<li><div class="src-line"><a name="a2"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a3"></a>namespace&nbsp;<span class="src-id">Fraudpointer</span>\<span class="src-id">API</span>\<span class="src-id">Models</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a4"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a5"></a><span class="src-doc">/**</span></div></li>
+<li><div class="src-line"><a name="a6"></a><span class="src-doc">*&nbsp;Event&nbsp;object&nbsp;groups&nbsp;a&nbsp;set&nbsp;of&nbsp;Data&nbsp;under&nbsp;an&nbsp;Event&nbsp;Type.&nbsp;This&nbsp;whole&nbsp;set,&nbsp;is&nbsp;then&nbsp;associated&nbsp;to&nbsp;a</span></div></li>
+<li><div class="src-line"><a name="a7"></a><span class="src-doc">*&nbsp;Models.AssessmentSession&nbsp;by&nbsp;calling&nbsp;API.IClient.AppendEventToAssessmentSession().</span></div></li>
+<li><div class="src-line"><a name="a8"></a><span class="src-doc">*</span></div></li>
+<li><div class="src-line"><a name="a9"></a><span class="src-doc">*&nbsp;When&nbsp;you&nbsp;are&nbsp;using&nbsp;the&nbsp;FraudPointer&nbsp;Service,&nbsp;you&nbsp;need&nbsp;to&nbsp;collect&nbsp;data&nbsp;and&nbsp;sent&nbsp;it&nbsp;over&nbsp;to</span></div></li>
+<li><div class="src-line"><a name="a10"></a><span class="src-doc">*&nbsp;FraudPointer&nbsp;Server.&nbsp;In&nbsp;order&nbsp;to&nbsp;do&nbsp;that&nbsp;you&nbsp;instantiate&nbsp;a&nbsp;Models.Event&nbsp;object&nbsp;and&nbsp;then&nbsp;you</span></div></li>
+<li><div class="src-line"><a name="a11"></a><span class="src-doc">*&nbsp;call&nbsp;Event.AddData()&nbsp;method.&nbsp;Then&nbsp;you&nbsp;call&nbsp;API.IClient.AppendEventToAssessmentSession()&nbsp;and</span></div></li>
+<li><div class="src-line"><a name="a12"></a><span class="src-doc">*&nbsp;Event&nbsp;packaged&nbsp;data&nbsp;are&nbsp;sent&nbsp;over.</span></div></li>
+<li><div class="src-line"><a name="a13"></a><span class="src-doc">*&nbsp;</span></div></li>
+<li><div class="src-line"><a name="a14"></a><span class="src-doc">*&nbsp;It&nbsp;is&nbsp;important,&nbsp;though,&nbsp;to&nbsp;instantiate&nbsp;the&nbsp;appropriate&nbsp;Event&nbsp;Type.&nbsp;The&nbsp;following&nbsp;event&nbsp;types&nbsp;are</span></div></li>
+<li><div class="src-line"><a name="a15"></a><span class="src-doc">*&nbsp;supported:</span></div></li>
+<li><div class="src-line"><a name="a16"></a><span class="src-doc">*</span></div></li>
+<li><div class="src-line"><a name="a17"></a><span class="src-doc">*&nbsp;-&nbsp;Event.GenericEvent</span></div></li>
+<li><div class="src-line"><a name="a18"></a><span class="src-doc">*&nbsp;-&nbsp;Event.CheckoutEvent</span></div></li>
+<li><div class="src-line"><a name="a19"></a><span class="src-doc">*&nbsp;-&nbsp;Event.FailedPaymentEvent</span></div></li>
+<li><div class="src-line"><a name="a20"></a><span class="src-doc">*&nbsp;-&nbsp;Event.PurchaseEvent</span></div></li>
+<li><div class="src-line"><a name="a21"></a><span class="src-doc">*</span></div></li>
+<li><div class="src-line"><a name="a22"></a><span class="src-doc">*&nbsp;</span><span class="src-doc-coretag">@package</span><span class="src-doc">&nbsp;Fraudpointer.API.Models</span></div></li>
+<li><div class="src-line"><a name="a23"></a><span class="src-doc">*/</span></div></li>
+<li><div class="src-line"><a name="a24"></a><span class="src-key">class&nbsp;</span><a href="../Fraudpointer-API-Models/Event.html">Event</a>&nbsp;<span class="src-sym">{</span></div></li>
+<li><div class="src-line"><a name="a25"></a>&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a26"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-doc">/**</span></div></li>
+<li><div class="src-line"><a name="a27"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Use&nbsp;this&nbsp;constant&nbsp;to&nbsp;instantiate&nbsp;an&nbsp;Event&nbsp;that&nbsp;is&nbsp;not&nbsp;one&nbsp;of&nbsp;the&nbsp;other&nbsp;types.</span></div></li>
+<li><div class="src-line"><a name="a28"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</span></div></li>
+<li><div class="src-line"><a name="a29"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Usually,&nbsp;you&nbsp;group&nbsp;your&nbsp;data&nbsp;into&nbsp;a&nbsp;more&nbsp;specific&nbsp;Type.&nbsp;However,&nbsp;if&nbsp;the&nbsp;data&nbsp;that&nbsp;you&nbsp;want</span></div></li>
+<li><div class="src-line"><a name="a30"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;to&nbsp;group&nbsp;cannot&nbsp;be&nbsp;categorized&nbsp;below&nbsp;one&nbsp;of&nbsp;the&nbsp;specific&nbsp;Types,&nbsp;you&nbsp;can&nbsp;use&nbsp;the</span></div></li>
+<li><div class="src-line"><a name="a31"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;GenericEvent&nbsp;Type.</span></div></li>
+<li><div class="src-line"><a name="a32"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;*</span></div></li>
+<li><div class="src-line"><a name="a33"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</span><span class="src-doc-coretag">@var&nbsp;</span><span class="src-doc-type">string&nbsp;</span></div></li>
+<li><div class="src-line"><a name="a34"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;*/</span></div></li>
+<li><div class="src-line"><a name="a35"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">public&nbsp;</span><span class="src-key">static&nbsp;</span><span class="src-var">$GENERIC_EVENT&nbsp;</span>=&nbsp;<span class="src-str">&quot;GenericEvent&quot;</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a36"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a37"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-doc">/**</span></div></li>
+<li><div class="src-line"><a name="a38"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Use&nbsp;this&nbsp;constant&nbsp;to&nbsp;instantiate&nbsp;an&nbsp;Event&nbsp;that&nbsp;is&nbsp;related&nbsp;to&nbsp;Checkout&nbsp;data.</span></div></li>
+<li><div class="src-line"><a name="a39"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;*</span></div></li>
+<li><div class="src-line"><a name="a40"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;You&nbsp;can&nbsp;create&nbsp;a&nbsp;CheckoutEvent&nbsp;when&nbsp;you&nbsp;get&nbsp;data&nbsp;from&nbsp;a&nbsp;check&nbsp;out&nbsp;form.&nbsp;You&nbsp;essentially&nbsp;want</span></div></li>
+<li><div class="src-line"><a name="a41"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;to&nbsp;store&nbsp;in&nbsp;FraudPointer&nbsp;server&nbsp;the&nbsp;fact&nbsp;that&nbsp;your&nbsp;customer&nbsp;is&nbsp;trying&nbsp;to&nbsp;check&nbsp;out&nbsp;together&nbsp;with</span></div></li>
+<li><div class="src-line"><a name="a42"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;relevant&nbsp;check&nbsp;out&nbsp;data.&nbsp;Example&nbsp;of&nbsp;Data&nbsp;that&nbsp;you&nbsp;might&nbsp;want&nbsp;to&nbsp;store&nbsp;below&nbsp;the&nbsp;CheckoutEvent&nbsp;Type&nbsp;might&nbsp;be:</span></div></li>
+<li><div class="src-line"><a name="a43"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;*</span></div></li>
+<li><div class="src-line"><a name="a44"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;-&nbsp;Firstname</span></div></li>
+<li><div class="src-line"><a name="a45"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;-&nbsp;Lastname</span></div></li>
+<li><div class="src-line"><a name="a46"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;-&nbsp;Customer&nbsp;e-mail</span></div></li>
+<li><div class="src-line"><a name="a47"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;-&nbsp;Customer&nbsp;address</span></div></li>
+<li><div class="src-line"><a name="a48"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;-&nbsp;Product&nbsp;to&nbsp;Purchase</span></div></li>
+<li><div class="src-line"><a name="a49"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;-&nbsp;Price</span></div></li>
+<li><div class="src-line"><a name="a50"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;-&nbsp;e.t.c.</span></div></li>
+<li><div class="src-line"><a name="a51"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</span></div></li>
+<li><div class="src-line"><a name="a52"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</span><span class="src-doc-coretag">@var&nbsp;</span><span class="src-doc-type">string&nbsp;</span></div></li>
+<li><div class="src-line"><a name="a53"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;*/</span></div></li>
+<li><div class="src-line"><a name="a54"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">public&nbsp;</span><span class="src-key">static&nbsp;</span><span class="src-var">$CHECKOUT_EVENT&nbsp;</span>=&nbsp;<span class="src-str">&quot;CheckoutEvent&quot;</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a55"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a56"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-doc">/**</span></div></li>
+<li><div class="src-line"><a name="a57"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Use&nbsp;this&nbsp;constant&nbsp;to&nbsp;instantiate&nbsp;an&nbsp;Event&nbsp;to&nbsp;mark&nbsp;a&nbsp;Failed&nbsp;Payment.</span></div></li>
+<li><div class="src-line"><a name="a58"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;*</span></div></li>
+<li><div class="src-line"><a name="a59"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;When&nbsp;you&nbsp;decide&nbsp;to&nbsp;proceed&nbsp;with&nbsp;charging&nbsp;your&nbsp;customer,&nbsp;with&nbsp;whatever&nbsp;data&nbsp;you&nbsp;have&nbsp;at&nbsp;your&nbsp;hand,</span></div></li>
+<li><div class="src-line"><a name="a60"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;your&nbsp;attempt&nbsp;to&nbsp;charge&nbsp;its&nbsp;credit&nbsp;card&nbsp;might&nbsp;fail.&nbsp;In&nbsp;that&nbsp;case,&nbsp;record&nbsp;this&nbsp;failed&nbsp;payment&nbsp;by</span></div></li>
+<li><div class="src-line"><a name="a61"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;instantiating&nbsp;a&nbsp;FailedPayment&nbsp;Event&nbsp;Type&nbsp;and&nbsp;sending&nbsp;it&nbsp;over&nbsp;to&nbsp;FraudPointer,&nbsp;without&nbsp;necessarily</span></div></li>
+<li><div class="src-line"><a name="a62"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;attaching&nbsp;any&nbsp;data&nbsp;to&nbsp;it.&nbsp;Only&nbsp;the&nbsp;FailedPayment&nbsp;Event&nbsp;is&nbsp;enough&nbsp;to&nbsp;mark&nbsp;the&nbsp;fact&nbsp;that&nbsp;the&nbsp;payment</span></div></li>
+<li><div class="src-line"><a name="a63"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;carried&nbsp;out&nbsp;during&nbsp;this&nbsp;session&nbsp;failed.</span></div></li>
+<li><div class="src-line"><a name="a64"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;*</span></div></li>
+<li><div class="src-line"><a name="a65"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;You&nbsp;can,&nbsp;and&nbsp;you&nbsp;probably&nbsp;should,&nbsp;instantiate&nbsp;this&nbsp;event&nbsp;many&nbsp;times.&nbsp;One&nbsp;for&nbsp;each&nbsp;failed&nbsp;payment&nbsp;attempt</span></div></li>
+<li><div class="src-line"><a name="a66"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;during&nbsp;the&nbsp;same&nbsp;assessment&nbsp;session.</span></div></li>
+<li><div class="src-line"><a name="a67"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;*</span></div></li>
+<li><div class="src-line"><a name="a68"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</span><span class="src-doc-coretag">@var&nbsp;</span><span class="src-doc-type">string&nbsp;</span></div></li>
+<li><div class="src-line"><a name="a69"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;*/</span></div></li>
+<li><div class="src-line"><a name="a70"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">public&nbsp;</span><span class="src-key">static&nbsp;</span><span class="src-var">$FAILED_PAYMENT&nbsp;</span>=&nbsp;<span class="src-str">&quot;FailedPaymentEvent&quot;</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a71"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a72"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-doc">/**</span></div></li>
+<li><div class="src-line"><a name="a73"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Use&nbsp;this&nbsp;constant&nbsp;to&nbsp;instantiate&nbsp;an&nbsp;Event&nbsp;to&nbsp;mark&nbsp;a&nbsp;Successful&nbsp;Payment.</span></div></li>
+<li><div class="src-line"><a name="a74"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;*</span></div></li>
+<li><div class="src-line"><a name="a75"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;When&nbsp;you&nbsp;decide&nbsp;to&nbsp;proceed&nbsp;with&nbsp;charging&nbsp;your&nbsp;customer,&nbsp;with&nbsp;whatever&nbsp;data&nbsp;you&nbsp;have&nbsp;at&nbsp;your&nbsp;hand,</span></div></li>
+<li><div class="src-line"><a name="a76"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;your&nbsp;attempt&nbsp;to&nbsp;charge&nbsp;its&nbsp;credit&nbsp;card&nbsp;might&nbsp;succeed.&nbsp;In&nbsp;that&nbsp;case,&nbsp;record&nbsp;this&nbsp;successful&nbsp;payment&nbsp;by</span></div></li>
+<li><div class="src-line"><a name="a77"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;instantiating&nbsp;a&nbsp;Purchase&nbsp;Event&nbsp;Type&nbsp;and&nbsp;sending&nbsp;it&nbsp;over&nbsp;to&nbsp;FraudPointer,&nbsp;without&nbsp;necessarily</span></div></li>
+<li><div class="src-line"><a name="a78"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;attaching&nbsp;any&nbsp;data&nbsp;to&nbsp;it.&nbsp;Only&nbsp;the&nbsp;PurchaseEvent&nbsp;Event&nbsp;is&nbsp;enough&nbsp;to&nbsp;mark&nbsp;the&nbsp;fact&nbsp;that&nbsp;the&nbsp;payment</span></div></li>
+<li><div class="src-line"><a name="a79"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;carried&nbsp;out&nbsp;during&nbsp;this&nbsp;session&nbsp;has&nbsp;succeeded.</span></div></li>
+<li><div class="src-line"><a name="a80"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;*</span></div></li>
+<li><div class="src-line"><a name="a81"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</span><span class="src-doc-coretag">@var&nbsp;</span><span class="src-doc-type">string&nbsp;</span></div></li>
+<li><div class="src-line"><a name="a82"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;*/</span></div></li>
+<li><div class="src-line"><a name="a83"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">public&nbsp;</span><span class="src-key">static&nbsp;</span><span class="src-var">$PURCHASE_EVENT&nbsp;</span>=&nbsp;<span class="src-str">&quot;PurchaseEvent&quot;</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a84"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a85"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-doc">/**</span></div></li>
+<li><div class="src-line"><a name="a86"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Event&nbsp;Type&nbsp;to&nbsp;send&nbsp;to&nbsp;the&nbsp;server&nbsp;for&nbsp;event&nbsp;creation</span></div></li>
+<li><div class="src-line"><a name="a87"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</span></div></li>
+<li><div class="src-line"><a name="a88"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</span><span class="src-doc-coretag">@var&nbsp;</span><span class="src-doc-type">string&nbsp;</span></div></li>
+<li><div class="src-line"><a name="a89"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;*/</span></div></li>
+<li><div class="src-line"><a name="a90"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">public&nbsp;</span><a href="../Fraudpointer-API-Models/Event.html#var$type">$type</a><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a91"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a92"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-doc">/**</span></div></li>
+<li><div class="src-line"><a name="a93"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Returns&nbsp;the&nbsp;Data&nbsp;appended&nbsp;to&nbsp;the&nbsp;particular&nbsp;Models.Event</span></div></li>
+<li><div class="src-line"><a name="a94"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</span></div></li>
+<li><div class="src-line"><a name="a95"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Note&nbsp;that&nbsp;if&nbsp;you&nbsp;want&nbsp;to&nbsp;append&nbsp;data&nbsp;to&nbsp;the&nbsp;Models.Event&nbsp;use&nbsp;one&nbsp;of&nbsp;the&nbsp;methods&nbsp;Models.Event.AddData</span></div></li>
+<li><div class="src-line"><a name="a96"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</span></div></li>
+<li><div class="src-line"><a name="a97"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</span><span class="src-doc-coretag">@var&nbsp;</span><span class="src-doc-type">array&nbsp;</span></div></li>
+<li><div class="src-line"><a name="a98"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;*/</span></div></li>
+<li><div class="src-line"><a name="a99"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">public&nbsp;</span><a href="../Fraudpointer-API-Models/Event.html#var$data">$data</a>&nbsp;=&nbsp;<span class="src-key">array</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a100"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a101"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-doc">/**</span></div></li>
+<li><div class="src-line"><a name="a102"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Instantiate&nbsp;a&nbsp;Models.Event&nbsp;by&nbsp;calling&nbsp;&lt;kbd&gt;new&lt;/kbd&gt;&nbsp;on&nbsp;this&nbsp;Constructor</span></div></li>
+<li><div class="src-line"><a name="a103"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;*</span></div></li>
+<li><div class="src-line"><a name="a104"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Use</span></div></li>
+<li><div class="src-line"><a name="a105"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&lt;code&gt;</span></div></li>
+<li><div class="src-line"><a name="a106"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;$event&nbsp;=&nbsp;new&nbsp;\Fraudpointer\API\Models\Event(\Fraudpointer\API\Models\Event::$CHECKOUT_EVENT);</span></div></li>
+<li><div class="src-line"><a name="a107"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&lt;/code&gt;</span></div></li>
+<li><div class="src-line"><a name="a108"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;to&nbsp;instantiate&nbsp;a&nbsp;new&nbsp;Event&nbsp;before&nbsp;start&nbsp;filling&nbsp;it&nbsp;with&nbsp;data.&nbsp;The&nbsp;argument&nbsp;should&nbsp;be&nbsp;one&nbsp;of&nbsp;the</span></div></li>
+<li><div class="src-line"><a name="a109"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;valid&nbsp;event&nbsp;types.</span></div></li>
+<li><div class="src-line"><a name="a110"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</span></div></li>
+<li><div class="src-line"><a name="a111"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</span><span class="src-doc-coretag">@param&nbsp;</span><span class="src-doc-type">string&nbsp;</span><span class="src-doc-var">$type&nbsp;</span><span class="src-doc">One&nbsp;of:</span></div></li>
+<li><div class="src-line"><a name="a112"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&nbsp;-&nbsp;Event.CheckoutEvent</span></div></li>
+<li><div class="src-line"><a name="a113"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&nbsp;-&nbsp;Event.FailedPayment</span></div></li>
+<li><div class="src-line"><a name="a114"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&nbsp;-&nbsp;Event.GenericEvent</span></div></li>
+<li><div class="src-line"><a name="a115"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&nbsp;-&nbsp;Event.PurchaseEvent</span></div></li>
+<li><div class="src-line"><a name="a116"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;*/&nbsp;</span></div></li>
+<li><div class="src-line"><a name="a117"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">function&nbsp;</span><a href="../Fraudpointer-API-Models/Event.html#method__construct">__construct</a><span class="src-sym">(</span><span class="src-var">$type</span><span class="src-sym">)&nbsp;</span><span class="src-sym">{</span></div></li>
+<li><div class="src-line"><a name="a118"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$this</span><span class="src-sym">-&gt;</span><a href="../Fraudpointer-API-Models/Event.html#var$type">type</a>&nbsp;=&nbsp;<span class="src-var">$type</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a119"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-sym">}&nbsp;</span><span class="src-comm">//&nbsp;__construct()</span></div></li>
+<li><div class="src-line"><a name="a120"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-comm">//----------------</span></div></li>
+<li><div class="src-line"><a name="a121"></a>&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a122"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-doc">/**</span></div></li>
+<li><div class="src-line"><a name="a123"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Adds&nbsp;one&nbsp;datum&nbsp;to&nbsp;the&nbsp;particular&nbsp;Models.Event.&nbsp;The&nbsp;datum&nbsp;is&nbsp;actually&nbsp;a&nbsp;value&nbsp;of&nbsp;an&nbsp;Attribute&nbsp;and</span></div></li>
+<li><div class="src-line"><a name="a124"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;value&nbsp;given&nbsp;is&nbsp;an&nbsp;&lt;kbd&gt;int&lt;/kbd&gt;&nbsp;instance&nbsp;or&nbsp;literal.</span></div></li>
+<li><div class="src-line"><a name="a125"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</span></div></li>
+<li><div class="src-line"><a name="a126"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Use&nbsp;this&nbsp;method&nbsp;if&nbsp;you&nbsp;want&nbsp;to&nbsp;add&nbsp;a&nbsp;datum&nbsp;of&nbsp;type&nbsp;&lt;kbd&gt;int&lt;/kbd&gt;&nbsp;in&nbsp;your&nbsp;Event&nbsp;at&nbsp;hand.</span></div></li>
+<li><div class="src-line"><a name="a127"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</span></div></li>
+<li><div class="src-line"><a name="a128"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Here&nbsp;is&nbsp;an&nbsp;example:</span></div></li>
+<li><div class="src-line"><a name="a129"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&lt;code&gt;</span></div></li>
+<li><div class="src-line"><a name="a130"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;$event&nbsp;=&nbsp;new&nbsp;\Fraudpointer\API\Models\Event(\Fraudpointer\API\Models\Event::$CHECKOUT_EVENT);</span></div></li>
+<li><div class="src-line"><a name="a131"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;$event-&gt;AddData(&quot;CC_CARD_HOLDER_NAME&quot;,&nbsp;&quot;John&nbsp;Papas&quot;);</span></div></li>
+<li><div class="src-line"><a name="a132"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&lt;/code&gt;</span></div></li>
+<li><div class="src-line"><a name="a133"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</span></div></li>
+<li><div class="src-line"><a name="a134"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</span><span class="src-doc-coretag">@param&nbsp;</span><span class="src-doc-type">string&nbsp;</span><span class="src-doc-var">$key&nbsp;</span><span class="src-doc">KEY&nbsp;value&nbsp;of&nbsp;the&nbsp;Attribute&nbsp;that&nbsp;you&nbsp;want&nbsp;to&nbsp;use.&nbsp;The&nbsp;Attributes&nbsp;are&nbsp;either&nbsp;System</span></div></li>
+<li><div class="src-line"><a name="a135"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&nbsp;or&nbsp;Custom&nbsp;Account&nbsp;Attributes.&nbsp;The&nbsp;Custom&nbsp;Account&nbsp;Attributes</span></div></li>
+<li><div class="src-line"><a name="a136"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&nbsp;should&nbsp;be&nbsp;given&nbsp;to&nbsp;you&nbsp;by&nbsp;the&nbsp;person&nbsp;who&nbsp;has&nbsp;created&nbsp;them&nbsp;in&nbsp;the&nbsp;FraudPointer&nbsp;Application.</span></div></li>
+<li><div class="src-line"><a name="a137"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</span></div></li>
+<li><div class="src-line"><a name="a138"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</span><span class="src-doc-coretag">@param&nbsp;</span><span class="src-doc-type">string&nbsp;</span><span class="src-doc-var">$value&nbsp;</span><span class="src-doc">Value&nbsp;of&nbsp;the&nbsp;Attribute.&nbsp;A&nbsp;&lt;kbd&gt;string&lt;/kbd&gt;&nbsp;instance&nbsp;or&nbsp;literal&nbsp;should&nbsp;be&nbsp;given.</span></div></li>
+<li><div class="src-line"><a name="a139"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</span><span class="src-doc-coretag">@return&nbsp;</span><span class="src-doc-type">Event&nbsp;</span><span class="src-doc">The&nbsp;current&nbsp;Event&nbsp;instance,&nbsp;in&nbsp;order&nbsp;to&nbsp;continue&nbsp;adding&nbsp;data.</span></div></li>
+<li><div class="src-line"><a name="a140"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;*/</span></div></li>
+<li><div class="src-line"><a name="a141"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">public&nbsp;</span><span class="src-key">function&nbsp;</span><a href="../Fraudpointer-API-Models/Event.html#methodAddData">AddData</a>&nbsp;<span class="src-sym">(</span><span class="src-var">$key</span><span class="src-sym">,&nbsp;</span><span class="src-var">$value</span><span class="src-sym">)&nbsp;</span><span class="src-sym">{</span></div></li>
+<li><div class="src-line"><a name="a142"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$this</span><span class="src-sym">-&gt;</span><a href="../Fraudpointer-API-Models/Event.html#var$data">data</a><span class="src-sym">[</span><span class="src-var">$key</span><span class="src-sym">]&nbsp;</span>=&nbsp;<span class="src-var">$value</span><span class="src-sym">;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></div></li>
+<li><div class="src-line"><a name="a143"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-sym">}&nbsp;</span><span class="src-comm">//&nbsp;AddData</span></div></li>
+<li><div class="src-line"><a name="a144"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-comm">//----------</span></div></li>
+<li><div class="src-line"><a name="a145"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a146"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-doc">/**</span></div></li>
+<li><div class="src-line"><a name="a147"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Adds&nbsp;one&nbsp;datum&nbsp;to&nbsp;the&nbsp;particular&nbsp;Models.Event.&nbsp;The&nbsp;datum&nbsp;is&nbsp;actually&nbsp;a&nbsp;value&nbsp;of&nbsp;an&nbsp;Attribute&nbsp;and</span></div></li>
+<li><div class="src-line"><a name="a148"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;value&nbsp;given&nbsp;is&nbsp;an&nbsp;&lt;kbd&gt;int&lt;/kbd&gt;&nbsp;instance&nbsp;or&nbsp;literal.</span></div></li>
+<li><div class="src-line"><a name="a149"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</span></div></li>
+<li><div class="src-line"><a name="a150"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Use&nbsp;this&nbsp;method&nbsp;if&nbsp;you&nbsp;want&nbsp;to&nbsp;add&nbsp;a&nbsp;datum&nbsp;of&nbsp;type&nbsp;&lt;kbd&gt;int&lt;/kbd&gt;&nbsp;in&nbsp;your&nbsp;Event&nbsp;at&nbsp;hand.</span></div></li>
+<li><div class="src-line"><a name="a151"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</span></div></li>
+<li><div class="src-line"><a name="a152"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Here&nbsp;is&nbsp;an&nbsp;example:</span></div></li>
+<li><div class="src-line"><a name="a153"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&lt;code&gt;</span></div></li>
+<li><div class="src-line"><a name="a154"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;$event&nbsp;=&nbsp;new&nbsp;\Fraudpointer\API\Models\Event(\Fraudpointer\API\Models\Event::$CHECKOUT_EVENT);</span></div></li>
+<li><div class="src-line"><a name="a155"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;$event.AddIntData(&quot;NUMBER_OF_PURCHASED_GOODS&quot;,&nbsp;4);</span></div></li>
+<li><div class="src-line"><a name="a156"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&lt;/code&gt;</span></div></li>
+<li><div class="src-line"><a name="a157"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;*</span></div></li>
+<li><div class="src-line"><a name="a158"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</span><span class="src-doc-coretag">@param&nbsp;</span><span class="src-doc-type">string&nbsp;</span><span class="src-doc-var">$key&nbsp;</span><span class="src-doc">KEY&nbsp;value&nbsp;of&nbsp;the&nbsp;Attribute&nbsp;that&nbsp;you&nbsp;want&nbsp;to&nbsp;use.&nbsp;The&nbsp;Attributes&nbsp;are&nbsp;either&nbsp;System</span></div></li>
+<li><div class="src-line"><a name="a159"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&nbsp;or&nbsp;Custom&nbsp;Account&nbsp;Attributes.&nbsp;The&nbsp;Custom&nbsp;Account&nbsp;Attributes</span></div></li>
+<li><div class="src-line"><a name="a160"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&nbsp;should&nbsp;be&nbsp;given&nbsp;to&nbsp;you&nbsp;by&nbsp;the&nbsp;person&nbsp;who&nbsp;has&nbsp;created&nbsp;them&nbsp;in&nbsp;the&nbsp;FraudPointer&nbsp;Application.</span></div></li>
+<li><div class="src-line"><a name="a161"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></div></li>
+<li><div class="src-line"><a name="a162"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</span><span class="src-doc-coretag">@param&nbsp;</span><span class="src-doc-type">integer&nbsp;</span><span class="src-doc-var">$int_value&nbsp;</span><span class="src-doc">The&nbsp;value&nbsp;of&nbsp;the&nbsp;Attribute.&nbsp;An&nbsp;&lt;kbd&gt;integewr&lt;/kbd&gt;&nbsp;instance&nbsp;or&nbsp;literal&nbsp;should&nbsp;be&nbsp;given.</span></div></li>
+<li><div class="src-line"><a name="a163"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</span><span class="src-doc-coretag">@return&nbsp;</span><span class="src-doc-type">Event&nbsp;</span><span class="src-doc">The&nbsp;current&nbsp;Event&nbsp;instance,&nbsp;in&nbsp;order&nbsp;to&nbsp;continue&nbsp;adding&nbsp;data.</span></div></li>
+<li><div class="src-line"><a name="a164"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</span></div></li>
+<li><div class="src-line"><a name="a165"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">public&nbsp;</span><span class="src-key">function&nbsp;</span><a href="../Fraudpointer-API-Models/Event.html#methodAddIntData">AddIntData</a>&nbsp;<span class="src-sym">(</span><span class="src-var">$key</span><span class="src-sym">,&nbsp;</span><span class="src-var">$int_value</span><span class="src-sym">)&nbsp;</span><span class="src-sym">{</span></div></li>
+<li><div class="src-line"><a name="a166"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$this</span><span class="src-sym">-&gt;</span><a href="../Fraudpointer-API-Models/Event.html#var$data">data</a><span class="src-sym">[</span><span class="src-var">$key</span><span class="src-sym">]&nbsp;</span>=&nbsp;<a href="http://www.php.net/strval">strval</a><span class="src-sym">(</span><span class="src-var">$int_value</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a167"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-sym">}&nbsp;</span><span class="src-comm">//&nbsp;AddIntData&nbsp;for&nbsp;int&nbsp;value</span></div></li>
+<li><div class="src-line"><a name="a168"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-comm">//-------------------------------</span></div></li>
+<li><div class="src-line"><a name="a169"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a170"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-doc">/**</span></div></li>
+<li><div class="src-line"><a name="a171"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Adds&nbsp;one&nbsp;datum&nbsp;to&nbsp;the&nbsp;particular&nbsp;Models.Event.&nbsp;The&nbsp;datum&nbsp;is&nbsp;actually&nbsp;a&nbsp;value&nbsp;of&nbsp;an&nbsp;Attribute&nbsp;and</span></div></li>
+<li><div class="src-line"><a name="a172"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;value&nbsp;given&nbsp;is&nbsp;a&nbsp;&lt;kbd&gt;boolean&lt;/kbd&gt;&nbsp;instance&nbsp;or&nbsp;literal.</span></div></li>
+<li><div class="src-line"><a name="a173"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</span></div></li>
+<li><div class="src-line"><a name="a174"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Use&nbsp;this&nbsp;method&nbsp;if&nbsp;you&nbsp;want&nbsp;to&nbsp;add&nbsp;a&nbsp;datum&nbsp;of&nbsp;type&nbsp;&lt;kbd&gt;boolean&lt;/kbd&gt;&nbsp;in&nbsp;your&nbsp;Event&nbsp;at&nbsp;hand.</span></div></li>
+<li><div class="src-line"><a name="a175"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</span></div></li>
+<li><div class="src-line"><a name="a176"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Here&nbsp;is&nbsp;an&nbsp;example:</span></div></li>
+<li><div class="src-line"><a name="a177"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&lt;code&gt;</span></div></li>
+<li><div class="src-line"><a name="a178"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;$event&nbsp;=&nbsp;new&nbsp;\Fraudpointer\API\Models\Event(\Fraudpointer\API\Models\Event::$CHECKOUT_EVENT);</span></div></li>
+<li><div class="src-line"><a name="a179"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;$event.AddBoolData(&quot;TWO_WAY_TRIP&quot;,&nbsp;false);</span></div></li>
+<li><div class="src-line"><a name="a180"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&lt;/code&gt;</span></div></li>
+<li><div class="src-line"><a name="a181"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;*</span></div></li>
+<li><div class="src-line"><a name="a182"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</span><span class="src-doc-coretag">@param&nbsp;</span><span class="src-doc-type">string&nbsp;</span><span class="src-doc-var">$key&nbsp;</span><span class="src-doc">KEY&nbsp;value&nbsp;of&nbsp;the&nbsp;Attribute&nbsp;that&nbsp;you&nbsp;want&nbsp;to&nbsp;use.&nbsp;The&nbsp;Attributes&nbsp;are&nbsp;either&nbsp;System</span></div></li>
+<li><div class="src-line"><a name="a183"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&nbsp;or&nbsp;Custom&nbsp;Account&nbsp;Attributes.&nbsp;The&nbsp;Custom&nbsp;Account&nbsp;Attributes&nbsp;should&nbsp;be&nbsp;given&nbsp;to&nbsp;you&nbsp;by&nbsp;the&nbsp;person&nbsp;who</span></div></li>
+<li><div class="src-line"><a name="a184"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&nbsp;has&nbsp;created&nbsp;them&nbsp;in&nbsp;the&nbsp;FraudPointer&nbsp;Application.</span></div></li>
+<li><div class="src-line"><a name="a185"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</span></div></li>
+<li><div class="src-line"><a name="a186"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</span><span class="src-doc-coretag">@param&nbsp;</span><span class="src-doc-type">boolean&nbsp;</span><span class="src-doc-var">$bool_value&nbsp;</span><span class="src-doc">Value&nbsp;of&nbsp;the&nbsp;Attribute.&nbsp;A&nbsp;&lt;kbd&gt;bool&lt;/kbd&gt;&nbsp;instance&nbsp;or&nbsp;literal&nbsp;should&nbsp;be&nbsp;given.</span></div></li>
+<li><div class="src-line"><a name="a187"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</span><span class="src-doc-coretag">@return&nbsp;</span><span class="src-doc-type">Event&nbsp;</span><span class="src-doc">The&nbsp;current&nbsp;Event&nbsp;instance,&nbsp;in&nbsp;order&nbsp;to&nbsp;continue&nbsp;adding&nbsp;data.</span></div></li>
+<li><div class="src-line"><a name="a188"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</span></div></li>
+<li><div class="src-line"><a name="a189"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">public&nbsp;</span><span class="src-key">function&nbsp;</span><a href="../Fraudpointer-API-Models/Event.html#methodAddBoolData">AddBoolData</a>&nbsp;<span class="src-sym">(</span><span class="src-var">$key</span><span class="src-sym">,&nbsp;</span><span class="src-var">$bool_value</span><span class="src-sym">)&nbsp;</span><span class="src-sym">{</span></div></li>
+<li><div class="src-line"><a name="a190"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$this</span><span class="src-sym">-&gt;</span><a href="../Fraudpointer-API-Models/Event.html#var$data">data</a><span class="src-sym">[</span><span class="src-var">$key</span><span class="src-sym">]&nbsp;</span>=&nbsp;<span class="src-var">$bool_value&nbsp;</span>?&nbsp;<span class="src-str">&quot;true&quot;&nbsp;</span>:&nbsp;<span class="src-str">&quot;false&quot;</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a191"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-sym">}&nbsp;</span><span class="src-comm">//&nbsp;AddBoolData</span></div></li>
+<li><div class="src-line"><a name="a192"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-comm">//-----------------</span></div></li>
+<li><div class="src-line"><a name="a193"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a194"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-doc">/**</span></div></li>
+<li><div class="src-line"><a name="a195"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Adds&nbsp;one&nbsp;datum&nbsp;to&nbsp;the&nbsp;particular&nbsp;Models.Event.&nbsp;The&nbsp;datum&nbsp;is&nbsp;actually&nbsp;a&nbsp;value&nbsp;of&nbsp;an&nbsp;Attribute&nbsp;and</span></div></li>
+<li><div class="src-line"><a name="a196"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;value&nbsp;given&nbsp;is&nbsp;a&nbsp;&lt;kbd&gt;float&lt;/kbd&gt;&nbsp;instance&nbsp;or&nbsp;literal.</span></div></li>
+<li><div class="src-line"><a name="a197"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</span></div></li>
+<li><div class="src-line"><a name="a198"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Use&nbsp;this&nbsp;method&nbsp;if&nbsp;you&nbsp;want&nbsp;to&nbsp;add&nbsp;a&nbsp;datum&nbsp;of&nbsp;type&nbsp;&lt;kbd&gt;decimal&lt;/kbd&gt;&nbsp;in&nbsp;your&nbsp;Event&nbsp;at&nbsp;hand.</span></div></li>
+<li><div class="src-line"><a name="a199"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&nbsp;</span></div></li>
+<li><div class="src-line"><a name="a200"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Here&nbsp;is&nbsp;an&nbsp;example:</span></div></li>
+<li><div class="src-line"><a name="a201"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&lt;code&gt;</span></div></li>
+<li><div class="src-line"><a name="a202"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;$event&nbsp;=&nbsp;new&nbsp;\Fraudpointer\API\Models\Event(\Fraudpointer\API\Models\Event::$CHECKOUT_EVENT);</span></div></li>
+<li><div class="src-line"><a name="a203"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;$event.AddDecimalData(&quot;PURCHASE_AMOUNT&quot;,&nbsp;32.56);</span></div></li>
+<li><div class="src-line"><a name="a204"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&lt;/code&gt;</span></div></li>
+<li><div class="src-line"><a name="a205"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;*</span></div></li>
+<li><div class="src-line"><a name="a206"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</span><span class="src-doc-coretag">@param&nbsp;</span><span class="src-doc-type">string&nbsp;</span><span class="src-doc-var">$key&nbsp;</span><span class="src-doc">KEY&nbsp;value&nbsp;of&nbsp;the&nbsp;Attribute&nbsp;that&nbsp;you&nbsp;want&nbsp;to&nbsp;use.&nbsp;The&nbsp;Attributes&nbsp;are&nbsp;either&nbsp;System</span></div></li>
+<li><div class="src-line"><a name="a207"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&nbsp;or&nbsp;Custom&nbsp;Account&nbsp;Attributes.&nbsp;The&nbsp;Custom&nbsp;Account&nbsp;Attributes</span></div></li>
+<li><div class="src-line"><a name="a208"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&nbsp;should&nbsp;be&nbsp;given&nbsp;to&nbsp;you&nbsp;by&nbsp;the&nbsp;person&nbsp;who&nbsp;has&nbsp;created&nbsp;them&nbsp;in&nbsp;the&nbsp;FraudPointer&nbsp;Application.</span></div></li>
+<li><div class="src-line"><a name="a209"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</span></div></li>
+<li><div class="src-line"><a name="a210"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</span><span class="src-doc-coretag">@param&nbsp;</span><span class="src-doc-type">float&nbsp;</span><span class="src-doc-var">$decimal_value&nbsp;</span><span class="src-doc">Value&nbsp;of&nbsp;the&nbsp;Attribute.&nbsp;A&nbsp;&lt;kbd&gt;float&lt;/kbd&gt;&nbsp;instance&nbsp;or&nbsp;literal&nbsp;should&nbsp;be&nbsp;given.</span></div></li>
+<li><div class="src-line"><a name="a211"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</span><span class="src-doc-coretag">@return&nbsp;</span><span class="src-doc-type">Event&nbsp;</span><span class="src-doc">instance,&nbsp;in&nbsp;order&nbsp;to&nbsp;continue&nbsp;adding&nbsp;items.</span></div></li>
+<li><div class="src-line"><a name="a212"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</span></div></li>
+<li><div class="src-line"><a name="a213"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">public&nbsp;</span><span class="src-key">function&nbsp;</span><a href="../Fraudpointer-API-Models/Event.html#methodAddDecimalData">AddDecimalData</a>&nbsp;<span class="src-sym">(</span><span class="src-var">$key</span><span class="src-sym">,&nbsp;</span><span class="src-var">$decimal_value</span><span class="src-sym">)&nbsp;</span><span class="src-sym">{</span></div></li>
+<li><div class="src-line"><a name="a214"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$this</span><span class="src-sym">-&gt;</span><a href="../Fraudpointer-API-Models/Event.html#var$data">data</a><span class="src-sym">[</span><span class="src-var">$key</span><span class="src-sym">]&nbsp;</span>=&nbsp;<a href="http://www.php.net/strval">strval</a><span class="src-sym">(</span><span class="src-var">$decimal_value</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a215"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-sym">}&nbsp;</span><span class="src-comm">//&nbsp;AddDecimalData&nbsp;()</span></div></li>
+<li><div class="src-line"><a name="a216"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-comm">//-----------------------&nbsp;&nbsp;&nbsp;&nbsp;</span></div></li>
+<li><div class="src-line"><a name="a217"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a218"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-doc">/**</span></div></li>
+<li><div class="src-line"><a name="a219"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Adds&nbsp;one&nbsp;datum&nbsp;to&nbsp;the&nbsp;particular&nbsp;Models.Event.&nbsp;The&nbsp;datum&nbsp;is&nbsp;actually&nbsp;a&nbsp;value&nbsp;of&nbsp;an&nbsp;Attribute&nbsp;and</span></div></li>
+<li><div class="src-line"><a name="a220"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;value&nbsp;given&nbsp;is&nbsp;a&nbsp;&lt;kbd&gt;timestamp&lt;/kbd&gt;&nbsp;instance.</span></div></li>
+<li><div class="src-line"><a name="a221"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</span></div></li>
+<li><div class="src-line"><a name="a222"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Use&nbsp;this&nbsp;method&nbsp;if&nbsp;you&nbsp;want&nbsp;to&nbsp;add&nbsp;a&nbsp;datum&nbsp;of&nbsp;type&nbsp;&lt;kbd&gt;timestamp&lt;/kbd&gt;&nbsp;in&nbsp;your&nbsp;Event&nbsp;at&nbsp;hand.</span></div></li>
+<li><div class="src-line"><a name="a223"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</span></div></li>
+<li><div class="src-line"><a name="a224"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Here&nbsp;is&nbsp;an&nbsp;example:</span></div></li>
+<li><div class="src-line"><a name="a225"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&lt;code&gt;</span></div></li>
+<li><div class="src-line"><a name="a226"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;$event&nbsp;=&nbsp;new&nbsp;\Fraudpointer\API\Models\Event(\Fraudpointer\API\Models\Event::$CHECKOUT_EVENT);</span></div></li>
+<li><div class="src-line"><a name="a227"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;$event.AddDateData(&quot;PURCHASE_DATE&quot;,&nbsp;time());</span></div></li>
+<li><div class="src-line"><a name="a228"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&lt;/code&gt;</span></div></li>
+<li><div class="src-line"><a name="a229"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;And&nbsp;another&nbsp;example:</span></div></li>
+<li><div class="src-line"><a name="a230"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&lt;code&gt;</span></div></li>
+<li><div class="src-line"><a name="a231"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;$start_date_timestamp&nbsp;=&nbsp;strtotime(&quot;2011-08-05T10:42:00+03:00&quot;);&nbsp;#&nbsp;format&nbsp;is&nbsp;ISO&nbsp;8601&nbsp;compliant</span></div></li>
+<li><div class="src-line"><a name="a232"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;$event-&gt;AddDateData(&quot;StartDate&quot;,&nbsp;$start_date_timestamp);</span></div></li>
+<li><div class="src-line"><a name="a233"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&lt;/code&gt;</span></div></li>
+<li><div class="src-line"><a name="a234"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Internally,&nbsp;the&nbsp;&lt;kbd&gt;timestamp&lt;/kbd&gt;&nbsp;is&nbsp;converted&nbsp;to&nbsp;a&nbsp;string&nbsp;representation&nbsp;that&nbsp;follows&nbsp;the</span></div></li>
+<li><div class="src-line"><a name="a235"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;expanded&nbsp;version&nbsp;of&nbsp;the&nbsp;standard&nbsp;ISO&nbsp;8601.&nbsp;Hence,&nbsp;in&nbsp;the&nbsp;first&nbsp;example&nbsp;given&nbsp;above,&nbsp;timestamp&nbsp;argument&nbsp;will&nbsp;be&nbsp;converted&nbsp;to&nbsp;something&nbsp;like</span></div></li>
+<li><div class="src-line"><a name="a236"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&lt;kbd&gt;&quot;2011-05-27T23:15:30+03:00&quot;&lt;/kbd&gt;&nbsp;if&nbsp;the&nbsp;local&nbsp;time&nbsp;zone&nbsp;is&nbsp;3&nbsp;hours&nbsp;ahead&nbsp;of&nbsp;UTC.</span></div></li>
+<li><div class="src-line"><a name="a237"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</span></div></li>
+<li><div class="src-line"><a name="a238"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</span><span class="src-doc-coretag">@param&nbsp;</span><span class="src-doc-type">string&nbsp;</span><span class="src-doc-var">$key&nbsp;</span><span class="src-doc">KEY&nbsp;value&nbsp;of&nbsp;the&nbsp;Attribute&nbsp;that&nbsp;you&nbsp;want&nbsp;to&nbsp;use.&nbsp;The&nbsp;Attributes&nbsp;are&nbsp;either&nbsp;System</span></div></li>
+<li><div class="src-line"><a name="a239"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&nbsp;or&nbsp;Custom&nbsp;Account&nbsp;Attributes.&nbsp;The&nbsp;Custom&nbsp;Account&nbsp;Attributes</span></div></li>
+<li><div class="src-line"><a name="a240"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&nbsp;should&nbsp;be&nbsp;given&nbsp;to&nbsp;you&nbsp;by&nbsp;the&nbsp;person&nbsp;who&nbsp;has&nbsp;created&nbsp;them&nbsp;in&nbsp;the&nbsp;FraudPointer&nbsp;Application.</span></div></li>
+<li><div class="src-line"><a name="a241"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</span></div></li>
+<li><div class="src-line"><a name="a242"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</span><span class="src-doc-coretag">@param&nbsp;</span><span class="src-doc-type">timestamp&nbsp;</span><span class="src-doc-var">$timestamp_value&nbsp;</span><span class="src-doc">Value&nbsp;of&nbsp;the&nbsp;Attribute.&nbsp;A&nbsp;&lt;kbd&gt;timestamp&lt;/kbd&gt;&nbsp;instance&nbsp;should&nbsp;be&nbsp;given.&nbsp;It&nbsp;is&nbsp;your&nbsp;responsibility</span></div></li>
+<li><div class="src-line"><a name="a243"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&nbsp;to&nbsp;generate&nbsp;timestamps&nbsp;that&nbsp;are&nbsp;uniform&nbsp;with&nbsp;respect&nbsp;to&nbsp;timezones&nbsp;and&nbsp;daylight&nbsp;savings.&nbsp;For&nbsp;example,&nbsp;the&nbsp;time()&nbsp;php&nbsp;function&nbsp;and&nbsp;the</span></div></li>
+<li><div class="src-line"><a name="a244"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&nbsp;DateTime-&gt;getTimestamp()&nbsp;method&nbsp;of&nbsp;DateTime&nbsp;do&nbsp;not&nbsp;return&nbsp;the&nbsp;same&nbsp;timestamps.</span></div></li>
+<li><div class="src-line"><a name="a245"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</span></div></li>
+<li><div class="src-line"><a name="a246"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</span><span class="src-doc-coretag">@return&nbsp;</span><span class="src-doc-type">Event&nbsp;</span><span class="src-doc">The&nbsp;current&nbsp;Event&nbsp;instance,&nbsp;in&nbsp;order&nbsp;to&nbsp;continue&nbsp;adding&nbsp;items.</span></div></li>
+<li><div class="src-line"><a name="a247"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</span></div></li>
+<li><div class="src-line"><a name="a248"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">public&nbsp;</span><span class="src-key">function&nbsp;</span><a href="../Fraudpointer-API-Models/Event.html#methodAddDateData">AddDateData</a>&nbsp;<span class="src-sym">(</span><span class="src-var">$key</span><span class="src-sym">,&nbsp;</span><span class="src-var">$timestamp_value</span><span class="src-sym">)&nbsp;</span><span class="src-sym">{&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></div></li>
+<li><div class="src-line"><a name="a249"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-comm">//&nbsp;It&nbsp;should&nbsp;be&nbsp;stored&nbsp;in&nbsp;ISO&nbsp;8601/RFC3339&nbsp;format&nbsp;&quot;YYYY-MM-DDTHH:MM:SS(+/-)HH:MM&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></div></li>
+<li><div class="src-line"><a name="a250"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$this</span><span class="src-sym">-&gt;</span><a href="../Fraudpointer-API-Models/Event.html#var$data">data</a><span class="src-sym">[</span><span class="src-var">$key</span><span class="src-sym">]&nbsp;</span>=&nbsp;<a href="http://www.php.net/gmdate">gmdate</a><span class="src-sym">(</span><span class="src-str">&quot;c&quot;</span><span class="src-sym">,&nbsp;</span><span class="src-var">$timestamp_value</span><span class="src-sym">)</span><span class="src-sym">;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></div></li>
+<li><div class="src-line"><a name="a251"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-sym">}&nbsp;</span><span class="src-comm">//&nbsp;AddDateData&nbsp;()</span></div></li>
+<li><div class="src-line"><a name="a252"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-comm">//--------------------</span></div></li>
+<li><div class="src-line"><a name="a253"></a>&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a254"></a><span class="src-sym">}&nbsp;</span><span class="src-comm">//&nbsp;class&nbsp;Event</span></div></li>
+<li><div class="src-line"><a name="a255"></a><span class="src-comm">//---------------</span></div></li>
+<li><div class="src-line"><a name="a256"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a257"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a258"></a><span class="src-php">?&gt;</span></div></li>
+</ol></div>
+</div>
+	<p class="notes" id="credit">
+		Documentation generated on Fri, 05 Aug 2011 13:01:23 +0300 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+	</p>
+	</body>
+</html>

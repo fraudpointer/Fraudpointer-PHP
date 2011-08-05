@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>File Source for IClient.php</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+						<h1>Source for file IClient.php</h1>
+<p>Documentation is available at <a href="../Fraudpointer-API/_Fraudpointer---API---IClient.php.html">IClient.php</a></p>
+<div class="src-code">
+<div class="src-code"><ol><li><div class="src-line"><a name="a1"></a><span class="src-php">&lt;?php</span></div></li>
+<li><div class="src-line"><a name="a2"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a3"></a>namespace&nbsp;<span class="src-id">Fraudpointer</span>\<span class="src-id">API</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a4"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a5"></a><span class="src-doc">/**</span></div></li>
+<li><div class="src-line"><a name="a6"></a><span class="src-doc">*&nbsp;Fraudpointer.API.IClient&nbsp;is&nbsp;the&nbsp;interface&nbsp;that&nbsp;each&nbsp;PHP&nbsp;client&nbsp;should&nbsp;implement&nbsp;in&nbsp;order&nbsp;to&nbsp;be&nbsp;used&nbsp;as&nbsp;a&nbsp;client&nbsp;proxy&nbsp;to&nbsp;access</span></div></li>
+<li><div class="src-line"><a name="a7"></a><span class="src-doc">*&nbsp;FraudPointer&nbsp;Service.&nbsp;&lt;br/&gt;&lt;b&gt;Important&nbsp;Note:&lt;/b&gt;&nbsp;Fraudpointer&nbsp;PHP&nbsp;client&nbsp;library&nbsp;comes&nbsp;with&nbsp;a&nbsp;ready&nbsp;to&nbsp;use&nbsp;implementation&nbsp;of&nbsp;this</span></div></li>
+<li><div class="src-line"><a name="a8"></a><span class="src-doc">*&nbsp;service.&nbsp;You&nbsp;need&nbsp;to&nbsp;use&nbsp;Fraudpointer.API.ClientFactory&nbsp;to&nbsp;instantiate&nbsp;this&nbsp;implementation&nbsp;and&nbsp;start&nbsp;using&nbsp;FraudPointer&nbsp;Service.</span></div></li>
+<li><div class="src-line"><a name="a9"></a><span class="src-doc">*</span></div></li>
+<li><div class="src-line"><a name="a10"></a><span class="src-doc">*&nbsp;As&nbsp;a&nbsp;user&nbsp;of&nbsp;the&nbsp;FraudPointer&nbsp;Client&nbsp;Library&nbsp;you&nbsp;should&nbsp;declare&nbsp;a&nbsp;variable&nbsp;of&nbsp;IClient&nbsp;type&nbsp;and&nbsp;then&nbsp;use</span></div></li>
+<li><div class="src-line"><a name="a11"></a><span class="src-doc">*&nbsp;ClientFactory::Construct()&nbsp;to&nbsp;get&nbsp;an&nbsp;instance&nbsp;of&nbsp;a&nbsp;class&nbsp;that&nbsp;implements&nbsp;this&nbsp;interface.</span></div></li>
+<li><div class="src-line"><a name="a12"></a><span class="src-doc">*&nbsp;&nbsp;</span></div></li>
+<li><div class="src-line"><a name="a13"></a><span class="src-doc">*&nbsp;Below,&nbsp;you&nbsp;can&nbsp;see&nbsp;a&nbsp;sample&nbsp;client&nbsp;that&nbsp;uses&nbsp;IClient&nbsp;to&nbsp;communicate&nbsp;with&nbsp;FraudPointer&nbsp;Server:</span></div></li>
+<li><div class="src-line"><a name="a14"></a><span class="src-doc">*&nbsp;</span></div></li>
+<li><div class="src-line"><a name="a15"></a><span class="src-doc">*&nbsp;</span><span class="src-doc-coretag">@example</span><span class="src-doc">&nbsp;main_example.php&nbsp;A&nbsp;Console&nbsp;application&nbsp;that&nbsp;can&nbsp;be&nbsp;used&nbsp;to&nbsp;play&nbsp;with&nbsp;API</span></div></li>
+<li><div class="src-line"><a name="a16"></a><span class="src-doc">*</span></div></li>
+<li><div class="src-line"><a name="a17"></a><span class="src-doc">*&nbsp;</span><span class="src-doc-coretag">@package</span><span class="src-doc">&nbsp;Fraudpointer.API</span></div></li>
+<li><div class="src-line"><a name="a18"></a><span class="src-doc">*/</span></div></li>
+<li><div class="src-line"><a name="a19"></a><span class="src-key">interface&nbsp;</span><a href="../Fraudpointer-API/IClient.html">IClient</a></div></li>
+<li><div class="src-line"><a name="a20"></a><span class="src-sym">{</span></div></li>
+<li><div class="src-line"><a name="a21"></a>&nbsp;&nbsp;&nbsp;<span class="src-doc">/**</span></div></li>
+<li><div class="src-line"><a name="a22"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Communicates&nbsp;with&nbsp;FraudPointer&nbsp;Server&nbsp;and&nbsp;gets&nbsp;back&nbsp;a&nbsp;ready&nbsp;to&nbsp;use&nbsp;AssessmentSession&nbsp;object.This&nbsp;is&nbsp;the&nbsp;first&nbsp;method&nbsp;that&nbsp;you&nbsp;should&nbsp;call.&nbsp;&lt;br/&gt;</span></div></li>
+<li><div class="src-line"><a name="a23"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&lt;br/&gt;</span></div></li>
+<li><div class="src-line"><a name="a24"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;It&nbsp;should&nbsp;be&nbsp;used&nbsp;as&nbsp;soon&nbsp;as&nbsp;you&nbsp;want&nbsp;to&nbsp;start&nbsp;using&nbsp;the&nbsp;FraudPointer&nbsp;service.&nbsp;Without&nbsp;an&nbsp;AssessmentSession&nbsp;object</span></div></li>
+<li><div class="src-line"><a name="a25"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;you&nbsp;cannot&nbsp;do&nbsp;anything.&lt;br/&gt;</span></div></li>
+<li><div class="src-line"><a name="a26"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&lt;br/&gt;</span></div></li>
+<li><div class="src-line"><a name="a27"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</span><span class="src-doc-coretag">@return&nbsp;</span><span class="src-doc-type">AssessmentSession&nbsp;</span><span class="src-doc">An&nbsp;object&nbsp;of&nbsp;type&nbsp;AssessmentSession&nbsp;as&nbsp;returned&nbsp;by&nbsp;FraudPointer&nbsp;Server.&nbsp;Object&nbsp;should&nbsp;contain&nbsp;the&nbsp;AssessmentSession.id</span></div></li>
+<li><div class="src-line"><a name="a28"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&nbsp;that&nbsp;uniquely&nbsp;identifies&nbsp;this&nbsp;AssessmentSession.&nbsp;You&nbsp;should&nbsp;use&nbsp;this&nbsp;AssessmentSession.id&nbsp;in&nbsp;whichever&nbsp;place&nbsp;the</span></div></li>
+<li><div class="src-line"><a name="a29"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&nbsp;AssessmentSession&nbsp;id&nbsp;is&nbsp;required.&lt;br/&gt;</span></div></li>
+<li><div class="src-line"><a name="a30"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&nbsp;&lt;br/&gt;</span></div></li>
+<li><div class="src-line"><a name="a31"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&nbsp;Method&nbsp;always&nbsp;returns&nbsp;a&nbsp;valid&nbsp;object,&nbsp;unless&nbsp;an&nbsp;exception&nbsp;is&nbsp;thrown.</span></div></li>
+<li><div class="src-line"><a name="a32"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&nbsp;It&nbsp;may&nbsp;throw&nbsp;a&nbsp;ClientException&nbsp;if&nbsp;an&nbsp;error&nbsp;occurs</span></div></li>
+<li><div class="src-line"><a name="a33"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</span></div></li>
+<li><div class="src-line"><a name="a34"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">public&nbsp;</span><span class="src-key">function&nbsp;</span><a href="../Fraudpointer-API/IClient.html#methodCreateAssessmentSession">CreateAssessmentSession</a><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a35"></a>&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a36"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-doc">/**</span></div></li>
+<li><div class="src-line"><a name="a37"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Appends&nbsp;an&nbsp;Event&nbsp;to&nbsp;an&nbsp;AssessmentSession&nbsp;object.&nbsp;&lt;br/&gt;</span></div></li>
+<li><div class="src-line"><a name="a38"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&lt;br/&gt;</span></div></li>
+<li><div class="src-line"><a name="a39"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;This&nbsp;method&nbsp;also&nbsp;communicates&nbsp;with&nbsp;the&nbsp;FraudPointer&nbsp;Server,&nbsp;which&nbsp;will&nbsp;store&nbsp;all&nbsp;Event&nbsp;data&nbsp;alongside&nbsp;with&nbsp;the&nbsp;AssessmentSession</span></div></li>
+<li><div class="src-line"><a name="a40"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;given.&lt;br/&gt;</span></div></li>
+<li><div class="src-line"><a name="a41"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&lt;br/&gt;</span></div></li>
+<li><div class="src-line"><a name="a42"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;You&nbsp;can&nbsp;call&nbsp;this&nbsp;method&nbsp;as&nbsp;many&nbsp;times&nbsp;as&nbsp;you&nbsp;want&nbsp;(as&nbsp;long&nbsp;as&nbsp;you&nbsp;pass&nbsp;a&nbsp;new&nbsp;Event&nbsp;on&nbsp;each&nbsp;call).</span></div></li>
+<li><div class="src-line"><a name="a43"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;It&nbsp;is&nbsp;actually&nbsp;recommended&nbsp;to&nbsp;do&nbsp;so.&nbsp;In&nbsp;other&nbsp;words,&nbsp;it&nbsp;is&nbsp;recommended&nbsp;to&nbsp;create&nbsp;various&nbsp;Events,&nbsp;of</span></div></li>
+<li><div class="src-line"><a name="a44"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;various&nbsp;types&nbsp;and&nbsp;send&nbsp;them&nbsp;to&nbsp;FraudPointer&nbsp;to&nbsp;be&nbsp;stored&nbsp;against&nbsp;an&nbsp;AssessmentSession.</span></div></li>
+<li><div class="src-line"><a name="a45"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&lt;br/&gt;</span></div></li>
+<li><div class="src-line"><a name="a46"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</span></div></li>
+<li><div class="src-line"><a name="a47"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</span><span class="src-doc-coretag">@param&nbsp;</span><span class="src-doc-type">AssessmentSession&nbsp;</span><span class="src-doc-var">$assessment_session&nbsp;</span><span class="src-doc">Should&nbsp;be&nbsp;constructed&nbsp;with&nbsp;a&nbsp;call&nbsp;to&nbsp;createAssessmentSession()</span></div></li>
+<li><div class="src-line"><a name="a48"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</span><span class="src-doc-coretag">@param&nbsp;</span><span class="src-doc-type">Event&nbsp;</span><span class="src-doc-var">$param_event&nbsp;</span><span class="src-doc">Should&nbsp;be&nbsp;constructed&nbsp;with&nbsp;a&nbsp;call&nbsp;to&nbsp;new&nbsp;Event(event_type)</span></div></li>
+<li><div class="src-line"><a name="a49"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</span><span class="src-doc-coretag">@return&nbsp;</span><span class="src-doc-type">Event&nbsp;</span><span class="src-doc">An&nbsp;object&nbsp;of&nbsp;type&nbsp;Event&nbsp;as&nbsp;returned&nbsp;by&nbsp;the&nbsp;FraudPointer&nbsp;Server.&lt;br/&gt;</span></div></li>
+<li><div class="src-line"><a name="a50"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&nbsp;&lt;br/&gt;</span></div></li>
+<li><div class="src-line"><a name="a51"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&nbsp;Method&nbsp;always&nbsp;returns&nbsp;a&nbsp;valid&nbsp;object,&nbsp;unless&nbsp;an&nbsp;exception&nbsp;is&nbsp;thrown.</span></div></li>
+<li><div class="src-line"><a name="a52"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&nbsp;It&nbsp;may&nbsp;throw&nbsp;a&nbsp;ClientException&nbsp;if&nbsp;an&nbsp;error&nbsp;occurs</span></div></li>
+<li><div class="src-line"><a name="a53"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></div></li>
+<li><div class="src-line"><a name="a54"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">public&nbsp;</span><span class="src-key">function&nbsp;</span><a href="../Fraudpointer-API/IClient.html#methodAppendEventToAssessmentSession">AppendEventToAssessmentSession</a><span class="src-sym">(</span><span class="src-var">$assessment_session</span><span class="src-sym">,&nbsp;</span><span class="src-var">$param_event</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a55"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a56"></a>&nbsp;&nbsp;&nbsp;<span class="src-doc">/**</span></div></li>
+<li><div class="src-line"><a name="a57"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;This&nbsp;method&nbsp;should&nbsp;be&nbsp;called&nbsp;in&nbsp;order&nbsp;to&nbsp;evaluate&nbsp;the&nbsp;fraud&nbsp;level&nbsp;of&nbsp;an&nbsp;AssessmentSession.&nbsp;&lt;br/&gt;</span></div></li>
+<li><div class="src-line"><a name="a58"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&lt;br/&gt;</span></div></li>
+<li><div class="src-line"><a name="a59"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;This&nbsp;method&nbsp;should&nbsp;be&nbsp;called&nbsp;after&nbsp;having&nbsp;sent&nbsp;to&nbsp;FraudPointer&nbsp;Server&nbsp;one&nbsp;or&nbsp;more&nbsp;Events.&nbsp;It&nbsp;is&nbsp;used</span></div></li>
+<li><div class="src-line"><a name="a60"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;to&nbsp;evaluate&nbsp;the&nbsp;fraud&nbsp;risk&nbsp;of&nbsp;the&nbsp;AssessmentSession.&nbsp;Note&nbsp;that&nbsp;you&nbsp;can&nbsp;ask&nbsp;multiple&nbsp;interim</span></div></li>
+<li><div class="src-line"><a name="a61"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Fraud&nbsp;Assessments,&nbsp;but&nbsp;you&nbsp;can&nbsp;only&nbsp;ask&nbsp;for&nbsp;one&nbsp;final&nbsp;(non-interim)&nbsp;Fraud&nbsp;Assessment.&nbsp;Interim&nbsp;Fraud&nbsp;Assessments</span></div></li>
+<li><div class="src-line"><a name="a62"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;can&nbsp;be&nbsp;requested&nbsp;in&nbsp;a&nbsp;cycle&nbsp;of&nbsp;interactions&nbsp;with&nbsp;the&nbsp;FraudPointer&nbsp;Server&nbsp;such&nbsp;as&nbsp;the&nbsp;following:&lt;br/&gt;</span></div></li>
+<li><div class="src-line"><a name="a63"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&lt;br/&gt;</span></div></li>
+<li><div class="src-line"><a name="a64"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&lt;ul&gt;</span></div></li>
+<li><div class="src-line"><a name="a65"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&lt;li&gt;&nbsp;create&nbsp;assessment&nbsp;session&nbsp;&lt;/li&gt;</span></div></li>
+<li><div class="src-line"><a name="a66"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&lt;li&gt;&nbsp;create&nbsp;event&nbsp;&nbsp;&lt;/li&gt;</span></div></li>
+<li><div class="src-line"><a name="a67"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&lt;li&gt;&nbsp;add&nbsp;data&nbsp;to&nbsp;event&nbsp;&nbsp;&lt;/li&gt;</span></div></li>
+<li><div class="src-line"><a name="a68"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&lt;li&gt;&nbsp;add&nbsp;data&nbsp;to&nbsp;event&nbsp;&nbsp;&lt;/li&gt;</span></div></li>
+<li><div class="src-line"><a name="a69"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&lt;li&gt;&nbsp;...&nbsp;&nbsp;&lt;/li&gt;</span></div></li>
+<li><div class="src-line"><a name="a70"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&lt;li&gt;&nbsp;add&nbsp;data&nbsp;to&nbsp;event&nbsp;&nbsp;&lt;/li&gt;</span></div></li>
+<li><div class="src-line"><a name="a71"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&lt;li&gt;&nbsp;append&nbsp;event&nbsp;to&nbsp;assessment&nbsp;session&nbsp;&nbsp;&lt;/li&gt;</span></div></li>
+<li><div class="src-line"><a name="a72"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&lt;li&gt;&nbsp;create&nbsp;another&nbsp;event&nbsp;&lt;/li&gt;</span></div></li>
+<li><div class="src-line"><a name="a73"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&lt;li&gt;&nbsp;add&nbsp;data&nbsp;to&nbsp;new&nbsp;event&nbsp;&lt;/li&gt;</span></div></li>
+<li><div class="src-line"><a name="a74"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&lt;li&gt;&nbsp;add&nbsp;data&nbsp;to&nbsp;new&nbsp;event&nbsp;&lt;/li&gt;</span></div></li>
+<li><div class="src-line"><a name="a75"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&lt;li&gt;&nbsp;...&nbsp;&nbsp;&lt;/li&gt;</span></div></li>
+<li><div class="src-line"><a name="a76"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&lt;li&gt;&nbsp;add&nbsp;data&nbsp;to&nbsp;new&nbsp;event&nbsp;&nbsp;&lt;/li&gt;</span></div></li>
+<li><div class="src-line"><a name="a77"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&lt;li&gt;&nbsp;append&nbsp;new&nbsp;event&nbsp;to&nbsp;assessment&nbsp;session&nbsp;&lt;/li&gt;</span></div></li>
+<li><div class="src-line"><a name="a78"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&lt;li&gt;&nbsp;create&nbsp;interim&nbsp;fraud&nbsp;assessment&nbsp;&lt;/li&gt;</span></div></li>
+<li><div class="src-line"><a name="a79"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&lt;li&gt;&nbsp;create&nbsp;one&nbsp;more&nbsp;event&nbsp;&lt;/li&gt;</span></div></li>
+<li><div class="src-line"><a name="a80"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&lt;li&gt;&nbsp;add&nbsp;data&nbsp;to&nbsp;last&nbsp;created&nbsp;event&nbsp;&lt;/li&gt;</span></div></li>
+<li><div class="src-line"><a name="a81"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&lt;li&gt;&nbsp;add&nbsp;data&nbsp;to&nbsp;last&nbsp;created&nbsp;event&nbsp;&lt;/li&gt;</span></div></li>
+<li><div class="src-line"><a name="a82"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&lt;li&gt;&nbsp;...&nbsp;&lt;/li&gt;</span></div></li>
+<li><div class="src-line"><a name="a83"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&lt;li&gt;&nbsp;add&nbsp;data&nbsp;to&nbsp;last&nbsp;created&nbsp;event&nbsp;&lt;/li&gt;</span></div></li>
+<li><div class="src-line"><a name="a84"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&lt;li&gt;&nbsp;append&nbsp;last&nbsp;created&nbsp;event&nbsp;to&nbsp;assessment&nbsp;session&nbsp;&lt;/li&gt;</span></div></li>
+<li><div class="src-line"><a name="a85"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&lt;li&gt;&nbsp;create&nbsp;interim&nbsp;fraud&nbsp;assessment&nbsp;&lt;/li&gt;</span></div></li>
+<li><div class="src-line"><a name="a86"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&lt;li&gt;&nbsp;....&nbsp;&lt;/li&gt;</span></div></li>
+<li><div class="src-line"><a name="a87"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&lt;li&gt;&nbsp;create&nbsp;final&nbsp;(non&lt;li&gt;interim)&nbsp;fraud&nbsp;assessment&nbsp;&lt;/li&gt;</span></div></li>
+<li><div class="src-line"><a name="a88"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&lt;/ul&gt;</span></div></li>
+<li><div class="src-line"><a name="a89"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&lt;br/&gt;</span></div></li>
+<li><div class="src-line"><a name="a90"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;The&nbsp;last&nbsp;and&nbsp;only&nbsp;final&nbsp;(non-interim)&nbsp;fraud&nbsp;assessment&nbsp;will&nbsp;also&nbsp;create&nbsp;a&nbsp;CASE&nbsp;in&nbsp;FraudPointer&nbsp;Application.</span></div></li>
+<li><div class="src-line"><a name="a91"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&lt;br/&gt;</span></div></li>
+<li><div class="src-line"><a name="a92"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</span><span class="src-doc-coretag">@param&nbsp;</span><span class="src-doc-type">AssessmentSession&nbsp;</span><span class="src-doc-var">$assessment_session&nbsp;</span><span class="src-doc">&nbsp;A&nbsp;valid&nbsp;AssessmentSession,&nbsp;previously&nbsp;created&nbsp;with&nbsp;createAssessmentSession()</span></div></li>
+<li><div class="src-line"><a name="a93"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</span><span class="src-doc-coretag">@param&nbsp;</span><span class="src-doc-type">boolean&nbsp;</span><span class="src-doc-var">$interim&nbsp;</span><span class="src-doc">A&nbsp;boolean&nbsp;value&nbsp;true&nbsp;or&nbsp;false.&nbsp;If&nbsp;true,&nbsp;then&nbsp;an&nbsp;interim&nbsp;FraudAssessment&nbsp;will&nbsp;be&nbsp;created.</span></div></li>
+<li><div class="src-line"><a name="a94"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&nbsp;If&nbsp;false,&nbsp;a&nbsp;final&nbsp;(non-interim)&nbsp;FraudAssessment&nbsp;will&nbsp;be&nbsp;created</span></div></li>
+<li><div class="src-line"><a name="a95"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</span><span class="src-doc-coretag">@return&nbsp;</span><span class="src-doc-type">FraudAssessment&nbsp;</span><span class="src-doc">A&nbsp;FraudAssessment&nbsp;valid&nbsp;object&nbsp;filled&nbsp;in&nbsp;with&nbsp;information&nbsp;returned&nbsp;by&nbsp;FraudPointer&nbsp;Server.&nbsp;It&nbsp;contains&nbsp;the&nbsp;Fraud</span></div></li>
+<li><div class="src-line"><a name="a96"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&nbsp;Assessment&nbsp;Result.&nbsp;It&nbsp;may&nbsp;throw&nbsp;a&nbsp;ClientException&nbsp;if&nbsp;an&nbsp;error&nbsp;occurs</span></div></li>
+<li><div class="src-line"><a name="a97"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</span></div></li>
+<li><div class="src-line"><a name="a98"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">public&nbsp;</span><span class="src-key">function&nbsp;</span><a href="../Fraudpointer-API/IClient.html#methodCreateFraudAssessment">CreateFraudAssessment</a><span class="src-sym">(</span><span class="src-var">$assessment_session</span><span class="src-sym">,&nbsp;</span><span class="src-var">$interim</span><span class="src-sym">)</span><span class="src-sym">;&nbsp;&nbsp;&nbsp;&nbsp;</span></div></li>
+<li><div class="src-line"><a name="a99"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a100"></a>&nbsp;&nbsp;&nbsp;<span class="src-doc">/**</span></div></li>
+<li><div class="src-line"><a name="a101"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Use&nbsp;this&nbsp;method&nbsp;to&nbsp;generate&nbsp;a&nbsp;hash&nbsp;of&nbsp;a&nbsp;credit&nbsp;card&nbsp;number.&nbsp;Use&nbsp;the&nbsp;generated&nbsp;hash&nbsp;to&nbsp;send&nbsp;the&nbsp;encrypted&nbsp;credit&nbsp;card&nbsp;number&nbsp;to&nbsp;FraudPointer&nbsp;Server&nbsp;instead&nbsp;of&nbsp;the&nbsp;credit&nbsp;card&nbsp;number&nbsp;itself.&nbsp;&lt;br/&gt;</span></div></li>
+<li><div class="src-line"><a name="a102"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&lt;br/&gt;</span></div></li>
+<li><div class="src-line"><a name="a103"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;FraudPointer&nbsp;Server&nbsp;tries&nbsp;to&nbsp;identify&nbsp;the&nbsp;existence&nbsp;of&nbsp;the&nbsp;same&nbsp;credit&nbsp;card&nbsp;number&nbsp;in&nbsp;various&nbsp;transactions.&nbsp;These</span></div></li>
+<li><div class="src-line"><a name="a104"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;transactions&nbsp;either&nbsp;take&nbsp;place&nbsp;during&nbsp;the&nbsp;same&nbsp;session&nbsp;or&nbsp;take&nbsp;place&nbsp;in&nbsp;different&nbsp;sessions,&nbsp;but&nbsp;at&nbsp;the&nbsp;same&nbsp;time,&nbsp;or</span></div></li>
+<li><div class="src-line"><a name="a105"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;took&nbsp;place&nbsp;in&nbsp;a&nbsp;session&nbsp;in&nbsp;the&nbsp;past.&nbsp;However,&nbsp;FraudPointer&nbsp;Server&nbsp;does&nbsp;not&nbsp;want&nbsp;to&nbsp;store&nbsp;the&nbsp;credit&nbsp;card&nbsp;numbers&nbsp;in&nbsp;clear&nbsp;format</span></div></li>
+<li><div class="src-line"><a name="a106"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;and&nbsp;it&nbsp;does&nbsp;not&nbsp;need&nbsp;to&nbsp;do&nbsp;that&nbsp;in&nbsp;order&nbsp;to&nbsp;accomplish&nbsp;its&nbsp;goal.&nbsp;Hence,&nbsp;you&nbsp;need&nbsp;to&nbsp;encrypt&nbsp;them&nbsp;using&nbsp;the&nbsp;method&nbsp;provided&nbsp;here.</span></div></li>
+<li><div class="src-line"><a name="a107"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Note&nbsp;that&nbsp;hash&nbsp;is&nbsp;one-way&nbsp;encryption&nbsp;method&nbsp;and&nbsp;FraudPointer&nbsp;Server&nbsp;cannot&nbsp;derive&nbsp;the&nbsp;credit&nbsp;card&nbsp;number&nbsp;from&nbsp;the&nbsp;hash.</span></div></li>
+<li><div class="src-line"><a name="a108"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&lt;br/&gt;</span></div></li>
+<li><div class="src-line"><a name="a109"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;This&nbsp;method&nbsp;does&nbsp;not&nbsp;communicate&nbsp;with&nbsp;the&nbsp;FraudPointer&nbsp;Server&nbsp;to&nbsp;generate&nbsp;the&nbsp;hash.&nbsp;Works&nbsp;locally.&lt;br/&gt;</span></div></li>
+<li><div class="src-line"><a name="a110"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&lt;br/&gt;</span></div></li>
+<li><div class="src-line"><a name="a111"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</span><span class="src-doc-coretag">@param&nbsp;</span><span class="src-doc-type">string&nbsp;</span><span class="src-doc-var">$credit_card_number&nbsp;</span><span class="src-doc">The&nbsp;credit&nbsp;card&nbsp;number&nbsp;that&nbsp;you&nbsp;want&nbsp;to&nbsp;get&nbsp;its&nbsp;hash&nbsp;value.</span></div></li>
+<li><div class="src-line"><a name="a112"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</span><span class="src-doc-coretag">@return&nbsp;</span><span class="src-doc-type">string&nbsp;</span><span class="src-doc">The&nbsp;hash&nbsp;of&nbsp;the&nbsp;credit&nbsp;card&nbsp;number.&nbsp;Note&nbsp;that&nbsp;if&nbsp;an&nbsp;empty&nbsp;string&nbsp;is&nbsp;returned,&nbsp;then&nbsp;something&nbsp;has&nbsp;gone&nbsp;wrong&nbsp;during&nbsp;the&nbsp;encryption.</span></div></li>
+<li><div class="src-line"><a name="a113"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&nbsp;in&nbsp;that&nbsp;case,&nbsp;method&nbsp;throws&nbsp;a&nbsp;ClientException.</span></div></li>
+<li><div class="src-line"><a name="a114"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</span></div></li>
+<li><div class="src-line"><a name="a115"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">public&nbsp;</span><span class="src-key">function&nbsp;</span><a href="../Fraudpointer-API/IClient.html#methodCreditCardHash">CreditCardHash</a><span class="src-sym">(</span><span class="src-var">$credit_card_number</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a116"></a>&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a117"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-doc">/**</span></div></li>
+<li><div class="src-line"><a name="a118"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Communicates&nbsp;with&nbsp;server&nbsp;and&nbsp;gets&nbsp;back&nbsp;to&nbsp;you&nbsp;a&nbsp;full&nbsp;FraudAssessment&nbsp;object&nbsp;that</span></div></li>
+<li><div class="src-line"><a name="a119"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;has&nbsp;been&nbsp;previously&nbsp;created&nbsp;with&nbsp;a&nbsp;call&nbsp;to&nbsp;CreateFraudAssessment.</span></div></li>
+<li><div class="src-line"><a name="a120"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;*</span></div></li>
+<li><div class="src-line"><a name="a121"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;You&nbsp;can&nbsp;use&nbsp;this&nbsp;method&nbsp;to&nbsp;request&nbsp;from&nbsp;server&nbsp;a&nbsp;'reload'&nbsp;of&nbsp;a&nbsp;FraudAssessment&nbsp;object</span></div></li>
+<li><div class="src-line"><a name="a122"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;that&nbsp;you&nbsp;already&nbsp;own.&nbsp;This&nbsp;logical&nbsp;reload&nbsp;might&nbsp;bare&nbsp;extra&nbsp;information&nbsp;within&nbsp;it.&nbsp;Especially,</span></div></li>
+<li><div class="src-line"><a name="a123"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;information&nbsp;about&nbsp;the&nbsp;Case&nbsp;and&nbsp;its&nbsp;Resolution.</span></div></li>
+<li><div class="src-line"><a name="a124"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&nbsp;</span></div></li>
+<li><div class="src-line"><a name="a125"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</span><span class="src-doc-coretag">@param&nbsp;</span><span class="src-doc-type">AssessmentSession&nbsp;</span><span class="src-doc-var">$assessment_session&nbsp;</span></div></li>
+<li><div class="src-line"><a name="a126"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</span><span class="src-doc-coretag">@param&nbsp;</span><span class="src-doc-type">string&nbsp;</span><span class="src-doc-var">$fraud_assessment_id&nbsp;</span></div></li>
+<li><div class="src-line"><a name="a127"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</span><span class="src-doc-coretag">@return&nbsp;</span><span class="src-doc-type">FraudAssessment&nbsp;</span><span class="src-doc">The&nbsp;FraudAssessment&nbsp;object&nbsp;requested.</span></div></li>
+<li><div class="src-line"><a name="a128"></a><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;*/</span></div></li>
+<li><div class="src-line"><a name="a129"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">public&nbsp;</span><span class="src-key">function&nbsp;</span><a href="../Fraudpointer-API/IClient.html#methodGetFraudAssessment">GetFraudAssessment</a><span class="src-sym">(</span><span class="src-var">$assessment_session</span><span class="src-sym">,&nbsp;</span><span class="src-var">$fraud_assessment_id</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a130"></a><span class="src-sym">}&nbsp;</span><span class="src-comm">//&nbsp;interface&nbsp;IClient</span></div></li>
+<li><div class="src-line"><a name="a131"></a><span class="src-comm">//---------------------</span></div></li>
+<li><div class="src-line"><a name="a132"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a133"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a134"></a><span class="src-php">?&gt;</span></div></li>
+</ol></div>
+</div>
+	<p class="notes" id="credit">
+		Documentation generated on Fri, 05 Aug 2011 13:01:23 +0300 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+	</p>
+	</body>
+</html>

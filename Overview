@@ -1,0 +1,31 @@
+----------------------------------------------------
+PHP Proxy Client for Fraudpointer Service (ver 1.0)
+----------------------------------------------------
+
+>>>>>>>>>> Start with "ClientFactory" <<<<<<<<<<<<<<
+
+"ClientFactory" is the class you need when you start using FraudPointer API. 
+It has a static method that allows you to instantiate a client object. This is "Construct()".
+
+>>>>>>>>>> See the sample code <<<<<<<<<<<<<<<<<<<<<
+
+1) We have a console sample application that uses the API. It is inside directory "examples"
+and it is the php file with name "main_example.php". Open it, read the comments, run it.
+
+2) We have a Web application that can be used test demo the API. It is the application in the
+root directory ("index.php" is the default document).
+
+>>>>>>>>>> Developer's Guide <<<<<<<<<<<<<<<<<<<<<<<
+
+Read the Developer's Guide in the official Fraudpointer documentation site: http://documentation.fraudpointer.com
+It contains extensive documentation on how you can integrate Fraudpointer Service with your application.
+
+>>>>>>>>>> Device fingerprinting <<<<<<<<<<<<<<<<<<<
+
+Device fingerprinting: Do not forget to take the necessary actions for Device fingerprinting. 
+Read the corresponding document.
+
+>>>>>>>>>> System Attributes <<<<<<<<<<<<<<<<<<<<<<<
+
+System Attributes: System Attributes are there for you to start working with Fraudpointer as quickly as possible. 
+You can read about them in the Developer's Guide (http://documentation.fraudpointer.com)

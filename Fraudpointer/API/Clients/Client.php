@@ -20,7 +20,7 @@ class Client implements \Fraudpointer\API\IClient {
    	
    //-------- Constructor ----------------------------//
 	public function __construct($base_url, $api_key) {
-		$this->_base_url = $base_url;
+		$this->_base_url = $base_url . "/assessment_sessions";
 		$this->_api_key = $api_key;
 	} // __construct ()
 	//------------------//
@@ -32,7 +32,7 @@ class Client implements \Fraudpointer\API\IClient {
 			$rest = new RESTclient();
 						
 		   $data = new \Fraudpointer\API\RequestWrappers\RequestKey();
-		   $data->key = $this->_api_key;
+		   $data->key = $this->_api_key;		   	   
 		   
 			$response = $rest->CreateJsonPostRequest($this->_base_url, $data);			
 			
@@ -93,6 +93,23 @@ class Client implements \Fraudpointer\API\IClient {
    	return base64_encode(hash('sha256', $data . $salt, true));
    } // CreditCardHash()
    //--------------------
+   
+   public function GetFraudAssessment($assessment_session, $fraud_assessment_id) {
+   	try {
+	   	$rest = new RESTclient();
+	   	
+	   	$data->key = $this->_api_key;
+	   	
+	   	$response = $rest->CreateJsonGetRequest($this->_base_url . "/" . $assessment_session->id . "/fraud_assessments/" . $fraud_assessment_id . "?key=" . $this->_api_key);
+	   	
+	   	return $response->fraud_assessment;
+	   	
+   	}
+   	catch (Exception $e) {
+   		throw new \Fraudpointer\API\ClientException("Failed to get fraud assessment", 0, $e);
+   	}   	
+   } // GetFraudAssessment ()
+   //------------------------
    	
 } // class Client
 //---------------- end of Client class definition ----------------------------------------------------------//

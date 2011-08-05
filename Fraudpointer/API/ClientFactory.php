@@ -43,7 +43,7 @@ class ClientFactory {
         * corresponds to the domain that you are going to integrate this client with.
         * @return IClient A valid IClient instantiated object. This is a newly created object to work with the FraudPointer Service.
 	*/
-	public static function Construct ($base_url, $api_key) {
+	public static function Construct ($base_url, $api_key) {		
 		return new \Fraudpointer\API\Clients\Client($base_url, $api_key);
 	} // Construct ()
 	//---------------	
