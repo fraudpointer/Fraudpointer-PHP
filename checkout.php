@@ -45,7 +45,7 @@ $client = GetFraudpointerClient();
   <span class='failed_payment_attempts'><?= GetNumberOfFailedPaymentAttempts()>=1 ? "Failed Payment Attempts: " . GetNumberOfFailedPaymentAttempts() : "" ?></span>
   <!-- ------------------------------------------- -->
     
-  <form action="do_purchase.php" method="post">
+  <form action="do_purchase.php" method="post" accept-charset="utf-8">
   
   	  <input type="hidden" id="<?= HiddenFraudPointerSessionIdField(); ?>" name="<?= HiddenFraudPointerSessionIdField(); ?>" value='<?= GetOrCreateAssessmentSession($client)->id; ?>' />  	  	  
 	  <fieldset>
